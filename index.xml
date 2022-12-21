@@ -52,7 +52,7 @@ the final product. The factory has multiple identical assembly lines running so 
 these lines to be worked on.&lt;/p>
 &lt;p>For your use case, the flow of data will look something like this:&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="https://woojiahao.com/blog/./post/open-source-deep-dive/broadway/pipeline.jpg"
+src="https://woojiahao.com/blog/post//open-source-deep-dive/broadway/pipeline.jpg"
 alt="Sample scenario flowchart"
 width=534
 height="462" />&lt;/p>
@@ -94,7 +94,7 @@ processed. It aids with building asynchronous modular and concurrent systems.&lt
 consumers.** These messages can vary from something as simple as plain information to more complex structures like
 requests or — in our case — transaction information.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="https://woojiahao.com/blog/./post/open-source-deep-dive/broadway/message_queue.png"
+src="https://woojiahao.com/blog/post//open-source-deep-dive/broadway/message_queue.png"
 alt="Message queue architecture"
 width=1000
 height="199" />&lt;/p>
@@ -126,7 +126,7 @@ models.&lt;/p>
 &lt;p>Each process communicates via &lt;strong>asynchronous message passing&lt;/strong>. Think of a process as a mailbox of sorts; it has a &amp;ldquo;bin&amp;rdquo;
 to receive incoming messages and it possess an &amp;ldquo;address&amp;rdquo; for other processes to identify it by.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="https://woojiahao.com/blog/./post/open-source-deep-dive/broadway/actor_concurrency_model.png"
+src="https://woojiahao.com/blog/post//open-source-deep-dive/broadway/actor_concurrency_model.png"
 alt="Actor concurrency model visualisation"
 width=1920
 height="903" />&lt;/p>
@@ -211,7 +211,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 Pipeline architecture
 &lt;/h1>
 &lt;p>&lt;img loading="lazy"
-src="https://woojiahao.com/blog/./post/open-source-deep-dive/broadway/architecture.jpg"
+src="https://woojiahao.com/blog/post//open-source-deep-dive/broadway/architecture.jpg"
 alt="Pipeline architecture"
 width=392
 height="376" />&lt;/p>
@@ -219,7 +219,7 @@ height="376" />&lt;/p>
 a producer is a creator of messages or events. However, in Broadway, a producer is both a consumer of messages and an
 emitter of events.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="https://woojiahao.com/blog/./post/open-source-deep-dive/broadway/terminology.jpg"
+src="https://woojiahao.com/blog/post//open-source-deep-dive/broadway/terminology.jpg"
 alt="Terminology clarification for Broadway producer"
 width=701
 height="91" />&lt;/p>
@@ -234,7 +234,7 @@ Broadway.&lt;/p>
 &lt;p>Each component is a separate process and they are dynamically generated as different topologies (architectures) can be
 designed. The order of initialisation for a typical pipeline looks something like this:&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="https://woojiahao.com/blog/./post/open-source-deep-dive/broadway/order_of_initialisation.jpg"
+src="https://woojiahao.com/blog/post//open-source-deep-dive/broadway/order_of_initialisation.jpg"
 alt="Order of initialisation"
 width=451
 height="411" />&lt;/p>
@@ -553,7 +553,7 @@ Exit signals and process termination
 exit signal — which can occur when the process is terminated forcibly or when it receives an exit signal propagated from
 its parent — it will propagate the exit signal to the linked process and that process will terminate as well.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="https://woojiahao.com/blog/./post/open-source-deep-dive/broadway/linking.jpg"
+src="https://woojiahao.com/blog/post//open-source-deep-dive/broadway/linking.jpg"
 alt="Process linking"
 width=441
 height="212" />&lt;/p>
@@ -1253,7 +1253,7 @@ on &lt;a href="http://selenium.dev">Selenium&lt;/a>, &lt;a href="https://phantom
 and &lt;a href="https://chromedriver.chromium.org/">ChromeDriver&lt;/a> as the interfacing systems to perform the &amp;ldquo;dirty&amp;rdquo; work of
 coordinating requests/responses to/from the browser.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="https://woojiahao.com/blog/./post/open-source-deep-dive/hound/general-architecture.png"
+src="https://woojiahao.com/blog/post//open-source-deep-dive/hound/general-architecture.png"
 alt="Hound&amp;amp;rsquo;s architecturel"
 width=232
 height="220" />&lt;/p>
@@ -1320,7 +1320,7 @@ means?)&lt;/li>
 &lt;p>In essence, a web driver is comprised of an API and a browser driver. Ideally, the API should be able to work with
 different browser drivers for different browsers.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="https://woojiahao.com/blog/./post/open-source-deep-dive/hound/web-driver-general-architecture.jpg"
+src="https://woojiahao.com/blog/post//open-source-deep-dive/hound/web-driver-general-architecture.jpg"
 alt="Web driver architecture"
 width=522
 height="201" />&lt;/p>
@@ -1353,7 +1353,7 @@ the &lt;a href="https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol">JS
 protocol to communicate with the browser driver. Note that the documentation provided by Selenium (for the JSON Wire
 Protocol) has been obsoleted in favor of the one defined in the specification.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="https://woojiahao.com/blog/./post/open-source-deep-dive/hound/selenium-general-architecture.jpg"
+src="https://woojiahao.com/blog/post//open-source-deep-dive/hound/selenium-general-architecture.jpg"
 alt="Selenium architecturel"
 width=201
 height="361" />&lt;/p>
@@ -2086,7 +2086,7 @@ to be organised.&lt;/p>
 repository. Should your application have been created successfully, you will see a new remote added linking to a Heroku
 Git remote.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="https://woojiahao.com/blog/./post/deploying-discord-bot-kotlin/git-remote.png"
+src="https://woojiahao.com/blog/post/deploying-discord-bot-kotlin/git-remote.png"
 alt="Results of git remote -v"
 width=1086
 height="352" />&lt;/p>
