@@ -1,0 +1,74 @@
+baseURL = 'https://woojiahao.com'
+languageCode = 'en-us'
+title = 'jiahao.blog'
+theme = 'hugo-tania'
+paginate = 6
+
+[params]
+# Emoji will show before the blog title on site navbar.
+titleEmoji  = "☃️"
+
+# Logo will show before the blog title on site navbar.
+titleLogo = ""
+
+# Enable float footnotes.
+# Default to true
+enableFootnotes = true
+
+siteName = "jiahao.blog"
+siteDesc = "Ramblings and musings of Jia Hao"
+author = "Jia Hao"
+
+[params.colorScheme]
+# Enable toggle colorScheme
+# Default to true
+toggle = true
+# Default colorScheme
+# Default to auto
+#default = auto
+
+# Limit how many categories filter show above search input.
+# Default to 5
+maxCategoryToShow = 10
+
+# Show your social information with icon on index bio with `_index.md` content.
+[params.socialOptions]
+dev-to = "https://dev.to/woojiahao"
+email = "me@woojiahao.com"
+facebook = ""
+github = "https://github.com/woojiahao"
+instagram = ""
+linkedin = "https://www.linkedin.com/in/woojiahao/"
+medium = "https://medium.com/@woojiahao1234"
+stack-overflow = ""
+steam = ""
+telegram = "t.me/woojiahao"
+twitter = "https://twitter.com/woojiahao_"
+twitch = ""
+whatsapp = ""
+
+# Comments settigns
+[params.comments]
+enabled = true
+provider = "disqus"
+
+[menu]
+[[menu.header]]
+name = "Articles"
+url = "/articles/"
+[[menu.footer]]
+name = "RSS"
+url = "/index.xml"
+[[menu.footer]]
+name = "Portfolio"
+url = "https://woojiahao.com"
+
+[markup]
+[markup.highlight]
+noClasses = false
+lineNos = true
+[markup.goldmark.renderer]
+unsafe = true
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
