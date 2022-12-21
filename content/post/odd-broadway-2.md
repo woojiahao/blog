@@ -169,7 +169,7 @@ Processes can be [linked](https://hexdocs.pm/elixir/Process.html#link/1) to one 
 exit signal — which can occur when the process is terminated forcibly or when it receives an exit signal propagated from
 its parent — it will propagate the exit signal to the linked process and that process will terminate as well.
 
-![Process linking](./post/open-source-deep-dive/broadway/linking.jpg)
+![Process linking](post//open-source-deep-dive/broadway/linking.jpg)
 
 However, these exit signals can
 be [trapped](https://crypt.codemancers.com/posts/2016-01-24-understanding-exit-signals-in-erlang-slash-elixir/) instead.

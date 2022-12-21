@@ -69,7 +69,7 @@ on [Selenium](http://selenium.dev), [PhantomJS](https://phantomjs.org/),
 and [ChromeDriver](https://chromedriver.chromium.org/) as the interfacing systems to perform the "dirty" work of
 coordinating requests/responses to/from the browser.
 
-![Hound's architecturel](./post/open-source-deep-dive/hound/general-architecture.png)
+![Hound's architecturel](post//open-source-deep-dive/hound/general-architecture.png)
 
 This introduces a larger question, what exactly is Selenium, PhantomJS, and ChromeDriver? More importantly, in fact,
 
@@ -117,7 +117,7 @@ there are two components to a web driver:
 In essence, a web driver is comprised of an API and a browser driver. Ideally, the API should be able to work with
 different browser drivers for different browsers.
 
-![Web driver architecture](./post/open-source-deep-dive/hound/web-driver-general-architecture.jpg)
+![Web driver architecture](post//open-source-deep-dive/hound/web-driver-general-architecture.jpg)
 
 > The remote end must also provide an **HTTP compliant wire protocol** where each endpoint maps to a command for the
 > browser.
@@ -142,7 +142,7 @@ the [JSON Wire Protocol](https://github.com/SeleniumHQ/selenium/wiki/JsonWirePro
 protocol to communicate with the browser driver. Note that the documentation provided by Selenium (for the JSON Wire
 Protocol) has been obsoleted in favor of the one defined in the specification.
 
-![Selenium architecturel](./post/open-source-deep-dive/hound/selenium-general-architecture.jpg)
+![Selenium architecturel](post//open-source-deep-dive/hound/selenium-general-architecture.jpg)
 
 ### How does Selenium differ from PhantomJS?
 
