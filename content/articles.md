@@ -1,5 +1,5 @@
 ---
 title: Articles
-subtitle: Posts, tutorials, snippets, musings, and everything else.
+subtitle: Trek through the world of software with me!
 layout: "archives"
 ---

@@ -16,7 +16,7 @@ tags:
 - open-source
 - open-source project
 
-subtitle: "In this installment of Open-source Deep Dive, Broadway takes center stage! In part one, I uncover the
+description: "In this installment of Open-source Deep Dive, Broadway takes center stage! In part one, I uncover the
 mystery of message queues and concurrency in Elixir & demystify the intricate design behind the pipelines that Broadway
 creates. In part two, I inspect how certain key features of Broadway work like rate limiting and batching! This is the
 second part of this two-part article! Note that this post is purely for educational purposes, the information gathered

@@ -11,7 +11,7 @@ tags:
 - Selenium
 - PhantomJS
 
-subtitle: "In this installment of Open-source Deep Dive, I wander into the jaws of Hound - a browser automation and
+description: "In this installment of Open-source Deep Dive, I wander into the jaws of Hound - a browser automation and
 integration testing library written in Elixir. I explore the underlying concept of browser automation and explain how
 browser automation can be achieved. I also look at the ways in which Hound leverages existing browser automation
 technologies to build a seamless experience for developers to build integration tests for the web and how they use

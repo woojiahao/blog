@@ -1,4 +1,4 @@
-baseURL = 'https://woojiahao.com/blog'
+baseURL = 'https://blog.woojiahao.com'
 languageCode = 'en-us'
 title = 'jiahao.blog'
 theme = 'hugo-tania'
