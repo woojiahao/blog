@@ -1,0 +1,119 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=theme-color content="dark"><title>Porting to FlexMark | jiahao.blog</title><meta property="og:site_name" content="jiahao.blog"><meta property="og:title" content="Porting to FlexMark | jiahao.blog"><meta itemprop=name content="Porting to FlexMark | jiahao.blog"><meta name=twitter:title content="Porting to FlexMark | jiahao.blog"><meta name=application-name content="Porting to FlexMark | jiahao.blog"><meta name=twitter:card content="summary"><meta name=description content="Adopting FlexMark into kMD2PDF - a markdown to PDF converter"><meta name=twitter:description content="Adopting FlexMark into kMD2PDF - a markdown to PDF converter "><meta itemprop=description content=" Adopting FlexMark into kMD2PDF - a markdown to PDF converter "><meta property="og:description" content=" Adopting FlexMark into kMD2PDF - a markdown to PDF converter "><meta property="og:type" content="article"><meta property="article:publisher" content="Jia Hao"><meta property="og:article:published_time" content="2019-04-08T00:00:00Z"><meta property="article:published_time" content="2019-04-08T00:00:00Z"><script defer type=application/ld+json>{"@context":"http://schema.org","@type":"Article","headline":"Porting to FlexMark","author":{"@type":"Person","name":"Jia Hao"},"datePublished":"2019-04-08","description":"Adopting FlexMark into kMD2PDF - a markdown to PDF converter","wordCount":873,"mainEntityOfPage":"True","dateModified":"2019-04-08","publisher":{"@type":"Organization","name":"Jia Hao","logo":{"@type":"imageObject","url":"https:\/\/blog.woojiahao.com\/favicon.ico"}}}</script><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=stylesheet href=/sass/main.min.ab99ff095f832511e24ffb2fba2b51ad473b2f7e9301d674eba2c6c3a6e8bd81.css></head><script>(function(){const e="ThemeColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="ThemeColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.userColorScheme="dark":document.documentElement.dataset.userColorScheme="light"})()</script><body class=dark><nav class=navbar><div class=container><div class=flex><div><a class=brand href=/><span class=emoji>☃️</span>
+jiahao.blog</a></div><div class=flex><a href=/articles/>Articles</a>
+<button id=dark-mode-button><svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163.0 101.643 1.641 1.163 1.163.0 00-1.643-1.641zm-16.022 14.38a1.74 1.74.0 000 2.465 1.742 1.742.0 100-2.465zm13.968-2.147a2.904 2.904.0 01-4.108.0 2.902 2.902.0 010-4.107 2.902 2.902.0 014.108.0 2.902 2.902.0 010 4.107z" fill="#ffcc4d"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg><svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414.0 2.828-2.828.0-2.828.0L4.878 8.708s-1.414-1.414.0-2.829c1.415-1.414 2.829.0 2.829.0l1.414 1.414zm21 21s1.414 1.414.0 2.828-2.828.0-2.828.0l-1.414-1.414s-1.414-1.414.0-2.828 2.828.0 2.828.0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/><circle fill="#ffd983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg></button></div></div></div></nav><main><div class=container><article><header class=article-header><div class=thumb><div><h1>Porting to FlexMark</h1><div class=post-meta><div>By Jia Hao | <time>April 08, 2019</time>
+| 5 minutes</div><div class=tags><a href=/tags/reflection/>reflection</a>
+<a href=/tags/migration/>migration</a>
+<a href=/tags/kotlin/>Kotlin</a>
+<a href=/tags/markdown/>markdown</a>
+<a href=/tags/pdf/>PDF</a>
+<a href=/tags/kmd2pdf/>kMD2PDF</a>
+<a href=/tags/unit-testing/>unit testing</a></div></div></div></div></header></article><div class=article-post><p>kMD2PDF now finally uses <a href=https://github.com/vsch/flexmark-java>FlexMark</a> as the back end for the markdown to html
+conversion. This is a big moment as now a lot more flexibility has been introduced for the library and that means more
+features.</p><p>Following my promise of making smaller and more frequent release updates, this port has ushered in version <code>0.2.1</code> of
+kMD2PDF and I&rsquo;m really excited!</p><h2 id=changelog><a href=#changelog class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Changelog</h2><ul><li>Backend library using flexmark</li><li>Unit testing framework set up for testing node rendering</li><li>Task list items now supported</li></ul><h2 id=original-design><a href=#original-design class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Original design</h2><p>Originally, the library used commonmark to handle <code>.md</code> to <code>.html</code> conversions, but it was severely limited as the
+number of useful extensions was severely lacking and it resulting in a terrible codebase. However, with FlexMark, this
+problem is alleviated as it has all the features I need.</p><h2 id=hiccups><a href=#hiccups class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Hiccups</h2><p>There was a slight hiccup with the port as the <code>.html</code> to <code>.pdf</code> library,
+<a href=https://github.com/flyingsaucerproject/flyingsaucer>flyingsaucer</a> would not accept the HTML output produced by
+FlexMark. So I had to make use of Jsoup to parse the output of FlexMark to become valid XML that the flyingsaucer
+library would accept.</p><p>Another issue faced is the node renderers and visitors. In commonmark, these node renderers were a single class that
+would be added the parser
+(seen <a href=https://github.com/atlassian/commonmark-java#customize-html-rendering>here</a>) and visitors would be accepted
+after the document is parsed
+(seen <a href=https://github.com/atlassian/commonmark-java#use-a-visitor-to-process-parsed-nodes>here</a>). This made it really
+easy to create custom node renderers and visitors which were used for figure generation and table of contents
+processing. However, with FlexMark, due to the increase in flexibility, the overhead for creating both increased as
+well and this resulted in requiring a parsing extension to be created, which would create a custom NodeRenderingFactory
+which in turn be responsible for creating custom NodeRenderers to render the needed node, which in this case was the
+figure elements. Whilst this may seem all complicated, it was actually outlined in their sample
+<a href=https://github.com/vsch/flexmark-java/blob/master/flexmark-java-samples/src/com/vladsch/flexmark/samples/NodeRendererSample.java>repository</a>
+where I was able to successfully create the figure renderer
+<a href=https://github.com/omnius-project/kMD2PDF/tree/master/src/main/kotlin/com/github/woojiahao/modifiers/figure>here.</a></p><p>The table of content processor was similar in nature. Due to the increased flexibility offered by FlexMark, additional
+steps had to be taken to create a visitor to properly create the table of contents. This highlighted the idea that
+developing flexible software would often entail having to increase the overhead of the software because it just takes
+that many extra steps to provide that flexibility.</p><h2 id=unit-testing-the-dom><a href=#unit-testing-the-dom class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Unit testing the DOM</h2><p>I also worked on attempting to create a system to unit test the node rendering aspect of the library since there can be
+a lot of edge cases involved with markdown and it might be useful to have an automated system to be able to ensure that
+the code is reliable and performs within my range of expectation.</p><p>I tried to design this API to be as seamless as possible, reducing the moving parts exposed to the user so that they
+would not have to fiddle with too many configurations to get it working. What I came up with was rather interesting.
+To ensure that the rendering was correct, I had to first find a way to test that the converted markdown file would
+produce a certain result. To do so, I exposed the HTML conversion process of <code>MarkdownConverter</code> to be able to hook
+into this using the API.</p><p>The essence of the API is to compare the processed HTML and an expected HTML input using Jsoup to ensure that the they
+are the same. This required some basic recursion to assert that every single node matched.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=line><span class=cl><span class=k>fun</span> <span class=nf>assertMarkdown</span><span class=p>(</span><span class=n>folder</span><span class=p>:</span> <span class=n>String</span><span class=p>,</span> <span class=k>file</span><span class=p>:</span> <span class=n>String</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>require</span><span class=p>(</span><span class=k>file</span><span class=p>.</span><span class=n>indexOf</span><span class=p>(</span><span class=s2>&#34;.&#34;</span><span class=p>)</span> <span class=o>==</span> <span class=p>-</span><span class=m>1</span><span class=p>)</span> <span class=p>{</span> <span class=s2>&#34;File should not include extensions as they are added within the method&#34;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>val</span> <span class=py>markdownFileName</span> <span class=p>=</span> <span class=s2>&#34;</span><span class=si>$file</span><span class=s2>.md&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=k>val</span> <span class=py>htmlFileName</span> <span class=p>=</span> <span class=s2>&#34;</span><span class=si>$file</span><span class=s2>.html&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>val</span> <span class=py>markdownFile</span> <span class=p>=</span> <span class=n>getResource</span><span class=p>(</span><span class=n>folder</span><span class=p>,</span> <span class=n>markdownFileName</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=k>val</span> <span class=py>htmlFile</span> <span class=p>=</span> <span class=n>getResource</span><span class=p>(</span><span class=n>folder</span><span class=p>,</span> <span class=n>htmlFileName</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>val</span> <span class=py>converter</span> <span class=p>=</span> <span class=n>setupConverter</span><span class=p>(</span><span class=n>markdownFile</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>val</span> <span class=py>expectedDocument</span> <span class=p>=</span> <span class=n>parseDocument</span><span class=p>(</span><span class=n>htmlFile</span><span class=p>.</span><span class=n>readText</span><span class=p>()).</span><span class=n>body</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=k>val</span> <span class=py>actualDocument</span> <span class=p>=</span> 
+</span></span><span class=line><span class=cl>    <span class=n>parseDocument</span><span class=p>(</span><span class=n>converter</span><span class=p>.</span><span class=n>generateBody</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>      <span class=p>.</span><span class=n>getElementsByClass</span><span class=p>(</span><span class=s2>&#34;content&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=p>.</span><span class=n>first</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// Ensure that they both have the same number of children
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=n>assertEquals</span><span class=p>(</span><span class=n>expectedDocument</span><span class=p>.</span><span class=n>childCount</span><span class=p>,</span> <span class=n>actualDocument</span><span class=p>.</span><span class=n>childCount</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// Ensure that they both have the same set of elements
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=k>val</span> <span class=py>expectedDocumentBody</span> <span class=p>=</span> <span class=n>expectedDocument</span><span class=p>.</span><span class=n>children</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=k>val</span> <span class=py>actualDocumentBody</span> <span class=p>=</span> <span class=n>actualDocument</span><span class=p>.</span><span class=n>children</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=n>expectedDocumentBody</span><span class=p>.</span><span class=n>zip</span><span class=p>(</span><span class=n>actualDocumentBody</span><span class=p>).</span><span class=n>forEach</span> <span class=p>{</span> <span class=n>compare</span><span class=p>(</span><span class=k>it</span><span class=p>.</span><span class=n>first</span><span class=p>,</span> <span class=k>it</span><span class=p>.</span><span class=n>second</span><span class=p>)</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>As you can see, the markdown file will be the actual output produced by the library whilst the html file represents the
+expected output.</p><p>This was the bulk of the API, with the recursive function looking like:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=line><span class=cl><span class=k>private</span> <span class=k>fun</span> <span class=nf>compare</span><span class=p>(</span><span class=n>ex</span><span class=p>:</span> <span class=n>Element</span><span class=p>,</span> <span class=n>ac</span><span class=p>:</span> <span class=n>Element</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>assertElementEquals</span><span class=p>(</span><span class=n>ex</span><span class=p>,</span> <span class=n>ac</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=n>ex</span><span class=p>.</span><span class=n>childCount</span> <span class=o>!=</span> <span class=m>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=m>0</span> <span class=n>until</span> <span class=n>ex</span><span class=p>.</span><span class=n>childCount</span><span class=p>).</span><span class=n>forEach</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=n>compare</span><span class=p>(</span><span class=n>ex</span><span class=p>.</span><span class=n>child</span><span class=p>(</span><span class=k>it</span><span class=p>),</span> <span class=n>ac</span><span class=p>.</span><span class=n>child</span><span class=p>(</span><span class=k>it</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>This allows the users to simply execute the <code>assertMarkdown()</code> function, providing the resource folder and resource name
+of the markdown file and html file. This would set in motion an automated set of testing to ensure that every aspect
+of the generated markdown file would produce the appropriate html.</p><p>One limitation that is present with the API is that the file name of the markdown file and html file would have to be
+the same, otherwise the assert function would fail. That said, it also encourages for developers trying to use the API
+to always stick to the same name for their markdown and html file, which reduces confusion.</p></div></div><div class=container><nav class="flex container suggested"><a rel=prev href=/post/lessons-on-software-release/ title="Previous post (older)"><span>Previous</span>
+Lessons on software release</a>
+<a rel=next href=/post/kotlin-delegate-properties/ title="Next post (newer)"><span>Next</span>
+Applications of Kotlin's delegate properties</a></nav></div><div class=container><div class=disqus-container></div><script>window.addEventListener("onColorSchemeChange",e=>{DISQUS&&DISQUS.reset({reload:!0})})</script></div></main></main><footer class="footer flex"><section class=container><nav class=footer-links><a href=https://woojiahao.com>Portfolio</a>
+<a href=/index.xml>RSS</a></nav></section><script defer src=/ts/features.dd8e5b18a6dda91367e396fd8dc9b9f83a1993065f709a53e056e0f2e9096ea1.js data-enable-footnotes=true></script></footer></body></html>
