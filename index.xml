@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>jiahao.blog</title><link>/</link><description>Recent content on jiahao.blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 17 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Where Have I Been? (2024 Edition)</title><link>/post/where-have-i-been/</link><pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate><guid>/post/where-have-i-been/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>jiahao.blog</title><link>https://blog.woojiahao.com/</link><description>Recent content on jiahao.blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 17 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.woojiahao.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Where Have I Been? (2024 Edition)</title><link>https://blog.woojiahao.com/post/where-have-i-been/</link><pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/where-have-i-been/</guid><description>
 &lt;p>I have not been posting a lot on this blog for quite a while now. This is not because I have
 stopped being interested in writing. Quite the opposite actually. I have been working with other
 companies like BetterStack and CodeCrafter&amp;rsquo;s &lt;a href="https://osshistory.org/p/elixir">OSS History&lt;/a> to
@@ -6,7 +6,7 @@ create articles for them.&lt;/p>
 &lt;p>I have also been working on several big projects like my
 &lt;a href="https://interviews.woojiahao.com">Technical Interview Study Guide&lt;/a> and
 &lt;a href="https://github.com/woojiahao/omashu">Omashu&lt;/a>.&lt;/p>
-&lt;p>I have several articles in mind that I would like to post on this blog so stay tuned!&lt;/p></description></item><item><title>Installing UxPlay on Arch Linux</title><link>/post/uxplay-arch-linux/</link><pubDate>Tue, 01 Feb 2022 00:00:00 +0000</pubDate><guid>/post/uxplay-arch-linux/</guid><description>
+&lt;p>I have several articles in mind that I would like to post on this blog so stay tuned!&lt;/p></description></item><item><title>Installing UxPlay on Arch Linux</title><link>https://blog.woojiahao.com/post/uxplay-arch-linux/</link><pubDate>Tue, 01 Feb 2022 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/uxplay-arch-linux/</guid><description>
 &lt;p>I got my iPad Air 4 a few months ago and have been wanting to test the AirPlay functionality on it. However, as I am on
 Manjaro Linux - a Linux distribution based on Arch Linux, I was unable to get the native support that MacOS has.&lt;/p>
 &lt;p>I stumbled upon &lt;a href="https://github.com/antimof/UxPlay">UxPlay&lt;/a> as a potential solution for this problem.&lt;/p>
@@ -96,7 +96,7 @@ size constraint. Typically, I would use a 50:50 layout, where one side hosts my 
 the other is a notebook for my notes.&lt;/p>
 &lt;p>However, with AirPlay, we can configure GoodNotes 5 to mirror only the notes side (displaying it on screen). The other
 side will remain the same. This way, the layout can be 25:75 without sacrificing the readability of the notes as the
-notes are displayed on a bigger screen while still being controlled via the 25% on the iPad.&lt;/p></description></item><item><title>Open-source Deep Dive: Broadway (Part 1) - Message queues, concurrency in Elixir, and Broadway architecture</title><link>/post/odd-broadway-1/</link><pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate><guid>/post/odd-broadway-1/</guid><description>
+notes are displayed on a bigger screen while still being controlled via the 25% on the iPad.&lt;/p></description></item><item><title>Open-source Deep Dive: Broadway (Part 1) - Message queues, concurrency in Elixir, and Broadway architecture</title><link>https://blog.woojiahao.com/post/odd-broadway-1/</link><pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/odd-broadway-1/</guid><description>
 &lt;p>This open-source deep dive has been split into two parts! The first part covers the prerequisite knowledge that would be
 good to know when trying to understand the inner workings of Broadway. The second part is an in-depth analysis of the
 implementation of various features of Broadway.&lt;/p>
@@ -150,7 +150,7 @@ the final product. The factory has multiple identical assembly lines running so 
 these lines to be worked on.&lt;/p>
 &lt;p>For your use case, the flow of data will look something like this:&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post//open-source-deep-dive/broadway/pipeline.jpg"
+src="https://blog.woojiahao.com/post//open-source-deep-dive/broadway/pipeline.jpg"
 alt="Sample scenario flowchart"
 width=534
 height="462" />&lt;/p>
@@ -192,7 +192,7 @@ processed. It aids with building asynchronous modular and concurrent systems.&lt
 consumers.** These messages can vary from something as simple as plain information to more complex structures like
 requests or — in our case — transaction information.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post//open-source-deep-dive/broadway/message_queue.png"
+src="https://blog.woojiahao.com/post//open-source-deep-dive/broadway/message_queue.png"
 alt="Message queue architecture"
 width=1000
 height="199" />&lt;/p>
@@ -224,7 +224,7 @@ models.&lt;/p>
 &lt;p>Each process communicates via &lt;strong>asynchronous message passing&lt;/strong>. Think of a process as a mailbox of sorts; it has a &amp;ldquo;bin&amp;rdquo;
 to receive incoming messages and it possess an &amp;ldquo;address&amp;rdquo; for other processes to identify it by.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post//open-source-deep-dive/broadway/actor_concurrency_model.png"
+src="https://blog.woojiahao.com/post//open-source-deep-dive/broadway/actor_concurrency_model.png"
 alt="Actor concurrency model visualisation"
 width=1920
 height="903" />&lt;/p>
@@ -309,7 +309,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 Pipeline architecture
 &lt;/h1>
 &lt;p>&lt;img loading="lazy"
-src="/post//open-source-deep-dive/broadway/architecture.jpg"
+src="https://blog.woojiahao.com/post//open-source-deep-dive/broadway/architecture.jpg"
 alt="Pipeline architecture"
 width=392
 height="376" />&lt;/p>
@@ -317,7 +317,7 @@ height="376" />&lt;/p>
 a producer is a creator of messages or events. However, in Broadway, a producer is both a consumer of messages and an
 emitter of events.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post//open-source-deep-dive/broadway/terminology.jpg"
+src="https://blog.woojiahao.com/post//open-source-deep-dive/broadway/terminology.jpg"
 alt="Terminology clarification for Broadway producer"
 width=701
 height="91" />&lt;/p>
@@ -332,7 +332,7 @@ Broadway.&lt;/p>
 &lt;p>Each component is a separate process and they are dynamically generated as different topologies (architectures) can be
 designed. The order of initialisation for a typical pipeline looks something like this:&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post//open-source-deep-dive/broadway/order_of_initialisation.jpg"
+src="https://blog.woojiahao.com/post//open-source-deep-dive/broadway/order_of_initialisation.jpg"
 alt="Order of initialisation"
 width=451
 height="411" />&lt;/p>
@@ -473,7 +473,7 @@ Broadway have been implemented!&lt;/p>
 &lt;p>Hop on over to the second part &lt;a href="open-source-deep-dive-broadway-part-2">here!&lt;/a>&lt;/p>
 &lt;hr>
 &lt;p>Open-source Deep Dive is a series where I pick apart open-source projects to explain the underlying concepts that power
-these projects and share my findings about the project!&lt;/p></description></item><item><title>Open-source Deep Dive: Broadway (Part 2) - Inner workings of Broadway</title><link>/post/odd-broadway-2/</link><pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate><guid>/post/odd-broadway-2/</guid><description>
+these projects and share my findings about the project!&lt;/p></description></item><item><title>Open-source Deep Dive: Broadway (Part 2) - Inner workings of Broadway</title><link>https://blog.woojiahao.com/post/odd-broadway-2/</link><pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/odd-broadway-2/</guid><description>
 &lt;p>This open-source deep dive has been split into two parts! The first part covers the prerequisite knowledge that would be
 good to know when trying to understand the inner workings of Broadway. The second part is an in-depth analysis of the
 implementation of various features of Broadway.&lt;/p>
@@ -651,7 +651,7 @@ Exit signals and process termination
 exit signal — which can occur when the process is terminated forcibly or when it receives an exit signal propagated from
 its parent — it will propagate the exit signal to the linked process and that process will terminate as well.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post//open-source-deep-dive/broadway/linking.jpg"
+src="https://blog.woojiahao.com/post//open-source-deep-dive/broadway/linking.jpg"
 alt="Process linking"
 width=441
 height="212" />&lt;/p>
@@ -1268,7 +1268,7 @@ and &lt;a href="https://hexdocs.pm/broadway/Broadway.html#content">documentation
 a pipeline in Broadway, check out the first part &lt;a href="open-source-deep-dive-broadway-part-1">here!&lt;/a>&lt;/p>
 &lt;hr>
 &lt;p>Open-source Deep Dive is a series where I pick apart open-source projects to explain the underlying concepts that power
-these projects and share my findings about the project!&lt;/p></description></item><item><title>Open-source Deep Dive: Hound</title><link>/post/odd-hound/</link><pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate><guid>/post/odd-hound/</guid><description>
+these projects and share my findings about the project!&lt;/p></description></item><item><title>Open-source Deep Dive: Hound</title><link>https://blog.woojiahao.com/post/odd-hound/</link><pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/odd-hound/</guid><description>
 &lt;h2 id="what-is-hound">
 &lt;a href="#what-is-hound" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -1351,7 +1351,7 @@ on &lt;a href="http://selenium.dev">Selenium&lt;/a>, &lt;a href="https://phantom
 and &lt;a href="https://chromedriver.chromium.org/">ChromeDriver&lt;/a> as the interfacing systems to perform the &amp;ldquo;dirty&amp;rdquo; work of
 coordinating requests/responses to/from the browser.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post//open-source-deep-dive/hound/general-architecture.png"
+src="https://blog.woojiahao.com/post//open-source-deep-dive/hound/general-architecture.png"
 alt="Hound&amp;amp;rsquo;s architecturel"
 width=232
 height="220" />&lt;/p>
@@ -1418,7 +1418,7 @@ means?)&lt;/li>
 &lt;p>In essence, a web driver is comprised of an API and a browser driver. Ideally, the API should be able to work with
 different browser drivers for different browsers.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post//open-source-deep-dive/hound/web-driver-general-architecture.jpg"
+src="https://blog.woojiahao.com/post//open-source-deep-dive/hound/web-driver-general-architecture.jpg"
 alt="Web driver architecture"
 width=522
 height="201" />&lt;/p>
@@ -1451,7 +1451,7 @@ the &lt;a href="https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol">JS
 protocol to communicate with the browser driver. Note that the documentation provided by Selenium (for the JSON Wire
 Protocol) has been obsoleted in favor of the one defined in the specification.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post//open-source-deep-dive/hound/selenium-general-architecture.jpg"
+src="https://blog.woojiahao.com/post//open-source-deep-dive/hound/selenium-general-architecture.jpg"
 alt="Selenium architecturel"
 width=201
 height="361" />&lt;/p>
@@ -2020,7 +2020,7 @@ about the mentioned subjects are purely for educational purposes and should rema
 &lt;/blockquote>
 &lt;hr>
 &lt;p>Open-source Deep Dive is a series where I pick apart open-source projects to explain the underlying concepts that power
-these projects and share my findings about the project!&lt;/p></description></item><item><title>The truth behind software projects</title><link>/post/software-projects-truth/</link><pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate><guid>/post/software-projects-truth/</guid><description>
+these projects and share my findings about the project!&lt;/p></description></item><item><title>The truth behind software projects</title><link>https://blog.woojiahao.com/post/software-projects-truth/</link><pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/software-projects-truth/</guid><description>
 &lt;p>It&amp;rsquo;s 3am. You are one commit away from launching your first release of your latest idea. It&amp;rsquo;s an AI system to help
 people recommend names for their pets through pictures (clearly, Spot isn&amp;rsquo;t a great name). You take a swig of coffee.
 You fix the bug that has been sitting on the top of your Trello board for days now. &lt;code>git add . &amp;amp;&amp;amp; git commit -am &amp;quot;Fix issue where AI takes over the world&amp;quot;&lt;/code> and you are off. Time to tag this release. This AI will be a hit and pet owners
@@ -2161,7 +2161,7 @@ project is &amp;ldquo;failed&amp;rdquo; or &amp;ldquo;incomplete&amp;rdquo;, as 
 should belittle that effort.&lt;/p>
 &lt;p>So go out and build something that inspires you! Work on the project that gets you excited. Explore technologies that
 you are interested in. Don&amp;rsquo;t worry so much about the perceived value of the project you are embarking on. This is YOUR
-journey, so enjoy it to the fullest!&lt;/p></description></item><item><title>Deploying discord bots written in Kotlin to Heroku</title><link>/post/deploying-discord-bot-kotlin/</link><pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate><guid>/post/deploying-discord-bot-kotlin/</guid><description>
+journey, so enjoy it to the fullest!&lt;/p></description></item><item><title>Deploying discord bots written in Kotlin to Heroku</title><link>https://blog.woojiahao.com/post/deploying-discord-bot-kotlin/</link><pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/deploying-discord-bot-kotlin/</guid><description>
 &lt;p>Over my time in TPH, I have noticed that a common woe aspiring bot developers have is that they are unable to host
 their Discord bot online as they may not have access to a credit card.&lt;/p>
 &lt;h2 id="introducing-heroku">
@@ -2325,7 +2325,7 @@ to be organised.&lt;/p>
 repository. Should your application have been created successfully, you will see a new remote added linking to a Heroku
 Git remote.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post/deploying-discord-bot-kotlin/git-remote.png"
+src="https://blog.woojiahao.com/post/deploying-discord-bot-kotlin/git-remote.png"
 alt="Results of git remote -v"
 width=1086
 height="352" />&lt;/p>
@@ -2468,7 +2468,7 @@ begin.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://devcenter.heroku.com/articles/getting-started-with-java#introduction">Getting Started on Heroku with Java&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://github.com/heroku/java-sample">Java Sample (on GitHub)&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Gatsby.js + GitHub Actions + GitHub Pages = Match Made in Heaven?</title><link>/post/gatsby-gh-pages/</link><pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate><guid>/post/gatsby-gh-pages/</guid><description>
+&lt;/ul></description></item><item><title>Gatsby.js + GitHub Actions + GitHub Pages = Match Made in Heaven?</title><link>https://blog.woojiahao.com/post/gatsby-gh-pages/</link><pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/gatsby-gh-pages/</guid><description>
 &lt;p>After a long hiatus induced by the demons that was school, I have finally defeated the final boss and graduated!&lt;/p>
 &lt;p>With that, I have started to work on re-building my portfolio site (you&amp;rsquo;re seeing it right now!). I wanted to
 learn &lt;a href="https://www.gatsbyjs.org/">Gatsby.js&lt;/a> and so I figured it would be the best time to do so! While working with
@@ -2552,7 +2552,7 @@ deploy your code right from GitHub.&lt;/p>
 &lt;p>GitHub Actions allows us to develop CI/CD workflows that integrates directly with GitHub. For our use case, we can use
 the default tier.&lt;/p>
 &lt;p>I picked GitHub Actions primarily because I was intrigued by it and wanted to give it a spin. I had adopted it when
-working on &lt;a href="/projects/post/torrent.go">&lt;strong>torrent.go&lt;/strong>&lt;/a> (a BitTorrent protocol implementation written with Go!) and
+working on &lt;a href="https://blog.woojiahao.com/projects/post/torrent.go">&lt;strong>torrent.go&lt;/strong>&lt;/a> (a BitTorrent protocol implementation written with Go!) and
 found that it was rather unique in its approach so I wanted to test it out even more.&lt;/p>
 &lt;h2 id="chief-what-is-our-plan-of-attack">
 &lt;a href="#chief-what-is-our-plan-of-attack" class="anchor">
@@ -2645,7 +2645,7 @@ permanently push to the remote &lt;code>develop&lt;/code> branch.&lt;/p>
 &lt;p>If you go to the repository in GitHub and expand the &amp;ldquo;Branch&amp;rdquo; dropdown, you should see that there will be three branches
 now.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post/gatsby-deployment-tutorial/remote-branches.png"
+src="https://blog.woojiahao.com/post/gatsby-deployment-tutorial/remote-branches.png"
 alt="GitHub remote branches"
 width=333
 height="280" />&lt;/p>
@@ -2654,7 +2654,7 @@ height="280" />&lt;/p>
 as mentioned earlier, we want to be able to view and access our repository easily (and have the all-so-important
 language colors be right!). So, we will change the default branch to be &lt;code>develop&lt;/code>.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post/gatsby-deployment-tutorial/default-branch.png"
+src="https://blog.woojiahao.com/post/gatsby-deployment-tutorial/default-branch.png"
 alt="GitHub changing default branches"
 width=1103
 height="254" />&lt;/p>
@@ -2930,13 +2930,13 @@ Shhh! &amp;hellip; (Access tokens and secrets)
 &lt;p>We can generate a personal access token under &amp;ldquo;Settings &amp;gt; Developer settings &amp;gt; Personal access tokens &amp;gt; Generate new
 token&amp;rdquo;.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post/gatsby-deployment-tutorial/access-token-location.png"
+src="https://blog.woojiahao.com/post/gatsby-deployment-tutorial/access-token-location.png"
 alt="GitHub access token settings location"
 width=1098
 height="229" />&lt;/p>
 &lt;p>When generating the token, restrict the token&amp;rsquo;s scope to &lt;code>repo&lt;/code> only.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post/gatsby-deployment-tutorial/create-token.png"
+src="https://blog.woojiahao.com/post/gatsby-deployment-tutorial/create-token.png"
 alt="GitHub create token"
 width=834
 height="471" />&lt;/p>
@@ -2944,7 +2944,7 @@ height="471" />&lt;/p>
 &lt;p>Then, go to the Gatsby.js repository and under &amp;ldquo;Settings &amp;gt; Secrets&amp;rdquo;, select &amp;ldquo;Add a new secret&amp;rdquo;. The name of the secret
 must be &lt;code>GH_TOKEN&lt;/code> and the value is the copied token.&lt;/p>
 &lt;p>&lt;img loading="lazy"
-src="/post/gatsby-deployment-tutorial/add-secret.png"
+src="https://blog.woojiahao.com/post/gatsby-deployment-tutorial/add-secret.png"
 alt="GitHub add secret"
 width=1113
 height="474" />&lt;/p>
@@ -3036,7 +3036,7 @@ Conclusion
 &lt;/h2>
 &lt;p>Overall, this was an interesting journey! I learnt a fair bit about Gatsby.js and GitHub Actions along the way. If you
 wish to view the Gatsby.js project I use for my portfolio site, you can visit
-it &lt;a href="https://github.com/woojiahao/woojiahao.github.io">here&lt;/a>&lt;/p></description></item><item><title>Heroku x Docker x Discord bot x Kotlin</title><link>/post/heroku-kotlin-discord-bot/</link><pubDate>Sat, 31 Aug 2019 00:00:00 +0000</pubDate><guid>/post/heroku-kotlin-discord-bot/</guid><description>
+it &lt;a href="https://github.com/woojiahao/woojiahao.github.io">here&lt;/a>&lt;/p></description></item><item><title>Heroku x Docker x Discord bot x Kotlin</title><link>https://blog.woojiahao.com/post/heroku-kotlin-discord-bot/</link><pubDate>Sat, 31 Aug 2019 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/heroku-kotlin-discord-bot/</guid><description>
 &lt;p>You may be wondering what&amp;rsquo;s up with the over the top, nearly fan-ship name, trust me, I was not on anything when I wrote
 this.&lt;/p>
 &lt;p>I simply wanted to write about a playground project I had written to get Docker working with Heroku, specifically in the
@@ -3312,7 +3312,7 @@ found &lt;a href="https://devcenter.heroku.com/articles/build-docker-images-hero
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">worker&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Dockerfile&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Applications of Kotlin's delegate properties</title><link>/post/kotlin-delegate-properties/</link><pubDate>Sat, 13 Jul 2019 00:00:00 +0000</pubDate><guid>/post/kotlin-delegate-properties/</guid><description>
+&lt;/div></description></item><item><title>Applications of Kotlin's delegate properties</title><link>https://blog.woojiahao.com/post/kotlin-delegate-properties/</link><pubDate>Sat, 13 Jul 2019 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/kotlin-delegate-properties/</guid><description>
 &lt;h2 id="announcement-time">
 &lt;a href="#announcement-time" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -3645,7 +3645,7 @@ element within the style and apply the changes accordingly.&lt;/p>
 &lt;/div>&lt;p>The lesson learnt here is that while a structure might look good on paper and work for a specific use case, this might
 not always be the case and this can result in rewriting of the codebase. I was lucky that the codebase was one that I
 was very familiar with and I could afford the rewrite to get this new feature up and running. However, I would not
-always be so lucky and might encounter a codebase that might take too long to rewrite.&lt;/p></description></item><item><title>Porting to FlexMark</title><link>/post/porting-flexmark/</link><pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate><guid>/post/porting-flexmark/</guid><description>
+always be so lucky and might encounter a codebase that might take too long to rewrite.&lt;/p></description></item><item><title>Porting to FlexMark</title><link>https://blog.woojiahao.com/post/porting-flexmark/</link><pubDate>Mon, 08 Apr 2019 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/porting-flexmark/</guid><description>
 &lt;p>kMD2PDF now finally uses &lt;a href="https://github.com/vsch/flexmark-java">FlexMark&lt;/a> as the back end for the markdown to html
 conversion. This is a big moment as now a lot more flexibility has been introduced for the library and that means more
 features.&lt;/p>
@@ -3820,7 +3820,7 @@ of the markdown file and html file. This would set in motion an automated set of
 of the generated markdown file would produce the appropriate html.&lt;/p>
 &lt;p>One limitation that is present with the API is that the file name of the markdown file and html file would have to be
 the same, otherwise the assert function would fail. That said, it also encourages for developers trying to use the API
-to always stick to the same name for their markdown and html file, which reduces confusion.&lt;/p></description></item><item><title>Lessons on software release</title><link>/post/lessons-on-software-release/</link><pubDate>Wed, 03 Apr 2019 00:00:00 +0000</pubDate><guid>/post/lessons-on-software-release/</guid><description>
+to always stick to the same name for their markdown and html file, which reduces confusion.&lt;/p></description></item><item><title>Lessons on software release</title><link>https://blog.woojiahao.com/post/lessons-on-software-release/</link><pubDate>Wed, 03 Apr 2019 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/lessons-on-software-release/</guid><description>
 &lt;p>Oh boy, I screwed up bad, like &lt;em>really&lt;/em> badly. Ok ok, let&amp;rsquo;s go back and see where it all began. I&amp;rsquo;ve learnt countless
 lessons from this and I hope you (reader) will too if you&amp;rsquo;re developing your own software.&lt;/p>
 &lt;h2 id="story-time">
@@ -3955,7 +3955,7 @@ tests for the codebase. I&amp;rsquo;ll adopt TDD in my workflow and hopefully, I
 &lt;p>Whilst I&amp;rsquo;m incredibly frustrated about my set backs, I will not allow them to hinder the development and progress of
 the library and with a new found resolve to achieve better things, I&amp;rsquo;ll be taking on each new challenge with pride. I
 have also greatly enjoyed the past month learning various skills and practicing Kotlin.&lt;/p>
-&lt;p>If you&amp;rsquo;re curious about the library, it can be found &lt;a href="https://github.com/omnius-project/kMD2PDF">here.&lt;/a>&lt;/p></description></item><item><title>An investigation into generics in Java</title><link>/post/java-generics/</link><pubDate>Mon, 26 Nov 2018 00:00:00 +0000</pubDate><guid>/post/java-generics/</guid><description>
+&lt;p>If you&amp;rsquo;re curious about the library, it can be found &lt;a href="https://github.com/omnius-project/kMD2PDF">here.&lt;/a>&lt;/p></description></item><item><title>An investigation into generics in Java</title><link>https://blog.woojiahao.com/post/java-generics/</link><pubDate>Mon, 26 Nov 2018 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/java-generics/</guid><description>
 &lt;p>Generics was a feature introduced in &lt;a href="https://en.wikipedia.org/wiki/Generics_in_Java">Java 5&lt;/a> and it has changed how
 Java developers write code.&lt;/p>
 &lt;p>This article will be discussing some of the things I&amp;rsquo;ve picked up as I dug into generics in Java.&lt;/p>
@@ -4164,7 +4164,7 @@ Conclusion
 &lt;li>&lt;a href="https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters">&lt;strong>reified&lt;/strong> keyword in Kotlin&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://docs.oracle.com/javase/tutorial/java/generics/erasure.html">Type Erasure&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.oracle.com/technetwork/articles/java/juneau-generics-2255374.html">Generics: How They Work And Why They Are Important&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Familiarising yourself with lambdas in Kotlin</title><link>/post/kotlin-lambdas/</link><pubDate>Sun, 28 Oct 2018 00:00:00 +0000</pubDate><guid>/post/kotlin-lambdas/</guid><description>
+&lt;/ul></description></item><item><title>Familiarising yourself with lambdas in Kotlin</title><link>https://blog.woojiahao.com/post/kotlin-lambdas/</link><pubDate>Sun, 28 Oct 2018 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/kotlin-lambdas/</guid><description>
 &lt;p>Kotlin is a language that was built on top of the JVM and what really sets it apart from Java is the emphasis on
 &lt;strong>functions being a first-class construct&lt;/strong>, meaning many fancy things like lambdas are directly available to Kotlin
 developers without having to include bulky constructs like the concept of &lt;em>functional interfaces&lt;/em>.&lt;/p>
@@ -4469,7 +4469,7 @@ throughout their language, in Collections to APIs that leverage off the design o
 &lt;ul>
 &lt;li>&lt;a href="https://kotlinlang.org/docs/reference/lambdas.html">Kotlin documentation&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.baeldung.com/kotlin-lambda-expressions">Baeldung&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Diving into (Java) streams</title><link>/post/diving-into-streams/</link><pubDate>Sun, 08 Apr 2018 00:00:00 +0000</pubDate><guid>/post/diving-into-streams/</guid><description>
+&lt;/ul></description></item><item><title>Diving into (Java) streams</title><link>https://blog.woojiahao.com/post/diving-into-streams/</link><pubDate>Sun, 08 Apr 2018 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/diving-into-streams/</guid><description>
 &lt;h2 id="what-are-streams">
 &lt;a href="#what-are-streams" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
