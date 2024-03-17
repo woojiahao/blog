@@ -6,7 +6,7 @@ paginate = 6
 
 [params]
 # Emoji will show before the blog title on site navbar.
-titleEmoji  = "☃️"
+titleEmoji = "☃️"
 
 # Logo will show before the blog title on site navbar.
 titleLogo = ""
@@ -16,8 +16,8 @@ titleLogo = ""
 enableFootnotes = true
 
 siteName = "jiahao.blog"
-siteDesc = "Ramblings and musings of Jia Hao"
-author = "Jia Hao"
+siteDesc = "Ramblings and musings of Jia Hao (jiāháo) - software engineer, Elixir enthusiast, technical author, and all around tech nerd!"
+author = "Jia Hao (jiāháo)"
 
 [params.colorScheme]
 # Enable toggle colorScheme
@@ -33,16 +33,16 @@ maxCategoryToShow = 10
 
 # Show your social information with icon on index bio with `_index.md` content.
 [params.socialOptions]
-dev-to = "https://dev.to/woojiahao"
-email = "me@woojiahao.com"
+dev-to = ""
+email = "woojiahao1234@gmail.com"
 facebook = ""
 github = "https://github.com/woojiahao"
 instagram = ""
 linkedin = "https://www.linkedin.com/in/woojiahao/"
-medium = "https://medium.com/@woojiahao1234"
+medium = ""
 stack-overflow = ""
 steam = ""
-telegram = "t.me/woojiahao"
+telegram = ""
 twitter = "https://twitter.com/woojiahao_"
 twitch = ""
 whatsapp = ""
@@ -60,7 +60,7 @@ url = "/articles/"
 name = "RSS"
 url = "/index.xml"
 [[menu.footer]]
-name = "Portfolio"
+name = "About Me"
 url = "https://woojiahao.com"
 
 [markup]

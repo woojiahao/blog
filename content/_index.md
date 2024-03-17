@@ -1,1 +1,1 @@
-Ramblings and musings of Jia Hao, a software engineer and student from Singapore 
+Ramblings and musings of Jia Hao (jiāháo) - software engineer, Elixir enthusiast, technical author, and all around tech nerd!
