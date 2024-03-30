@@ -1,4 +1,360 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>jiahao.blog</title><link>https://blog.woojiahao.com/</link><description>Recent content on jiahao.blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 17 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.woojiahao.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Where Have I Been? (2024 Edition)</title><link>https://blog.woojiahao.com/post/where-have-i-been/</link><pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/where-have-i-been/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>jiahao.blog</title><link>https://blog.woojiahao.com/</link><description>Recent content on jiahao.blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 30 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.woojiahao.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Preparing for Technical Interviews</title><link>https://blog.woojiahao.com/post/technical-interview-systems/</link><pubDate>Sat, 30 Mar 2024 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/technical-interview-systems/</guid><description>
+&lt;p>My friend, Devansh, recently wrote an article about
+&lt;a href="https://medium.com/@devanshshah1309/debunking-myths-regarding-tech-internship-applications-c00c69213561">&amp;ldquo;Debunking Myths Regarding Tech Internship Applications&amp;rdquo;&lt;/a>
+, and I agree with many of his points. Proofreading his article gave me the opportunity to reflect on my own personal
+journey through internship hunting and technical interviews in summer 2024 and I would love to share more about the
+systems and techniques I had used to prepare for my technical interviews.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>⚠️ DISCLAIMER ⚠️&lt;/strong>&lt;/p>
+&lt;p>I understand that the tech industry is very volatile at the moment and a lot of my &amp;ldquo;success&amp;rdquo; this
+internship cycle boils down to timing and luck along with a lot of preparations. I am incredibly thankful for the
+offers I have received and I will never know what combination of factors led to my ultimate success.&lt;/p>
+&lt;p>If you are reading this and you have not had as much success so far, please do not stop trying. Keep pushing and you
+will definitely get an amazing offer :)&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;a href="#who-am-i">Who am I?&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#my-background">My background&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#first-failures">First failures&amp;hellip;&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#formal-exposure-to-data-structures-and-algorithms">Formal exposure to data structures and algorithms&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#turning-point">Turning point&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#why-am-i-writing-this">Why am I writing this?&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#technical-interviewing-as-a-skill">Technical interviewing as a skill&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#creating-a-good-study-plan">Creating a good study plan&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#compiling-useful-notes">Compiling useful notes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#starting-early">Starting early&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#interviewing-with-a-passion">Interviewing with a passion&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#conclusion">Conclusion&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h1 id="who-am-i">
+&lt;a href="#who-am-i" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Who am I?
+&lt;/h1>
+&lt;p>While you are reading this, you may be thinking to yourself, &amp;ldquo;Who is this person telling me about technical interviews?&amp;rdquo;
+No worries, an introduction is in order. Of course, if you are just interested in the systems and techniques, you can
+&lt;a href="#technical-interviewing-as-a-skill">jump to them here.&lt;/a>&lt;/p>
+&lt;h2 id="my-background">
+&lt;a href="#my-background" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+My background
+&lt;/h2>
+&lt;p>I am Jiahao, a Computer Science undergraduate from the National University of Singapore. Before entering
+university, I was studying Information Technology in Singapore Polytechnic.&lt;/p>
+&lt;p>I was also a complete &amp;ldquo;noob&amp;rdquo; at data structures and algorithms and technical interviews (my course in polytechnic never
+taught us these subjects). As such, while I had built several projects in my own spare time and worked with various
+teams, I was never well-versed in solving these data structure/algorithms problems and would struggle with even simple
+LeetCode easy problems (no exaggeration, I would spend an eternity trying to solve
+&lt;a href="https://leetcode.com/problems/two-sum/">Two Sum&lt;/a>).&lt;/p>
+&lt;h2 id="first-failures">
+&lt;a href="#first-failures" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+First failures&amp;hellip;
+&lt;/h2>
+&lt;p>My first true exposure to technical interviews was when I had started applying for internships when I first entered
+university. I remember my very first online assessment (OA) was for the &lt;a href="https://www.grab.com/sg/">Grab&lt;/a> engineering
+internship. Looking back, the questions really were super straightforward, yet I spent the entire one and a half hours
+to solve them, and I had still answered them ALL wrongly 😱.&lt;/p>
+&lt;p>The rest of the application cycle played out similarly, having failed many of the OAs and even when I had passed to the
+subsequent rounds, I would choke and fail at the live codings.&lt;/p>
+&lt;p>Thankfully, I still managed to secure a software engineering internship offer at &lt;a href="https://betafi.co">Betafi&lt;/a>
+where I worked with Elixir + Phoenix to improve the platform (I am very grateful to my supervisor, Ethan, for reaching
+out about this opportunity).&lt;/p>
+&lt;h2 id="formal-exposure-to-data-structures-and-algorithms">
+&lt;a href="#formal-exposure-to-data-structures-and-algorithms" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Formal exposure to data structures and algorithms
+&lt;/h2>
+&lt;p>The following semester, I took the mandatory &lt;a href="https://nusmods.com/courses/CS2040S/data-structures-and-algorithms">data structures and algorithms
+course&lt;/a> that all CS undergraduates had to go
+through. It was my first real brush with proper data structures and algorithms and it instilled in me the very
+fundamentals of algorithmic thinking (thank you Prof Seth!). While I did not score amazingly (I got an A-), it gave me
+the basic tools to start exploring algorithms on my own during the summer.&lt;/p>
+&lt;h2 id="turning-point">
+&lt;a href="#turning-point" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Turning point
+&lt;/h2>
+&lt;p>During the summer, I devised a study plan and techniques to help with my preparation for the next internship
+cycle, committing myself to becoming good at technical interviews (on top of juggling my internship, summer projects,
+and commitments with &lt;a href="https://www.nushackers.org/">NUS Hackers&lt;/a>).&lt;/p>
+&lt;p>As a result of the consistent effort, I was able to subsequently secure 4 offers (out of over 250+ applications),
+receiving offers from companies like &lt;a href="https://www.citadel.com/">Citadel&lt;/a>, &lt;a href="https://www.palantir.com/">Palantir&lt;/a>,
+&lt;a href="https://www.google.com/">Google&lt;/a>, and &lt;a href="https://www.paypal.com/sg/home">PayPal&lt;/a> (all of which I am extremely thankful
+for). While the following diagram is not 100% accurate, it hopefully gives you a rough idea on my overall success rate:&lt;/p>
+&lt;p>&lt;img loading="lazy"
+src="https://blog.woojiahao.com/post//technical-interview-systems/success-sankey.png"
+alt="Callback rate"
+width=1200
+height="1200" />&lt;/p>
+&lt;h2 id="why-am-i-writing-this">
+&lt;a href="#why-am-i-writing-this" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Why am I writing this?
+&lt;/h2>
+&lt;p>While I am not claiming to be an absolute authority of technical interviews, I believe that my experiences, systems, and
+techniques had proven to be successful and as such, I would love to share more about them in this article so that you
+too can benefit and experience success in your own internship hunt! This article focuses on the &amp;ldquo;meta-discussion&amp;rdquo; of
+studying for technical interviews and the state of technical interviews in general.&lt;/p>
+&lt;blockquote>
+&lt;p>If you are interested in my condensed notes for the various topics involved in technical interviews (data structures,
+algorithms, system design, behavioral, and resume writing), I have open-sourced my notes as a &amp;ldquo;Technical Interview
+Study Guide&amp;rdquo; that you can find here: &lt;a href="https://interviews.woojiahao.com">https://interviews.woojiahao.com&lt;/a>.&lt;/p>
+&lt;/blockquote>
+&lt;h1 id="technical-interviewing-as-a-skill">
+&lt;a href="#technical-interviewing-as-a-skill" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Technical interviewing as a skill
+&lt;/h1>
+&lt;p>I broadly classify every component of the SWE/SRE interviewing process as a technical interview, so it covers the
+OA, initial phone screen, technical onsites, behaviorals, etc.&lt;/p>
+&lt;p>To me, technical interviewing is a skill. Much like how you would invest time and energy into getting good at games or
+your studies, I believe technical interviewing deserves similar treatment. Similarly, much like gaming or studying,
+there are fixed systems and techniques that you can use to streamline this process of improving.&lt;/p>
+&lt;p>I will talk about four key aspects of technical interview preparation that I briefly mentioned in my &lt;a href="https://interviews.woojiahao.com">Technical
+Interview Study Guide&lt;/a>:&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="#creating-a-good-study-plan">Creating a good study plan&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#compiling-useful-notes">Compiling useful notes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#starting-early">Starting early&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#interviewing-with-a-passion">Interviewing with a passion&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="creating-a-good-study-plan">
+&lt;a href="#creating-a-good-study-plan" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Creating a good study plan
+&lt;/h2>
+&lt;blockquote>
+&lt;p>&lt;strong>TL;DR&lt;/strong>&lt;/p>
+&lt;p>Understand your weaknesses, create/use a study plan, and follow a reasonable timeline&lt;/p>
+&lt;/blockquote>
+&lt;p>Prior to creating a study plan, you should first identify your strengths and weaknesses. Before even thinking about the
+questions I wanted to finish, I first sat down for about 30 minutes and thought hard about the topics that I found
+particularly challenging from my data structure and algorithm course and noted them down. My list looked a little
+something like&amp;hellip;&lt;/p>
+&lt;ol>
+&lt;li>Arrays&lt;/li>
+&lt;li>Linked lists&lt;/li>
+&lt;li>Dynamic programming&lt;/li>
+&lt;li>Greedy algorithms&lt;/li>
+&lt;li>Etc&amp;hellip;&lt;/li>
+&lt;/ol>
+&lt;p>As you can see, there is no shame in admitting that you may not be good at what some may even consider as &amp;ldquo;basic&amp;rdquo;
+topics (after all, you&amp;rsquo;re doing this preparation for yourself).&lt;/p>
+&lt;p>Once you have established what you know and what you don&amp;rsquo;t know, you can start thinking about a plan of attack (study
+plan). A study plan comprises of two key ingredients: a fixed timeline and an exhaustive list of subjects to cover.&lt;/p>
+&lt;p>Luckily, &lt;a href="https://www.linkedin.com/in/yangshun/">Yangshun&lt;/a> had published a study plan on his &lt;a href="https://www.techinterviewhandbook.org/">Tech Interview
+Handbook&lt;/a>, where he provides a detailed list of questions per major topic of
+technical interviews and a sample timeline to follow. So the first thing I did when I started was to first compile
+his list of questions into a Google Sheets document with a slightly adjusted timeline. I used these questions as a
+guideline on what to complete. I have since moved this study plan to my &lt;a href="https://interviews.woojiahao.com/getting-started/study-plan">Technical Interview Study
+Guide&lt;/a>, but this was what planning my study plan
+looked like in Google Sheets:&lt;/p>
+&lt;p>&lt;img loading="lazy"
+src="https://blog.woojiahao.com/post//technical-interview-systems/study-plan.png"
+alt="Study plan in Google Sheets"
+width=754
+height="1300" />&lt;/p>
+&lt;p>The final secret sauce is to create and follow a reasonable study plan. For me, I used the number of questions and
+familiarity with each topic as a gauge for how long I should spend on each topic. For instance, I felt more
+comfortable with a topic like recursion so I allocated just a day for eight questions, but for dynamic programming, I
+dedicated over five days for it (including the time to internalize and understand each solution).&lt;/p>
+&lt;p>You should also include the time it would take to revisit and revise topics. I usually try to revise topics about a week
+after having finished their questions to ensure that I&amp;rsquo;m not forgetting the key concepts.&lt;/p>
+&lt;h2 id="compiling-useful-notes">
+&lt;a href="#compiling-useful-notes" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Compiling useful notes
+&lt;/h2>
+&lt;p>Once you have a study plan, you can start attempting the questions. Of course, having a systematic way of tackling
+problems is quintessential for learning.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>TL;DR&lt;/strong>&lt;/p>
+&lt;p>Focus on systematically capturing the intuition of problems and jotting down recurring/unique patterns in problems&lt;/p>
+&lt;/blockquote>
+&lt;p>I use &lt;a href="https://www.notion.so/">Notion&lt;/a> to store my notes for every LeetCode question I have attempted since starting
+serious preparation. LeetCode has a built-in notetaking functionality and I know others who use tools like Google Sheets
+to make such notes. The medium is secondary to the actual process of notetaking and internalizing the intuition of each
+problem.&lt;/p>
+&lt;p>&lt;img loading="lazy"
+src="https://blog.woojiahao.com/post//technical-interview-systems/notion.png"
+alt="Notion database for questions"
+width=2740
+height="1638" />&lt;/p>
+&lt;p>I recommend capturing the following &amp;ldquo;metadata&amp;rdquo; about each question:&lt;/p>
+&lt;ul>
+&lt;li>Concepts used&lt;/li>
+&lt;li>Difficulty level (I follow LeetCode&amp;rsquo;s grading system)&lt;/li>
+&lt;li>Should you redo it? (I use this to gauge if I should redo a set of questions)&lt;/li>
+&lt;li>Status of completion (for instance, did you give up? Did you solve it the first try?)&lt;/li>
+&lt;li>Where the question came from&lt;/li>
+&lt;/ul>
+&lt;p>These metadata speed up the process of revision and let you revisit questions/topics that you found difficult in the
+past.&lt;/p>
+&lt;p>After noting these metadata, I use a template for jotting down my notes per question. This template includes the
+following:&lt;/p>
+&lt;ul>
+&lt;li>Intuition (base intuition for solving the problem written in your own words)&lt;/li>
+&lt;li>Optimizations/notes (any notable optimizations/notes to make of this problem; if I gave up, I would often include the
+intuition for my failed attempt here)&lt;/li>
+&lt;li>Alternatives (from the LeetCode &amp;ldquo;Solutions&amp;rdquo; tab where I try internalizing multiple ways of solving a problem)&lt;/li>
+&lt;li>Remarks (any remarks about the problem)&lt;/li>
+&lt;/ul>
+&lt;p>For instance, this is what my note for &lt;a href="https://leetcode.com/problems/range-sum-of-bst/">Range Sum in BST&lt;/a>:&lt;/p>
+&lt;p>&lt;img loading="lazy"
+src="https://blog.woojiahao.com/post//technical-interview-systems/sample-note.png"
+alt="Note for Range Sum in BST"
+width=2324
+height="1054" />&lt;/p>
+&lt;p>When approaching a question, try to allocate a fixed time to solve it by before looking at the solution. This varies
+per person. This allows you to stay on track with your timeline. However, do not just space out for the alloted time
+because you know you will see the answers eventually. Try really hard to come up with the solution and implementing it
+within the time. After seeing a solution, start by running through a few examples with the new algorithm, building a
+strong intuition for it. Then, start jotting down your notes for the question. Take some time to also read any
+alternative solutions as it allows you to learn more about different ways of approaching problems.&lt;/p>
+&lt;p>In addition to notes about questions, I also highly recommend notes about the topics. Much like how my &lt;a href="https://interviews.woojiahao.com">Technical
+Interview Study Guide&lt;/a> includes information about the common patterns in each topic,
+I highly recommend making your own notes for these topics (the content of the study guide comes from my own personal
+notes!). While you can refer to online sources for these information, having a personalized set of notes is helpful
+when it comes to linking concepts and revising! This was what my personal notes looked like:&lt;/p>
+&lt;p>&lt;img loading="lazy"
+src="https://blog.woojiahao.com/post//technical-interview-systems/concepts.png"
+alt="Concepts in Notion"
+width=2762
+height="1360" />&lt;/p>
+&lt;h2 id="starting-early">
+&lt;a href="#starting-early" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Starting early
+&lt;/h2>
+&lt;p>All these preparations would be in vain if you only start in the middle of the internship cycle or if you start applying
+late.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>TL;DR&lt;/strong>&lt;/p>
+&lt;p>Start practicing as early as possible so that you are ready and able to apply to more roles&lt;/p>
+&lt;/blockquote>
+&lt;p>My personal timeline for summer 2024 was as such (taken from my &lt;a href="https://interviews.woojiahao.com">Technical Interview Study
+Guide&lt;/a>):&lt;/p>
+&lt;ol>
+&lt;li>Start of May 2023: sourcing for problems and figuring out my weaknesses when it comes to interviewing&lt;/li>
+&lt;li>May 2023 to mid June 2023: working on my fundamentals by completing questions by topic&lt;/li>
+&lt;li>Mid Jun 2023 to Jul 2023: working on other problems to expand my exposure and speed&lt;/li>
+&lt;li>Jul 2023 to Oct 2023: start applying for roles in Singapore, US, and UK&lt;/li>
+&lt;li>Aug 2023 to Mar 2024: started interviewing and received my offers&lt;/li>
+&lt;/ol>
+&lt;p>As you can see, as &amp;ldquo;kiasu&amp;rdquo; (Singaporean slang for &amp;ldquo;fear of losing&amp;rdquo;) as it is to start the moment summer starts, it is
+necessary if you&amp;rsquo;re attempting to cover as much breadth and achieve as much depth as possible before the internship
+applications open. Many large firms in the US opened while it was still the summer in Singapore and many large firms
+in Singapore opened soon after the summer ended.&lt;/p>
+&lt;h2 id="interviewing-with-a-passion">
+&lt;a href="#interviewing-with-a-passion" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Interviewing with a passion
+&lt;/h2>
+&lt;p>It does not matter how much you prepare for the interview if you cannot convince your interviewers to want you on their
+team.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>TL;DR&lt;/strong>&lt;/p>
+&lt;p>Research every company in depth and understand their business, projects, and culture and find an alignment with them&lt;/p>
+&lt;/blockquote>
+&lt;p>Every interview with an engineer/manager/HR with the company is a two-way conversation. It is both a way for them to get
+to know you as a candidate, but also for you to get to know about the company. However, in order for this conversation
+to be effective and meaningful for both parties, you MUST do your due diligence in understanding more about the company.&lt;/p>
+&lt;p>A great example is learning about a company&amp;rsquo;s open-source efforts and understanding these projects and talking to the
+engineers about them! I find that finding these &amp;ldquo;talking points&amp;rdquo; about the company helped me to not only appear
+interested in the company (because I was), but also helped me to ask meaningful questions about the company as my
+curiosity would drive me to want to learn more.&lt;/p>
+&lt;p>However, this does not just apply to knowing more about the company. Being passionate about your past experiences like
+past projects and internships also helps to show that you are someone who is invested. Be proactive in learning about
+the industry you were in, the problems you were solving, the technical and non-technical challenges you faced, and how
+you contributed to the team. These are all key things that help inform your perspective of these experiences and gives
+the interviewer the sense that you CARE about the project beyond just being a &amp;ldquo;code monkey&amp;rdquo;.&lt;/p>
+&lt;p>&lt;img loading="lazy"
+src="https://blog.woojiahao.com/post//technical-interview-systems/monkey-developer.gif"
+alt="Code monkey"
+width=220
+height="124" />&lt;/p>
+&lt;h1 id="conclusion">
+&lt;a href="#conclusion" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Conclusion
+&lt;/h1>
+&lt;p>I have rambled for long enough.&lt;/p>
+&lt;p>If you were to take away just one thing from this, I hope it is this: technical interviews is a skill that takes time
+and dedication to improve on. You cannot expect to be amazing at it without any practice, just as you would not expect
+to be &lt;a href="https://www.youtube.com/@magmidt">Magnus Midtbø&lt;/a> when starting out climbing.&lt;/p>
+&lt;p>I hope that this article gives you both hope and guidance on how to navigate your technical interview preparation and I
+hope that my &lt;a href="https://interviews.woojiahao.com">Technical Interview Study Guide&lt;/a> can become your study buddy throughout
+your journey.&lt;/p>
+&lt;p>I am wishing you all the best and I am rooting for you! 🤩&lt;/p>
+&lt;p>P.S. If you have used my guide or just want to talk to someone about technical interview preparation, feel free to email
+me at &lt;a href="mailto:woojiahao1234@gmail.com">woojiahao1234@gmail.com&lt;/a>!&lt;/p></description></item><item><title>Where Have I Been? (2024 Edition)</title><link>https://blog.woojiahao.com/post/where-have-i-been/</link><pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate><guid>https://blog.woojiahao.com/post/where-have-i-been/</guid><description>
 &lt;p>I have not been posting a lot on this blog for quite a while now. This is not because I have
 stopped being interested in writing. Quite the opposite actually. I have been working with other
 companies like BetterStack and CodeCrafter&amp;rsquo;s &lt;a href="https://osshistory.org/p/elixir">OSS History&lt;/a> to
