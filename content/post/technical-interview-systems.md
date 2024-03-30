@@ -2,16 +2,14 @@
 published: true
 date: "2024-03-30"
 title: "Preparing for Technical Interviews"
+description: "Reflecting upon my summer 2024 internship hunt and my learning points from serious technical interviewing preparation!"
 tags:
-
 - Technical Interviews
 - Internship
 - Study
 - Technique
 - Leetcode
 - Reflection
-
-description: "Reflecting upon my summer 2024 internship hunt and my learning points from serious technical interviewing preparation!"
 ---
 
 My friend, Devansh, recently wrote an article about
