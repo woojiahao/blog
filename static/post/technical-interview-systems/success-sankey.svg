@@ -1,0 +1,76 @@
+<svg height="600" width="600" xmlns="http://www.w3.org/2000/svg">
+<title>Your Diagram Title</title>
+<!-- Generated with SankeyMATIC: 30/03/2024, 4:41:50 pm -->
+<rect height="600" width="600" fill="#ffffff"></rect>
+<g transform="translate(127.55666,18)">
+<g id="sankey_flows">
+<path id="flow4" d="M92.0175 241.84616C166.035 241.84616 166.035 237.91663 240.05251 237.91663" fill="none" stroke-width="253.3874" stroke="#1f77b4" opacity="0.45"><title>Applied → Ghosted: 235</title></path>
+<path id="flow1" d="M12 282.69922C46.00875 282.69922 46.00875 271.49788 80.0175 271.49788" fill="none" stroke-width="247.99618" stroke="#ff7f0e" opacity="0.45"><title>United States → Applied: 230</title></path>
+<path id="flow0" d="M12 37.71496C46.00875 37.71496 46.00875 131.32613 80.0175 131.32613" fill="none" stroke-width="32.34733" stroke="#17becf" opacity="0.45"><title>Singapore → Applied: 30</title></path>
+<path id="flow3" d="M92.0175 383.09616C126.02625 383.09616 126.02625 477.13708 160.035 477.13708" fill="none" stroke-width="29.1126" stroke="#1f77b4" opacity="0.45"><title>Applied → Online Assessment: 27</title></path>
+<path id="flow6" d="M172.035 471.74586C206.04376 471.74586 206.04376 373.7754 240.05251 373.7754" fill="none" stroke-width="18.33015" stroke="#d62728" opacity="0.45"><title>Online Assessment → Ghosted: 17</title></path>
+<path id="flow5" d="M172.035 486.30216C206.04376 486.30216 206.04376 493.1442 240.05251 493.1442" fill="none" stroke-width="10.78244" stroke="#9467bd" opacity="0.45"><title>Online Assessment → Shortlisted for Interview: 10</title></path>
+<path id="flow8" d="M252.05251 495.30069C286.06126 495.30069 286.06126 537.22397 320.07001 537.22397" fill="none" stroke-width="6.46947" stroke="#e377c2" opacity="0.45"><title>Shortlisted for Interview → Ghosted/Rejected: 6</title></path>
+<path id="flow7" d="M252.05251 489.90947C286.06126 489.90947 286.06126 427.02025 320.07001 427.02025" fill="none" stroke-width="4.31298" stroke="#8c564b" opacity="0.45"><title>Shortlisted for Interview → Offer: 4</title></path>
+<path id="flow2" d="M12 512.58805C46.00875 512.58805 46.00875 396.57422 80.0175 396.57422" fill="none" stroke-width="2.15649" stroke="#ff7f0e" opacity="0.45"><title>United Kingdom → Applied: 2</title></path>
+</g>
+<g id="sankey_nodes">
+<g class="node">
+<rect id="r0" class="for_r0" x="0" y="21.5413" height="32.34733" width="12" fill="#17becf" fill-opacity="1"><title>Singapore:
+30</title></rect>
+</g>
+<g class="node">
+<rect id="r1" class="for_r1" x="80.0175" y="115.15246" height="282.5" width="12" fill="#1f77b4" fill-opacity="1"><title>Applied:
+262</title></rect>
+</g>
+<g class="node">
+<rect id="r2" class="for_r2" x="0" y="158.70113" height="247.99618" width="12" fill="#ff7f0e" fill-opacity="1"><title>United States:
+230</title></rect>
+</g>
+<g class="node">
+<rect id="r3" class="for_r3" x="0" y="511.50981" height="2.15649" width="12" fill="#ff7f0e" fill-opacity="1"><title>United Kingdom:
+2</title></rect>
+</g>
+<g class="node">
+<rect id="r4" class="for_r4" x="160.035" y="462.58079" height="29.1126" width="12" fill="#2ca02c" fill-opacity="1"><title>Online Assessment:
+27</title></rect>
+</g>
+<g class="node">
+<rect id="r5" class="for_r5" x="240.05251" y="111.22292" height="271.71756" width="12" fill="#d62728" fill-opacity="1"><title>Ghosted:
+252</title></rect>
+</g>
+<g class="node">
+<rect id="r6" class="for_r6" x="240.05251" y="487.75298" height="10.78244" width="12" fill="#9467bd" fill-opacity="1"><title>Shortlisted for Interview:
+10</title></rect>
+</g>
+<g class="node">
+<rect id="r7" class="for_r7" x="320.07001" y="424.86376" height="4.31298" width="12" fill="#8c564b" fill-opacity="1"><title>Offer:
+4</title></rect>
+</g>
+<g class="node">
+<rect id="r8" class="for_r8" x="320.07001" y="533.98924" height="6.46947" width="12" fill="#e377c2" fill-opacity="1"><title>Ghosted/Rejected:
+6</title></rect>
+</g>
+</g>
+<g id="sankey_labels" font-family="sans-serif" font-size="16px" fill="#000000">
+<text text-anchor="middle" x="172.44334" y="577" font-size="12px" font-weight="400" fill="#336781">Made at SankeyMATIC.com</text>
+<rect id="label0_bg" class="for_r0" x="-78.23999" y="16.35496" width="76.73333" height="42.52" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label0" class="for_r0" text-anchor="end" x="-7.02333" y="37.71496" font-weight="400" font-size="14.4px" dy="-4.91">Singapore<tspan x="-7.02333" dy="19.32" font-weight="400" font-size="17.6px">30</tspan></text>
+<rect id="label1_bg" class="for_r1" x="56.4675" y="235.04246" width="59.1" height="42.52001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label1" class="for_r1" text-anchor="middle" x="86.0175" y="256.40246" font-weight="400" font-size="14.4px" dy="-4.91">Applied<tspan x="86.0175" dy="19.32" font-weight="400" font-size="17.6px">262</tspan></text>
+<rect id="label2_bg" class="for_r2" x="-99.02333" y="261.33922" width="97.51666" height="42.52001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label2" class="for_r2" text-anchor="end" x="-7.02333" y="282.69922" font-weight="400" font-size="14.4px" dy="-4.91">United States<tspan x="-7.02333" dy="19.32" font-weight="400" font-size="17.6px">230</tspan></text>
+<rect id="label3_bg" class="for_r3" x="-115.05666" y="491.22807" width="113.55" height="42.51998" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label3" class="for_r3" text-anchor="end" x="-7.02333" y="512.58805" font-weight="400" font-size="14.4px" dy="-4.91">United Kingdom<tspan x="-7.02333" dy="19.32" font-weight="400" font-size="17.6px">2</tspan></text>
+<rect id="label4_bg" class="for_r4" x="98.46833" y="455.77708" width="135.13332" height="42.52001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label4" class="for_r4" text-anchor="middle" x="166.035" y="477.13708" font-weight="400" font-size="14.4px" dy="-4.91">Online Assessment<tspan x="166.035" dy="19.32" font-weight="400" font-size="17.6px">27</tspan></text>
+<rect id="label5_bg" class="for_r5" x="253.55917" y="225.72169" width="65.50001" height="42.52001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label5" class="for_r5" text-anchor="start" x="259.07584" y="247.0817" font-weight="400" font-size="14.4px" dy="-4.91">Ghosted<tspan x="259.07584" dy="19.32" font-weight="400" font-size="17.6px">252</tspan></text>
+<rect id="label6_bg" class="for_r6" x="165.26918" y="471.78419" width="161.56667" height="42.52001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label6" class="for_r6" text-anchor="middle" x="246.05251" y="493.1442" font-weight="400" font-size="14.4px" dy="-4.91">Shortlisted for Interview<tspan x="246.05251" dy="19.32" font-weight="400" font-size="17.6px">10</tspan></text>
+<rect id="label7_bg" class="for_r7" x="333.57669" y="405.66026" width="42.78333" height="42.52001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label7" class="for_r7" text-anchor="start" x="339.09334" y="427.02025" font-weight="400" font-size="14.4px" dy="-4.91">Offer<tspan x="339.09334" dy="19.32" font-weight="400" font-size="17.6px">4</tspan></text>
+<rect id="label8_bg" class="for_r8" x="333.57669" y="515.86403" width="126.36668" height="42.51995" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label8" class="for_r8" text-anchor="start" x="339.09334" y="537.22397" font-weight="400" font-size="14.4px" dy="-4.91">Ghosted/Rejected<tspan x="339.09334" dy="19.32" font-weight="400" font-size="17.6px">6</tspan></text>
+</g>
+</g></svg>

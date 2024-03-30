@@ -4,7 +4,7 @@ date: "2024-03-17"
 title: "Where Have I Been? (2024 Edition)"
 tags:
 
-- where have I been
+- Reflection
 
 description: "Catching up with what I have been up to in 2024"
 ---
