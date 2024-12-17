@@ -13,30 +13,14 @@ tags:
 
 The dopamine rush from finally seeing your efforts pay off is unbeatable! After going through countless rounds of interviews with recruiters, engineers, and hiring managers, you finally have a foot into XYZ!
 
-However, as you start the internship, you quickly realize that getting in was step 0. The real battle starts here and now you are wondering how you are going to maximize your three-months as an intern. I will attempt to share the insights that I have gained throughout my internship experiences.
-
-If you just want a TL;DR of the advice as bullet points, find them [here](#tips-at-a-glance).
-
-# But first, why should you listen to me?
-
-This is the part where I get to toot my horn a little to set the precedence on why I believe that my advice should matter to you. The advice I am about to share is the culmination of all of these experiences.
-
-I have been very fortunate to have been…
-
-1. Android Engineer @ MightyAim (Feb 2018 to Apr 2018) [**Tech**/*Startup*]
-2. IT Intern @ DBS Bank (Apr 2019 to Aug 2019) [**Finance**/*Bank*]
-3. Research Intern @ DSO National Laboratories (Jul 2020 to Sep 2020) [**Research**/*NLP*]
-4. Backend Engineer @ NUS GDSC Project Sight Words (Aug 2022 to Aug 2023) [**Tech**/*Volunteer*]
-5. Software Engineer Intern @ Betafi (May 2023 to Aug 2023) [**Tech**/*Startup*]
-6. Site Reliability Engineer Intern @ Citadel (May 2024 to Aug 2024) [**Finance**/*Hedge Fund*]
-7. Software Engineer Intern @ Palantir (Aug 2024 to Dec 2024) [**Tech**/*Big Tech*]
-
-Today, I will focus on answering four fundamental questions I had when I started every internship:
+However, as you start the internship, you quickly realize that getting in was step 0. The real battle starts here and now you are wondering how you are going to maximize your three-months as an intern. I will attempt to share the insights that I have gained throughout my internship experiences and focus on answering four fundamental questions:
 
 1. How do I ask questions?
 2. How do I navigate the complex codebases?
 3. How do I understand the overall product easily?
 4. How do I contribute to the projects?
+
+P.S. If you just want a TL;DR of the advice as bullet points, find them [here](#tips-at-a-glance).
 
 # Asking questions
 
