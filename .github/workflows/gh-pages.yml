@@ -43,8 +43,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
-          fetch-depth: 0
+          path: themes/hugo-tania
+          ref: 'main'
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
