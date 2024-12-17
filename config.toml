@@ -56,9 +56,9 @@ provider = "disqus"
 [[menu.header]]
 name = "Articles"
 url = "/articles/"
-[[menu.footer]]
-name = "RSS"
-url = "/index.xml"
+# [[menu.footer]]
+# name = "RSS"
+# url = "/index.xml"
 [[menu.footer]]
 name = "About Me"
 url = "https://woojiahao.com"
