@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 title: "The truth behind software projects"
 date: "2020-05-26"
 description: "How I pick software projects and why I believe failed/incomplete projects are the best kind of projects"
@@ -142,4 +142,4 @@ should belittle that effort.
 
 So go out and build something that inspires you! Work on the project that gets you excited. Explore technologies that
 you are interested in. Don't worry so much about the perceived value of the project you are embarking on. This is YOUR
-journey, so enjoy it to the fullest! 
+journey, so enjoy it to the fullest!

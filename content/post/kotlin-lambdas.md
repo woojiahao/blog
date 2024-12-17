@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 title: "Familiarising yourself with lambdas in Kotlin"
 date: "2018-10-28"
 tags:
@@ -73,10 +73,10 @@ it that it should calculate the time before and after this function took to run 
 
 Some basic pseudo-code would look like this:
 
-|        | Details                                                                                                                                                                                                                                                         |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|        | Details                                                                                                                                                                                                                                                                           |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Input  | {::nomarkdown}<ol><li>Name of the function</li><li>Function to be timed</li></ol>{:/}                                                                                                                                                                                             |
-| Output | None, this function will make use of a side effect                                                                                                                                                                                                              |
+| Output | None, this function will make use of a side effect                                                                                                                                                                                                                                |
 | Steps  | {::nomarkdown}<ol><li>Take the time before running the function</li><li>Run the function</li><li>Take the time after running the function</li><li>Print out the difference between the before and after, this will be total time it took to for the function to run</li></ol>{:/} |
 
 #### Defining structure

@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 date: "2024-03-30"
 title: "Preparing for Technical Interviews"
 description: "Reflecting upon my summer 2024 internship hunt and my learning points from serious technical interviewing preparation!"

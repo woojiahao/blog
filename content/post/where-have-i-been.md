@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 date: "2024-03-17"
 title: "Where Have I Been? (2024 Edition)"
 tags:

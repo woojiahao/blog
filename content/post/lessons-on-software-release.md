@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 title: "Lessons on software release"
 date: "2019-04-03"
 description: "Lessons about software development and release from developing kMD2PDF - a markdown to PDF file converter"
@@ -23,7 +23,7 @@ lessons from this and I hope you (reader) will too if you're developing your own
 
 ```
 .md file -> .html file + .css styling -> .pdf
-``` 
+```
 
 In order to facilitate this system, I used 2 libraries:
 
@@ -38,7 +38,7 @@ fun main() {
   val document = MarkdownDocument("~/Desktop/README.md")
   val convert = markdownConverter {
     document(document)
-  } 
+  }
   converter.convert()
 }
 ```

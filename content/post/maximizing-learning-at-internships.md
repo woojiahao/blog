@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 title: "Maximizing learning at internships"
 date: "2024-12-17"
 description: "Lessons from countless experiences about maximizing your learning at internships (and even full-time roles)!"

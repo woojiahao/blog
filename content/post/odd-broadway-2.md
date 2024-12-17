@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 date: "2021-04-12"
 title: "Open-source Deep Dive: Broadway (Part 2) - Inner workings of Broadway"
 tags:

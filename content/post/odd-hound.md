@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 date: "2021-01-17"
 title: "Open-source Deep Dive: Hound"
 tags:
@@ -178,15 +178,15 @@ We will inspect a basic use case of Hound before diving into how Hound works.
 defmodule HoundTest do
 	use ExUnit.Case
 	use Hound.Helpers
-	
+
 	hound_session()
-	
+
 	test "the truth", meta do
 		navigate_to("https://google.com")
 		element = find_element(:class, "search")
 		fill_field(element, "Apples")
 		submit_element(element)
-		
+
 		assert page_title() == "Apples"
 	end
 end

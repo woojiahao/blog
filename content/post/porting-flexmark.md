@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 title: "Porting to FlexMark"
 date: "2019-04-08"
 description: "Adopting FlexMark into kMD2PDF - a markdown to PDF converter"
@@ -88,7 +88,7 @@ fun assertMarkdown(folder: String, file: String) {
   val converter = setupConverter(markdownFile)
 
   val expectedDocument = parseDocument(htmlFile.readText()).body()
-  val actualDocument = 
+  val actualDocument =
     parseDocument(converter.generateBody())
       .getElementsByClass("content")
       .first()

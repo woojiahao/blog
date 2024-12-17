@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 title: "Gatsby.js + GitHub Actions + GitHub Pages = Match Made in Heaven?"
 date: "2020-04-14"
 description: "A deep dive into creating a continuous deployment system using Gatsby.js, GitHub Actions, and GitHub

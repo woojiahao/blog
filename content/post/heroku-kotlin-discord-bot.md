@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 title: Heroku x Docker x Discord bot x Kotlin
 date: "2019-08-31"
 description: "Deploying a JVM-based Discord bot through the Docker integration with Heroku"

@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 date: "2024-04-13"
 title: "Appreciating 'Largest Rectangle in Histogram'"
 description: "Appreciating the beauty of the 'Largest Rectangle in Histogram' problem"

@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 title: "An investigation into generics in Java"
 date: "2018-11-26"
 tags:
@@ -31,7 +31,7 @@ class Container {
 
   public void setObj(Object obj) {
     this.obj = obj;
-  } 
+  }
 }
 
 Container container = new Container();
@@ -84,7 +84,7 @@ of this generic type at runtime is not permitted because the type will be erased
 ```java
 <T> void foo() {
   System.out.println(T.class); // This does not work!
-} 
+}
 ```
 
 Java isn't able to recognize the data type of `T` during runtime thanks to erasure and thus this line throws and

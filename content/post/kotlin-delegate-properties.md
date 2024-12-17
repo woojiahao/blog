@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 title: "Applications of Kotlin's delegate properties"
 date: "2019-07-13"
 description: "Exploring delegate properties while trying to improve the usability of kMD2PDF - a simple markdown to PDF
@@ -37,7 +37,7 @@ val converter = markdownConverter {
 
   settings {
     theme = Settings.Theme.DARK
-  }  
+  }
 }
 ```
 
@@ -98,7 +98,7 @@ modifying the object that created the delegate.
 import kotlin.reflect.*
 
 class DelegateExample(private var internalValue = "") {
-  operator fun getValue(thisRef: Any?, property: KProperty<*>) 
+  operator fun getValue(thisRef: Any?, property: KProperty<*>)
     = "Internal value is ${internalValue}"
 
   operator fun setValue(thisRef: Any?, property: KProperty<*>, value: Int) {
@@ -113,7 +113,7 @@ string. But when called with an assignment operator (set) will only accept `Int`
 ```kotlin
 var value by DelegateExample()  // internalValue = ""
 
-println(value)                  // Internal value is 
+println(value)                  // Internal value is
 value = 10                      // internalValue = "10"
 println(value)                  // Internal value is 10
 value = 5                       // internalValue = "105"
@@ -189,9 +189,9 @@ element for the configuration to take place.
 class CssProperty<T>(
   val theme: Settings.Theme,
   private var light: T? = null,
-  private var dark: T? = light, 
+  private var dark: T? = light,
   private var fallback: T? = null
-) { 
+) {
   var value: T?
     get() = when(theme) {
       LIGHT -> light

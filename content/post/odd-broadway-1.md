@@ -1,5 +1,5 @@
 ---
-published: true
+status: publish
 date: "2021-04-12"
 title: "Open-source Deep Dive: Broadway (Part 1) - Message queues, concurrency in Elixir, and Broadway architecture"
 tags:
@@ -293,7 +293,7 @@ The current module is initialised in the `Subscriber` process through `init`.
 @impl true
 def init({module, names, options, subscription_options}) do
   {type, state, init_options} = module.init(options)
-	
+
 	# ...
 end
 ```
