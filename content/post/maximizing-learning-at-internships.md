@@ -76,7 +76,7 @@ Now that you have understood how to navigate a complex codebase, the tricky part
 
 ## Start small
 
-Building on top of ["Start with low-hanging issues"](#start-with-low-hanging-issues), you should start with small issues and work your way up. Starting small also applies to the types of changes you are making. Focus on making small changes to one affected area at a time and moving to the next. In Palantir, we called it [decomping](https://www.palantir.com/careers/getting-hired/navigating-open-ended-questions/) a problem, so start by breaking down the problem into smaller parts and focus on solving them individually until you have managed to fix the problem or add the feature!
+Building on top of ["Start with low-hanging issues"](#start-with-low-hanging-issues), you should start with small issues and work your way up. Starting small also applies to the types of changes you are making. Focus on making small changes to one affected area at a time and moving to the next. So start by breaking down the problem into smaller parts and focus on solving them individually until you have managed to fix the problem or add the feature!
 
 ## Use existing PRs as reference
 
