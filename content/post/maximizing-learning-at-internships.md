@@ -52,7 +52,7 @@ Search tools like [SourceGraph](https://sourcegraph.com/) are amazing ways of se
 
 ## Search and trace smartly
 
-Knowing WHAT to search for is as important as having good search tool. For instance, if you are looking at a front-end project and want to make changes to a page, the fastest way to figure out what file the page belongs to is by looking up words on the page. For back-end projects, you may want to use tools like "Jump to implementation/references" to figure out what are the parent classes and definitions. There are many ways to search smartly and navigate a complex codebase, so the best way is to figure out what a good starting point is and going from there.
+Knowing WHAT to search for is as important as having good search tool. For instance, if you are looking at a front-end project and want to make changes to a page, the fastest way to figure out what file the page belongs to is by looking up words on the page. For back-end projects, you may want to use tools like "Jump to implementation/references" to figure out what are the parent classes and definitions. There are many ways to search smartly and navigate a complex codebase, so the best way is to figure out what a good starting point is and go from there.
 
 ## Read other codebases
 
