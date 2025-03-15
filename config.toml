@@ -2,7 +2,9 @@ baseURL = 'https://blog.woojiahao.com'
 languageCode = 'en-us'
 title = 'jiahao.blog'
 theme = 'hugo-tania'
-paginate = 6
+
+[pagination]
+pagerSize = 6
 
 [params]
 # Emoji will show before the blog title on site navbar.
