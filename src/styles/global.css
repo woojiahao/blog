@@ -9,7 +9,7 @@
 }
 
 html {
-  font-size: 18px;
+  @apply md:text-[18px] text-[16px];
 }
 
 body {

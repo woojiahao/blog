@@ -1,7 +1,7 @@
 ---
 draft: false
 title: "Ten Years in Tech"
-subtitle: Reflecting on my journey in the past ten years in tech
+subtitle: Reflecting on my journey from the past ten years in tech
 date: 2025-01-08
 description: "Brief summary of the highlights of my ten years in tech"
 tags:

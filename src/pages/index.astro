@@ -10,7 +10,7 @@ const latestArticles = (await getCollection("blog", ({data}) => !data.draft)).so
 ---
 
 <Layout>
-  <div class="mb-8 flex flex-row gap-36">
+  <div class="mb-8 flex lg:flex-row flex-col space-between gap-24">
     <div class="flex-1/2">
       <h1 class="!text-6xl !mb-1">Hello, I'm Jiahao!</h1>
       <p class="text-neutral-500 mb-4 italic text-xl">Pronounced as "chia-how"</p>
@@ -26,7 +26,7 @@ const latestArticles = (await getCollection("blog", ({data}) => !data.draft)).so
         <a href="mailto:woojiahao1234@gmail.com"><FaAt size={24} className="text-neutral-400 hover:text-orange-500 transition duration-300" /></a>
       </div>
     </div>
-    <img class="w-[400px] h-[400px] rounded-md shadow-md" src="/profile.jpg"></img>
+    <img class="w-[400px] h-[400px] rounded-md shadow-md lg:block hidden" src="/profile.jpg"></img>
   </div>
 
   <div>

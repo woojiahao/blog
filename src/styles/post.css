@@ -8,11 +8,11 @@ ol {
 }
 
 ul li {
-  @apply list-disc list-outside text-xl;
+  @apply list-disc list-outside text-xl ml-5;
 }
 
 ol li {
-  @apply list-decimal list-outside text-xl;
+  @apply list-decimal list-outside text-xl ml-5;
 }
 
 li:not(:last-child) {
@@ -20,7 +20,7 @@ li:not(:last-child) {
 }
 
 li li {
-  @apply ml-8;
+  @apply ml-4;
 }
 
 p {
@@ -57,7 +57,7 @@ pre {
 }
 
 blockquote {
-  @apply lg:px-8 px-12 py-2 pt-4 rounded-md -mx-8 my-6 border-l-4 border-l-neutral-200 bg-neutral-50;
+  @apply lg:px-8 px-4 py-2 pt-4 rounded-md lg:-mx-8 my-6 border-l-4 border-l-neutral-200 bg-neutral-50;
 }
 
 hr {
