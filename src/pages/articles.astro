@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import ArticleRow from '../components/ArticleRow.astro';
+import RssButton from '../components/RssButton.astro';
+import HorizontalRuler from '../components/HorizontalRuler.astro';
+
+const articles = (await getCollection("blog", ({data}) => !data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+const articlesByYear = Object.groupBy(articles, (article) => article.data.date.getFullYear())
+const years = Object.keys(articlesByYear).map((year) => parseInt(year)).reverse()
+---
+
+<Layout>
+  <div>
+    <div class="mb-1 flex flex-row justify-between items-center">
+      <h1 class="!mb-0">Articles</h1>
+      <RssButton />
+    </div>
+    <p class="text-neutral-500 mb-4 italic text-lg">Random musings and thoughts on software engineering</p>
+  </div>
+
+  <div class="mt-6 mb-6">
+    <h2 class="!mb-2">Pinned articles</h2>
+    {articles.filter((article) => article.data.pinned).map((article) => <ArticleRow article={article} />)}
+  </div>
+
+  <HorizontalRuler />
+
+  {
+    years.map((year) => (
+      <div>
+        <h2 class="!mb-2 !mt-6">{year}</h2>
+          {
+          articlesByYear[year]?.map((article) => (<ArticleRow article={article} />))
+          }
+      </div>
+    ))
+  }
+</Layout>

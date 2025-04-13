@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Familiarising yourself with lambdas in Kotlin"
 date: 2018-10-28
 tags:

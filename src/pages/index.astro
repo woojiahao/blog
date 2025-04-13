@@ -1,16 +1,18 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import { FaGithub, FaLinkedin, FaTwitter, FaAt, FaHouse, FaRss } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaTwitter, FaAt, FaHouse } from "react-icons/fa6";
 import ArticleRow from '../components/ArticleRow.astro';
+import RssButton from '../components/RssButton.astro';
+import HorizontalRuler from '../components/HorizontalRuler.astro';
 
 const latestArticles = (await getCollection("blog", ({data}) => !data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 10)
 ---
 
 <Layout>
-  <div class="my-8 flex flex-row gap-36">
+  <div class="mb-8 flex flex-row gap-36">
     <div class="flex-1/2">
-      <h1 class="!mb-1">Hello, I'm Jiahao!</h1>
+      <h1 class="!text-6xl !mb-1">Hello, I'm Jiahao!</h1>
       <p class="text-neutral-500 mb-4 italic text-xl">Pronounced as "chia-how"</p>
       <p class="text-xl">I am a software engineer, Elixir enthusiast, technical author, and all around tech nerd!</p>
       <p class="text-xl">I am also a third-year Computer Science student at the National University of Singapore.</p>
@@ -33,9 +35,9 @@ const latestArticles = (await getCollection("blog", ({data}) => !data.draft)).so
         <p class="text-3xl font-bold !mb-0">Latest articles</p>
         <a href="/articles" class="px-2 py-1 border-1 text-xs border-neutral-200 rounded-md hover:bg-neutral-50 text-neutral-600">View all</a>
       </div>
-      <p class="text-sm border-1 border-orange-200 px-3 py-1 rounded-full flex flex-row gap-2 items-center !mb-0 text-orange-500 transition duration-300 hover:cursor-pointer hover:bg-orange-50">Subscribe to my RSS feed<FaRss className="text-orange-500" /></p>
+      <RssButton />
     </div>
-    <div class="border-b-2 border-b-neutral-100 my-2 w-full" />
+    <HorizontalRuler />
     {
       latestArticles.map((article) => (
         <ArticleRow article={article} />
