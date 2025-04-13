@@ -12,7 +12,6 @@ import remarkMath from "remark-math"
 import remarkCallout from './src/plugins/remark-callout';
 import remarkDirective from "remark-directive"
 
-// https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
