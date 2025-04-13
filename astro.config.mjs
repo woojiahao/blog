@@ -13,6 +13,7 @@ import remarkCallout from './src/plugins/remark-callout';
 import remarkDirective from "remark-directive"
 
 export default defineConfig({
+  site: "https://blog.woojiahao.com",
   vite: {
     plugins: [tailwindcss()]
   },
