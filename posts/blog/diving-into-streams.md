@@ -1,7 +1,7 @@
 ---
-status: publish
+draft: true
 title: "Diving into (Java) streams"
-date: "2018-04-08"
+date: 2018-04-08
 tags:
   - guide
   - tutorial

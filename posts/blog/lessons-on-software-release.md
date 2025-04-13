@@ -1,7 +1,7 @@
 ---
-status: publish
+draft: true
 title: "Lessons on software release"
-date: "2019-04-03"
+date: 2019-04-03
 description: "Lessons about software development and release from developing kMD2PDF - a markdown to PDF file converter"
 tags:
 - reflection

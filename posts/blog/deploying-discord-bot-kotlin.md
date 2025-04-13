@@ -1,5 +1,5 @@
 ---
-status: publish
+draft: true
 title: "Deploying discord bots written in Kotlin to Heroku"
 date: 2020-04-21
 description: "A (revised) guide to deploying JVM-based Discord bots on Heroku"
@@ -138,7 +138,7 @@ To ensure that the Heroku application has been created, run the `git remote -v` 
 repository. Should your application have been created successfully, you will see a new remote added linking to a Heroku
 Git remote.
 
-![Results of git remote -v](post/deploying-discord-bot-kotlin/git-remote.png)
+![Results of git remote -v](/deploying-discord-bot-kotlin/git-remote.png)
 
 With the Heroku application created, we can begin configuring our repository to deploy to Heroku.
 

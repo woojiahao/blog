@@ -1,6 +1,6 @@
 ---
-status: publish
-date: "2024-03-17"
+draft: false
+date: 2024-03-17
 title: "Where Have I Been? (2024 Edition)"
 tags:
 

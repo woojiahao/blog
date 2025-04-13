@@ -1,7 +1,7 @@
 ---
-status: publish
+draft: true
 title: "An investigation into generics in Java"
-date: "2018-11-26"
+date: 2018-11-26
 tags:
 
 - Java

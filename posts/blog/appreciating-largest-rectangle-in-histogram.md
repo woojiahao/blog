@@ -1,9 +1,8 @@
 ---
-status: publish
-date: "2024-04-13"
+draft: false
+date: 2024-04-13
 title: "Appreciating 'Largest Rectangle in Histogram'"
 description: "Appreciating the beauty of the 'Largest Rectangle in Histogram' problem"
-mathjax: true
 tags:
 - Learning
 - Leetcode
@@ -23,11 +22,11 @@ why algorithms work. Let's start with an example:
 
 Let the array of heights be `[1, 4, 7, 5, 7]`:
 
-![Initial](post//leetcode/largest-rectangle/initial.png)
+![Initial](/leetcode/largest-rectangle/initial.png)
 
 The answer is `16`:
 
-![Answer](post//leetcode/largest-rectangle/answer.png)
+![Answer](/leetcode/largest-rectangle/answer.png)
 
 If you have solved this problem before, or just looked at the answer, you may have found it hard to convince yourself
 why the algorithm works. Fret not, I am here to _try_ formalizing the proof of the algorithm so that you can understand

@@ -1,6 +1,7 @@
 ---
-status: publish
-date: "2024-03-30"
+draft: false
+pinned: true
+date: 2024-03-30
 title: "Preparing for Technical Interviews"
 description: "Reflecting upon my summer 2024 internship hunt and my learning points from serious technical interviewing preparation!"
 tags:
@@ -90,7 +91,7 @@ receiving offers from companies like [Citadel](https://www.citadel.com/), [Palan
 [Google](https://www.google.com/), and [PayPal](https://www.paypal.com/sg/home) (all of which I am extremely thankful
 for). While the following diagram is not 100% accurate, it hopefully gives you a rough idea on my overall success rate:
 
-![Callback rate](post//technical-interview-systems/success-sankey.png)
+![Callback rate](/technical-interview-systems/success-sankey.png)
 
 ## Why am I writing this?
 
@@ -151,7 +152,7 @@ guideline on what to complete. I have since moved this study plan to my [Technic
 Guide](https://interviews.woojiahao.com/getting-started/study-plan), but this was what planning my study plan
 looked like in Google Sheets:
 
-![Study plan in Google Sheets](post//technical-interview-systems/study-plan.png)
+![Study plan in Google Sheets](/technical-interview-systems/study-plan.png)
 
 The final secret sauce is to create and follow a reasonable study plan. For me, I used the number of questions and
 familiarity with each topic as a gauge for how long I should spend on each topic. For instance, I felt more
@@ -175,7 +176,7 @@ serious preparation. LeetCode has a built-in notetaking functionality and I know
 to make such notes. The medium is secondary to the actual process of notetaking and internalizing the intuition of each
 problem.
 
-![Notion database for questions](post//technical-interview-systems/notion.png)
+![Notion database for questions](/technical-interview-systems/notion.png)
 
 I recommend capturing the following "metadata" about each question:
 
@@ -199,7 +200,7 @@ following:
 
 For instance, this is what my note for [Range Sum in BST](https://leetcode.com/problems/range-sum-of-bst/):
 
-![Note for Range Sum in BST](post//technical-interview-systems/sample-note.png)
+![Note for Range Sum in BST](/technical-interview-systems/sample-note.png)
 
 When approaching a question, try to allocate a fixed time to solve it by before looking at the solution. This varies
 per person. This allows you to stay on track with your timeline. However, do not just space out for the alloted time
@@ -214,7 +215,7 @@ I highly recommend making your own notes for these topics (the content of the st
 notes!). While you can refer to online sources for these information, having a personalized set of notes is helpful
 when it comes to linking concepts and revising! This was what my personal notes looked like:
 
-![Concepts in Notion](post//technical-interview-systems/concepts.png)
+![Concepts in Notion](/technical-interview-systems/concepts.png)
 
 ## Starting early
 
@@ -263,7 +264,7 @@ the industry you were in, the problems you were solving, the technical and non-t
 you contributed to the team. These are all key things that help inform your perspective of these experiences and gives
 the interviewer the sense that you CARE about the project beyond just being a "code monkey".
 
-![Code monkey](post//technical-interview-systems/monkey-developer.gif)
+![Code monkey](/technical-interview-systems/monkey-developer.gif)
 
 # Conclusion
 

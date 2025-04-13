@@ -1,6 +1,7 @@
 ---
-status: publish
-date: "2021-04-12"
+draft: false
+pinned: true
+date: 2021-04-12
 title: "Open-source Deep Dive: Broadway (Part 1) - Message queues, concurrency in Elixir, and Broadway architecture"
 tags:
 
@@ -73,7 +74,7 @@ these lines to be worked on.
 
 For your use case, the flow of data will look something like this:
 
-![Sample scenario flowchart](post//open-source-deep-dive/broadway/pipeline.jpg)
+![Sample scenario flowchart](/open-source-deep-dive/broadway/pipeline.jpg)
 
 So how does Broadway achieve all of this?
 
@@ -99,7 +100,7 @@ Messages are created and delivered to these queues by **producers** and taken fr
 consumers.** These messages can vary from something as simple as plain information to more complex structures like
 requests or — in our case — transaction information.
 
-![Message queue architecture](post//open-source-deep-dive/broadway/message_queue.png)
+![Message queue architecture](/open-source-deep-dive/broadway/message_queue.png)
 
 Message queues are useful for **decentralising the communication mechanism of large systems** by acting as a medium for
 exchanging events between systems which allows for systems to be easily scaled and distributed.
@@ -125,7 +126,7 @@ models.
 Each process communicates via **asynchronous message passing**. Think of a process as a mailbox of sorts; it has a "bin"
 to receive incoming messages and it possess an "address" for other processes to identify it by.
 
-![Actor concurrency model visualisation](post//open-source-deep-dive/broadway/actor_concurrency_model.png)
+![Actor concurrency model visualisation](/open-source-deep-dive/broadway/actor_concurrency_model.png)
 
 The unique aspect of this model is the **lack of shared mutable state** that other concurrency models rely on. Rather,
 state is exclusive to each process.
@@ -196,13 +197,13 @@ how it does what it does!
 
 # Pipeline architecture
 
-![Pipeline architecture](post//open-source-deep-dive/broadway/architecture.jpg)
+![Pipeline architecture](/open-source-deep-dive/broadway/architecture.jpg)
 
 It is at this juncture where it would be important to clarify the term "producer". In both message queues and GenStage,
 a producer is a creator of messages or events. However, in Broadway, a producer is both a consumer of messages and an
 emitter of events.
 
-![Terminology clarification for Broadway producer](post//open-source-deep-dive/broadway/terminology.jpg)
+![Terminology clarification for Broadway producer](/open-source-deep-dive/broadway/terminology.jpg)
 
 For the rest of the article, the following definitions for the following terminology will be used:
 
@@ -216,7 +217,7 @@ Broadway.
 Each component is a separate process and they are dynamically generated as different topologies (architectures) can be
 designed. The order of initialisation for a typical pipeline looks something like this:
 
-![Order of initialisation](post//open-source-deep-dive/broadway/order_of_initialisation.jpg)
+![Order of initialisation](/open-source-deep-dive/broadway/order_of_initialisation.jpg)
 
 The producers and processors are both created using interesting conventions that is will be explored now. Other
 components will be discussed later on as they tie into other features Broadway has.

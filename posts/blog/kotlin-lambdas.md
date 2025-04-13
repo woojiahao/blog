@@ -1,7 +1,7 @@
 ---
-status: publish
+draft: true
 title: "Familiarising yourself with lambdas in Kotlin"
-date: "2018-10-28"
+date: 2018-10-28
 tags:
 - Kotlin
 - lambda

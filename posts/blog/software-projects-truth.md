@@ -1,7 +1,7 @@
 ---
-status: publish
+draft: true
 title: "The truth behind software projects"
-date: "2020-05-26"
+date: 2020-05-26
 description: "How I pick software projects and why I believe failed/incomplete projects are the best kind of projects"
 tags:
 - reflection

@@ -1,7 +1,7 @@
 ---
-status: publish
+draft: false
 title: Installing UxPlay on Arch Linux
-date: "2022-02-01"
+date: 2022-02-01
 description: "Simple guide to installing UxPlay - AirPlay Unix mirroring server - on Arch Linux"
 tags:
 - tutorial
