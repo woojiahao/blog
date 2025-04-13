@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "An investigation into generics in Java"
 date: 2018-11-26
 tags:

@@ -1,16 +1,21 @@
 ---
 import type { getCollection } from "astro:content"
 import { formatDate } from "../utils/date.util"
-import { FaThumbtack } from "react-icons/fa6";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 type ArticleType = Awaited<ReturnType<typeof getCollection<"blog">>>[number]
 
-const { article } = Astro.props as {article: ArticleType }
+const { article, hasContrast } = Astro.props as { article: ArticleType, hasContrast: boolean }
 ---
 
-<div class="flex flex-row justify-between items-center px-4 -mx-4 py-2 rounded-md hover:bg-neutral-100 hover:cursor-pointer transition duration-300">
+<div class:list={[
+  "flex flex-row justify-between items-center px-4 -mx-4 py-2 rounded-md hover:cursor-pointer transition duration-300",
+  hasContrast ? "hover:bg-white" : "hover:bg-neutral-100 "
+]}>
   <div class="flex flex-row items-center w-full">
     <p class="text-neutral-500 text-sm flex-1/12 !mb-0">{formatDate(article.data.date)}</p>
     <p class="flex-11/12 text-lg !mb-0">{article.data.title}</p>
   </div>
+
+  {article.data.url != null && <FaArrowUpRightFromSquare className="text-neutral-500" />}
 </div>
