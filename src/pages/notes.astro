@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../layouts/Layout.astro"
+import NoteRow from "../components/NoteRow.astro"
+import HorizontalRuler from "../components/HorizontalRuler.astro"
+
+const pinnedNotes = (await getCollection("notes", (note) => !note.data.draft && note.data.pinned)).sort((a, b) => a.data.title.localeCompare(b.data.title))
+const unpinnedNotes = (await getCollection("notes", (note) => !note.data.draft && !note.data.pinned)).sort((a, b) => a.data.title.localeCompare(b.data.title))
+---
+
+<Layout>
+  <div>
+    <div class="mb-1 flex flex-row justify-between items-center">
+      <h1 class="!mb-0">Notes</h1>
+    </div>
+    <p class="text-neutral-500 mb-4 italic text-lg">Collection of notes I have written about computer science and software engineering</p>
+  </div>
+
+  {
+    pinnedNotes.map((note) => <NoteRow note={note} />)
+  }
+
+  <HorizontalRuler />
+
+  {
+    unpinnedNotes.map((note) => <NoteRow note={note} />)
+  }
+</Layout>

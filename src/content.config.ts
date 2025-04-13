@@ -20,7 +20,6 @@ const notes = defineCollection({
   schema: z.object({
     draft: z.boolean().optional().default(true),
     title: z.string(),
-    date: z.date(),
     description: z.string().optional(),
     tags: z.array(z.string()).optional().default([]),
     pinned: z.boolean().optional().default(false),

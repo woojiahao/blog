@@ -6,7 +6,6 @@ const remarkCallout: Plugin<[], Root> = () => {
   return (tree) => {
     visit(tree, (node: any) => {
       if (node.type === "containerDirective" && node.name === "callout") {
-        console.log("hi")
         const className = node.name;
         const hintClassNames = (node.attributes || {}).class || "";
         node.data = {
