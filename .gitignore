@@ -1,16 +1,25 @@
-# Generated files by hugo
-/public/
-/resources/_gen/
-/assets/jsconfig.json
-hugo_stats.json
+# build output
+dist/
 
-# Executable may be added to repository
-hugo.exe
-hugo.darwin
-hugo.linux
+# generated types
+.astro/
 
-# Temporary lock file while building
-/.hugo_build.lock
+# dependencies
+node_modules/
 
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
 .idea/
-*.iml
+.vscode/

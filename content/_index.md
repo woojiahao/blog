@@ -1,1 +1,0 @@
-Ramblings and musings of Jia Hao (jiāháo) - software engineer, Elixir enthusiast, technical author, and all around tech nerd!
