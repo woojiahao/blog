@@ -1,0 +1,14 @@
+---
+import type { getCollection } from "astro:content"
+import { formatDate } from "../utils/date.util"
+
+type ArticleType = Awaited<ReturnType<typeof getCollection<"blog">>>[number]
+
+const { article } = Astro.props as {article: ArticleType }
+console.log(article)
+---
+
+<div class="flex flex-row items-center px-4 -mx-4 py-2 rounded-md hover:bg-neutral-100 hover:cursor-pointer transition duration-300">
+  <p class="text-neutral-500 text-sm flex-1/12 !mb-0">{formatDate(article.data.date)}</p>
+  <p class="flex-11/12 text-lg !mb-0">{article.data.title}</p>
+</div>
