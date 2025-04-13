@@ -72,12 +72,11 @@ In this scenario, we ideally, would want to have a function that can time **any*
 it that it should calculate the time before and after this function took to run and print that out, nicely formatted.
 
 Some basic pseudo-code would look like this:
-
 |        | Details                                                                                                                                                                                                                                                                           |
 | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Input  | {::nomarkdown}<ol><li>Name of the function</li><li>Function to be timed</li></ol>{:/}                                                                                                                                                                                             |
+| Input  | <ol><li>Name of the function</li><li>Function to be timed</li></ol>                                                                                                                                                                                             |
 | Output | None, this function will make use of a side effect                                                                                                                                                                                                                                |
-| Steps  | {::nomarkdown}<ol><li>Take the time before running the function</li><li>Run the function</li><li>Take the time after running the function</li><li>Print out the difference between the before and after, this will be total time it took to for the function to run</li></ol>{:/} |
+| Steps  | <ol><li>Take the time before running the function</li><li>Run the function</li><li>Take the time after running the function</li><li>Print out the difference between the before and after, this will be total time it took to for the function to run</li></ol> |
 
 #### Defining structure
 

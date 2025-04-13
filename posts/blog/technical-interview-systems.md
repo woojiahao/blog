@@ -19,27 +19,14 @@ My friend, Devansh, recently wrote an article about
 journey through internship hunting and technical interviews in summer 2024 and I would love to share more about the
 systems and techniques I had used to prepare for my technical interviews.
 
-> **⚠️ DISCLAIMER ⚠️**
->
-> I understand that the tech industry is very volatile at the moment and a lot of my "success" this
-> internship cycle boils down to timing and luck along with a lot of preparations. I am incredibly thankful for the
-> offers I have received and I will never know what combination of factors led to my ultimate success.
->
-> If you are reading this and you have not had as much success so far, please do not stop trying. Keep pushing and you
-> will definitely get an amazing offer :)
+:::callout{.info}
+I understand that the tech industry is very volatile at the moment and a lot of my "success" this
+internship cycle boils down to timing and luck along with a lot of preparations. I am incredibly thankful for the
+offers I have received and I will never know what combination of factors led to my ultimate success.
 
-- [Who am I?](#who-am-i)
-  - [My background](#my-background)
-  - [First failures...](#first-failures)
-  - [Formal exposure to data structures and algorithms](#formal-exposure-to-data-structures-and-algorithms)
-  - [Turning point](#turning-point)
-  - [Why am I writing this?](#why-am-i-writing-this)
-- [Technical interviewing as a skill](#technical-interviewing-as-a-skill)
-  - [Creating a good study plan](#creating-a-good-study-plan)
-  - [Compiling useful notes](#compiling-useful-notes)
-  - [Starting early](#starting-early)
-  - [Interviewing with a passion](#interviewing-with-a-passion)
-- [Conclusion](#conclusion)
+If you are reading this and you have not had as much success so far, please do not stop trying. Keep pushing and you
+will definitely get an amazing offer :)
+:::
 
 # Who am I?
 
@@ -91,7 +78,7 @@ receiving offers from companies like [Citadel](https://www.citadel.com/), [Palan
 [Google](https://www.google.com/), and [PayPal](https://www.paypal.com/sg/home) (all of which I am extremely thankful
 for). While the following diagram is not 100% accurate, it hopefully gives you a rough idea on my overall success rate:
 
-![Callback rate](/technical-interview-systems/success-sankey.png)
+![Callback rate](/post/technical-interview-systems/success-sankey.png)
 
 ## Why am I writing this?
 
@@ -100,9 +87,11 @@ techniques had proven to be successful and as such, I would love to share more a
 too can benefit and experience success in your own internship hunt! This article focuses on the "meta-discussion" of
 studying for technical interviews and the state of technical interviews in general.
 
-> If you are interested in my condensed notes for the various topics involved in technical interviews (data structures,
-> algorithms, system design, behavioral, and resume writing), I have open-sourced my notes as a "Technical Interview
-> Study Guide" that you can find here: <https://interviews.woojiahao.com>.
+:::callout{.info}
+If you are interested in my condensed notes for the various topics involved in technical interviews (data structures,
+algorithms, system design, behavioral, and resume writing), I have open-sourced my notes as a "Technical Interview
+Study Guide" that you can find here: <https://interviews.woojiahao.com>.
+:::
 
 # Technical interviewing as a skill
 
@@ -123,9 +112,11 @@ Interview Study Guide](https://interviews.woojiahao.com):
 
 ## Creating a good study plan
 
-> **TL;DR**
->
-> Understand your weaknesses, create/use a study plan, and follow a reasonable timeline
+:::callout{.info}
+**TL;DR**
+
+Understand your weaknesses, create/use a study plan, and follow a reasonable timeline
+:::
 
 Prior to creating a study plan, you should first identify your strengths and weaknesses. Before even thinking about the
 questions I wanted to finish, I first sat down for about 30 minutes and thought hard about the topics that I found
@@ -152,7 +143,7 @@ guideline on what to complete. I have since moved this study plan to my [Technic
 Guide](https://interviews.woojiahao.com/getting-started/study-plan), but this was what planning my study plan
 looked like in Google Sheets:
 
-![Study plan in Google Sheets](/technical-interview-systems/study-plan.png)
+![Study plan in Google Sheets](/post/technical-interview-systems/study-plan.png)
 
 The final secret sauce is to create and follow a reasonable study plan. For me, I used the number of questions and
 familiarity with each topic as a gauge for how long I should spend on each topic. For instance, I felt more
@@ -167,16 +158,18 @@ after having finished their questions to ensure that I'm not forgetting the key 
 Once you have a study plan, you can start attempting the questions. Of course, having a systematic way of tackling
 problems is quintessential for learning.
 
-> **TL;DR**
->
-> Focus on systematically capturing the intuition of problems and jotting down recurring/unique patterns in problems
+:::callout{.info}
+**TL;DR**
+
+Focus on systematically capturing the intuition of problems and jotting down recurring/unique patterns in problems
+:::
 
 I use [Notion](https://www.notion.so/) to store my notes for every LeetCode question I have attempted since starting
 serious preparation. LeetCode has a built-in notetaking functionality and I know others who use tools like Google Sheets
 to make such notes. The medium is secondary to the actual process of notetaking and internalizing the intuition of each
 problem.
 
-![Notion database for questions](/technical-interview-systems/notion.png)
+![Notion database for questions](/post/technical-interview-systems/notion.png)
 
 I recommend capturing the following "metadata" about each question:
 
@@ -200,7 +193,7 @@ following:
 
 For instance, this is what my note for [Range Sum in BST](https://leetcode.com/problems/range-sum-of-bst/):
 
-![Note for Range Sum in BST](/technical-interview-systems/sample-note.png)
+![Note for Range Sum in BST](/post/technical-interview-systems/sample-note.png)
 
 When approaching a question, try to allocate a fixed time to solve it by before looking at the solution. This varies
 per person. This allows you to stay on track with your timeline. However, do not just space out for the alloted time
@@ -215,16 +208,18 @@ I highly recommend making your own notes for these topics (the content of the st
 notes!). While you can refer to online sources for these information, having a personalized set of notes is helpful
 when it comes to linking concepts and revising! This was what my personal notes looked like:
 
-![Concepts in Notion](/technical-interview-systems/concepts.png)
+![Concepts in Notion](/post/technical-interview-systems/concepts.png)
 
 ## Starting early
 
 All these preparations would be in vain if you only start in the middle of the internship cycle or if you start applying
 late.
 
-> **TL;DR**
->
-> Start practicing as early as possible so that you are ready and able to apply to more roles
+:::callout{.info}
+**TL;DR**
+
+Start practicing as early as possible so that you are ready and able to apply to more roles
+:::
 
 My personal timeline for summer 2024 was as such (taken from my [Technical Interview Study
 Guide](https://interviews.woojiahao.com)):
@@ -245,9 +240,11 @@ in Singapore opened soon after the summer ended.
 It does not matter how much you prepare for the interview if you cannot convince your interviewers to want you on their
 team.
 
-> **TL;DR**
->
-> Research every company in depth and understand their business, projects, and culture and find an alignment with them
+:::callout{.info}
+**TL;DR**
+
+Research every company in depth and understand their business, projects, and culture and find an alignment with them
+:::
 
 Every interview with an engineer/manager/HR with the company is a two-way conversation. It is both a way for them to get
 to know you as a candidate, but also for you to get to know about the company. However, in order for this conversation
@@ -264,7 +261,7 @@ the industry you were in, the problems you were solving, the technical and non-t
 you contributed to the team. These are all key things that help inform your perspective of these experiences and gives
 the interviewer the sense that you CARE about the project beyond just being a "code monkey".
 
-![Code monkey](/technical-interview-systems/monkey-developer.gif)
+![Code monkey](/post/technical-interview-systems/monkey-developer.gif)
 
 # Conclusion
 

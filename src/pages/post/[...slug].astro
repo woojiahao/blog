@@ -1,0 +1,59 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro"
+import { getEntry } from "astro:content";
+import { render } from "astro:content";
+import { formatDate } from "../../utils/date.util";
+import HorizontalRuler from "../../components/HorizontalRuler.astro";
+import RssButton from "../../components/RssButton.astro";
+import "../../styles/post.css";
+import ArticleRow from "../../components/ArticleRow.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", (p) => !p.data.draft);
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
+}
+
+const post = await getEntry("blog", Astro.params.slug);
+if (post == null) {
+  return Astro.redirect("/404");
+}
+
+if (post.data.url != null) {
+  return Astro.redirect(post.data.url)
+}
+
+const { Content, remarkPluginFrontmatter } = await render(post);
+
+const articles = (await getCollection("blog", ({data}) => !data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+const currentArticleIndex = articles.findIndex((article) => article.id === post.id)
+const recommended = currentArticleIndex === 0 ? articles.slice(currentArticleIndex + 1, currentArticleIndex + 4) : articles.slice(currentArticleIndex - 1, currentArticleIndex + 3);
+---
+
+<Layout>
+  <p class="text-indigo-600 font-bold !text-xl">{formatDate(post.data.date)}</p>
+  <h1 class="!mt-0">{post.data.title}</h1>
+  {post.data.subtitle != null && <p class="!text-lg text-neutral-500">{post.data.subtitle}</p>}
+  <p class="!text-right text-red-600 font-bold !text-base">{remarkPluginFrontmatter.minutesRead}</p>
+  <HorizontalRuler />
+  <div class="w-[60%] mx-auto mt-8">
+    <div class="mb-6">
+      <Content />
+    </div>
+  </div>
+    <HorizontalRuler />
+    <div class="my-6 p-4 bg-neutral-50 rounded-md">
+      <p class="font-bold !text-2xl">Enjoyed reading?</p>
+<p class="!text-lg">Consider subscribing to my <a href="/rss.xml">RSS feed</a> or reaching out to me <a href="mailto:woojiahao1234@gmail.com">through email</a>!</p>
+    </div>
+    <div>
+      <p class="font-bold !text-lg">You might enjoy...</p>
+      {
+        recommended.filter((article) => article.id !== post.id).map(article => <ArticleRow article={article} />)
+      }
+    </div>
+</Layout>

@@ -21,6 +21,11 @@ for educational purposes, the information gathered from here should only be used
 for websites that are directly under your ownership."
 ---
 
+:::callout{.danger}
+I do not condone the use of browser automation or torrenting for illegal purposes. Any links or discussions
+about the mentioned subjects are purely for educational purposes and should remain as that.
+:::
+
 ## What is Hound?
 
 > For browser automation and writing integration tests in Elixir
@@ -39,8 +44,7 @@ applications and we will be exploring one of them in this post - integration tes
 ### What is integration testing?
 
 When building software, we first build individual components to support given functional requirements. These individual
-components can be tested using unit tests - which ensure that given a set of inputs, the component returns a **
-predictable** set of outputs (predictable means that the functions tested are pure).
+components can be tested using unit tests - which ensure that given a set of inputs, the component returns a **predictable** set of outputs (predictable means that the functions tested are pure).
 
 However, while components may work well on their own, when combined with other components (to form larger
 components/whole systems), unexpected behavior may be exhibited. For instance, the input from component A is transformed
@@ -70,7 +74,7 @@ on [Selenium](http://selenium.dev), [PhantomJS](https://phantomjs.org/),
 and [ChromeDriver](https://chromedriver.chromium.org/) as the interfacing systems to perform the "dirty" work of
 coordinating requests/responses to/from the browser.
 
-![Hound's architecturel](/open-source-deep-dive/hound/general-architecture.png)
+![Hound's architecture](/open-source-deep-dive/hound/general-architecture.png)
 
 This introduces a larger question, what exactly is Selenium, PhantomJS, and ChromeDriver? More importantly, in fact,
 
@@ -501,8 +505,10 @@ If you are interested in the topics discussed in this post, here are some additi
 13. [ETS](https://erlang.org/doc/man/ets.html)
 14. [GenServer](https://hexdocs.pm/elixir/GenServer.html)
 
-> **NOTE:** I do not condone the use of browser automation or torrenting for illegal purposes. Any links or discussions
-> about the mentioned subjects are purely for educational purposes and should remain as that.
+:::callout{.danger}
+I do not condone the use of browser automation or torrenting for illegal purposes. Any links or discussions
+about the mentioned subjects are purely for educational purposes and should remain as that.
+:::
 
 ---
 

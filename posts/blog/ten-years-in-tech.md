@@ -1,6 +1,7 @@
 ---
 draft: false
 title: "Ten Years in Tech"
+subtitle: Reflecting on my journey in the past ten years in tech
 date: 2025-01-08
 description: "Brief summary of the highlights of my ten years in tech"
 tags:
@@ -47,7 +48,7 @@ To mark ten years in tech, I thought it would be fun to document my journey in t
 - Faced with making a tricky decision of choosing [Junior College](https://en.wikipedia.org/wiki/Junior_college_(Singapore)) or [Polytechnic](https://en.wikipedia.org/wiki/Institute_of_technology)
 - Unsure if I should study chemical engineering or information technology
 
-![](/ten-years-in-tech/school_choices.png)
+![](/post/ten-years-in-tech/school_choices.png)
 
 - Took a leap of faith and decided to pursue my interest in tech by studying IT at [Singapore Polytechnic](https://sopossible.sp.edu.sg/courses/schools/soc/information-technology)
 

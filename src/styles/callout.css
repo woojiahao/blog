@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+div.callout {
+  @apply lg:px-8 px-12 py-2 pt-4 rounded-md -mx-8 my-6;
+}
+
+div.callout.danger {
+  @apply border-l-4 border-l-red-200;
+}
+
+div.callout.danger:not(.minimal) {
+  @apply bg-red-50;
+}
+
+div.callout.danger.minimal {
+  @apply rounded-none;
+}
+
+div.callout.note {
+  @apply border-l-4 border-l-neutral-200;
+}
+
+div.callout.note:not(.minimal) {
+  @apply bg-neutral-50;
+}
+
+div.callout.note.minimal {
+  @apply rounded-none;
+}
+
+div.callout.warning {
+  @apply border-l-4 border-l-yellow-200;
+}
+
+div.callout.warning:not(.minimal) {
+  @apply bg-yellow-50;
+}
+
+div.callout.warning.minimal {
+  @apply rounded-none;
+}
+
+div.callout.info {
+  @apply border-l-4 border-l-blue-200;
+}
+
+div.callout.info:not(.minimal) {
+  @apply bg-blue-50;
+}
+
+div.callout.info.minimal {
+  @apply rounded-none;
+}

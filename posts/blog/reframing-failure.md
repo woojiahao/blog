@@ -10,11 +10,9 @@ tags:
 - software engineering
 ---
 
-# Reframing Failure
-
 I saw this message on an online forum and it reminded me of the uncertainty I felt before starting every one of my internships.
 
-![Inspiration](/reframing-failure/inspiration.jpg)
+![Inspiration](/post/reframing-failure/inspiration.jpg)
 
 After sharing some of my sentiments in the forum, it got me thinking about my past experiences and how I’ve started reframing failure in tech and I wanted to consolidate those thoughts here.
 
@@ -24,7 +22,7 @@ Before I dive into how I reframe failure, I think it’s good to set some preced
 
 To some, failure might look like this…
 
-![Reddit post](/reframing-failure/reddit.png)
+![Reddit post](/post/reframing-failure/reddit.png)
 
 And perhaps, incidents like these are the reason why we are so afraid of failures in our own internships.
 
@@ -99,7 +97,7 @@ Most companies with decent engineering cultures should have some form of guardra
 
 Beyond the engineering capacity of the company, you should trust in your coworkers/mentors/managers/seniors to "have your back" and rally around you to fix your mistakes.
 
-![Rallying](/reframing-failure/rally.jpg)
+![Rallying](/post/reframing-failure/rally.jpg)
 
 These safety nets (or support structures) are quintessential. Knowing that your failures will not cause systems to end up in flames reduces the stress you feel from every mistake and allows you to focus on trying and learning as much.
 

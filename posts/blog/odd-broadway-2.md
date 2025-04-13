@@ -1,7 +1,7 @@
 ---
 draft: false
 pinned: true
-date: 2021-04-12
+date: 2021-04-13
 title: "Open-source Deep Dive: Broadway (Part 2) - Inner workings of Broadway"
 tags:
 
@@ -554,7 +554,7 @@ and [documentation!](https://hexdocs.pm/broadway/Broadway.html#content)
 ---
 
 If you want to get a basic understanding of the underlying concepts of Broadway or better visualise the architecture of
-a pipeline in Broadway, check out the first part [here!](open-source-deep-dive-broadway-part-1)
+a pipeline in Broadway, check out the first part [here!](/post/odd-broadway-1)
 
 ---
 

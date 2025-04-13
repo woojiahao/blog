@@ -311,7 +311,7 @@ That's a basic rundown of the concepts underpinning Broadway. While it may not b
 of everything, hopefully it is able to provide some clarity. In the next part, we will be exploring how features in
 Broadway have been implemented!
 
-Hop on over to the second part [here!](open-source-deep-dive-broadway-part-2)
+Hop on over to the second part [here!](/post/odd-broadway-2)
 
 ---
 

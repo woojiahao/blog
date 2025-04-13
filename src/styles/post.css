@@ -1,0 +1,93 @@
+@import "./global.css";
+@import "./callout.css";
+@import "tailwindcss";
+
+ul,
+ol {
+  @apply my-3;
+}
+
+ul li {
+  @apply list-disc list-outside text-xl;
+}
+
+ol li {
+  @apply list-decimal list-outside text-xl;
+}
+
+li:not(:last-child) {
+  @apply mb-2;
+}
+
+li li {
+  @apply ml-8;
+}
+
+p {
+  @apply text-xl text-justify;
+}
+
+p:has(img) {
+  @apply flex items-center justify-center my-4;
+}
+
+a {
+  @apply underline text-blue-500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply mt-12;
+}
+
+mjx-container {
+  @apply inline-block;
+}
+
+mjx-container[display='true'] {
+  @apply text-xl;
+}
+
+pre {
+  @apply p-4 rounded-md mb-4;
+}
+
+blockquote {
+  @apply lg:px-8 px-12 py-2 pt-4 rounded-md -mx-8 my-6 border-l-4 border-l-neutral-200 bg-neutral-50;
+}
+
+hr {
+  @apply border-t-2 text-neutral-200 my-4;
+}
+
+table {
+  @apply w-full table table-auto border-1 border-neutral-200 mb-4 rounded-md;
+}
+
+thead {
+  @apply rounded-t-md;
+}
+
+tbody {
+  @apply rounded-b-md;
+}
+
+thead th {
+  @apply bg-neutral-100 text-xl px-6 py-3;
+}
+
+tbody td {
+  @apply text-xl px-6 py-3 rounded-b-md;
+}
+
+tbody tr:not(:last-child) td {
+  @apply border-b-1 border-b-neutral-200;
+}
+
+tbody td:not(:last-child) {
+  @apply border-r-1 border-r-neutral-200;
+}

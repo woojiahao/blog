@@ -71,9 +71,9 @@ That's all there is to this!
 ## Optimizing for GoodNotes 5
 
 One of the main uses I have for AirPlay is to annotate and write notes in GoodNotes 5 without having the worry about the
-size constraint. Typically, I would use a 50:50 layout, where one side hosts my annotated notes (like a textbook) and
+size constraint. Typically, I would use a 50\:50 layout, where one side hosts my annotated notes (like a textbook) and
 the other is a notebook for my notes.
 
 However, with AirPlay, we can configure GoodNotes 5 to mirror only the notes side (displaying it on screen). The other
-side will remain the same. This way, the layout can be 25:75 without sacrificing the readability of the notes as the
+side will remain the same. This way, the layout can be 25\:75 without sacrificing the readability of the notes as the
 notes are displayed on a bigger screen while still being controlled via the 25% on the iPad.
