@@ -1,7 +1,22 @@
-<header class="flex flex-row justify-between items-center px-12 py-6 border-b-1 border-b-neutral-100 sticky">
-  <a href="/" class="font-bold text-2xl !no-underline !text-black">jiahao.blog</p>
-  <div class="flex flex-row gap-8">
-    <nav class="flex flex-row gap-4">
+<style>
+  .expanded {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+</style>
+
+<header class="flex flex-row flex-wrap justify-between items-center px-12 py-6 border-b-1 border-b-neutral-100 sticky">
+  <div class="flex-1">
+    <a href="/" class="font-bold text-2xl !no-underline !text-black">jiahao.blog</a>
+  </div>
+  <div id="hamburger" class="md:hidden flex flex-col gap-1 hover:cursor-pointer">
+      <div class="w-6 bg-neutral-500 h-[3px]" />
+      <div class="w-6 bg-neutral-500 h-[3px]" />
+      <div class="w-6 bg-neutral-500 h-[3px]" />
+  </div>
+  <div id="menu" class="md:flex hidden flex-row gap-8">
+    <nav class="flex md:flex-row flex-col md:gap-4 gap-1 md:mt-0 mt-4 md:text-base text-large">
       <a href="/articles" class=" !no-underline !text-neutral-500 hover:!text-black transition duration-300">Articles</a>
       <a href="/notes" class="!no-underline !text-neutral-500 hover:!text-black transition duration-300">Notes</a>
       <!-- <a href="/recommendations" class="!no-underline  !text-neutral-500 hover:!text-black transition duration-300">Recommendations</a> -->
@@ -10,3 +25,11 @@
     </nav>
   </div>
 </header>
+
+<script is:inline>
+  const hamburger = document.querySelector("#hamburger");
+  const menu = document.querySelector("#menu");
+  hamburger.addEventListener("click", () => {
+    menu.classList.toggle("expanded")
+  })
+</script>
