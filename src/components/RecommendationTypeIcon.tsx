@@ -7,21 +7,21 @@ type RecommendationType = Awaited<ReturnType<typeof getCollection<"recommendatio
 export default function RecommendationTypeIcon({ recommendation }: { recommendation: RecommendationType }) {
   const Icon = (() => {
     switch (recommendation.data.category) {
-      case "blog": return (<FaBlogger className="text-xl text-orange-600" />)
-      case "article": return (<FaNewspaper className="text-xl text-gray-500" />)
+      case "blog": return (<FaBlogger className="shrink-0 text-xl text-orange-600" />)
+      case "article": return (<FaNewspaper className="shrink-0 text-xl text-gray-500" />)
       case "video": {
         if (recommendation.data.url.startsWith("https://youtu.be") || recommendation.data.url.startsWith("https://www.youtube.com")) {
-          return (<FaYoutube className="text-xl text-red-700" />)
+          return (<FaYoutube className="shrink-0 text-xl text-red-700" />)
         } else if (recommendation.data.url.startsWith("https://www.twitch.tv")) {
-          return (<FaTwitch className="text-xl text-purple-800" />)
+          return (<FaTwitch className="shrink-0 text-xl text-purple-800" />)
         }
-        return <FaVideo className="text-xl text-yellow-950" />
+        return <FaVideo className="shrink-0 text-xl text-yellow-950" />
       }
-      case "book": return (<FaBookOpen className="text-xl text-yellow-950" />)
-      case "collection": return (<FaBoxesStacked className="text-xl text-yellow-900" />)
-      case "podcast": return (<FaPodcast className="text-xl text-purple-600" />)
-      case "other": return (<FaPaperclip className="text-xl text-blue-900" />)
-      default: return <FaPaperclip className="text-blue-900" />
+      case "book": return (<FaBookOpen className="shrink-0 text-xl text-yellow-950" />)
+      case "collection": return (<FaBoxesStacked className="shrink-0 text-xl text-yellow-900" />)
+      case "podcast": return (<FaPodcast className="shrink-0 text-xl text-purple-600" />)
+      case "other": return (<FaPaperclip className="shrink-0 text-xl text-blue-900" />)
+      default: return <FaPaperclip className="shrink-0 text-blue-900" />
     }
   })()
 
