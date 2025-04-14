@@ -9,7 +9,7 @@ type RecommendationType = Awaited<ReturnType<typeof getCollection<"recommendatio
 const { recommendation, hasContrast } = Astro.props as { recommendation: RecommendationType, hasContrast: boolean }
 ---
 
-<a href={`/post/${recommendation.id}`} class:list={[
+<a href={recommendation.data.url} class:list={[
   "flex flex-row justify-between items-center px-4 -mx-4 py-2 hover:cursor-pointer transition duration-300 !no-underline gap-2",
   hasContrast ? "hover:bg-white" : "hover:bg-neutral-100 rounded-md"
 ]}>

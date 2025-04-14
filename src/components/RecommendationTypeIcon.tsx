@@ -1,6 +1,6 @@
 import React from "react";
 import type { getCollection } from "astro:content"
-import { FaBlogger, FaBookOpen, FaBoxesStacked, FaNewspaper, FaPaperclip, FaPaperPlane, FaPodcast, FaVideo, FaYoutube } from "react-icons/fa6";
+import { FaBlogger, FaBookOpen, FaBoxesStacked, FaNewspaper, FaPaperclip, FaPaperPlane, FaPodcast, FaTwitch, FaVideo, FaYoutube } from "react-icons/fa6";
 
 type RecommendationType = Awaited<ReturnType<typeof getCollection<"recommendations">>>[number]
 
@@ -12,6 +12,8 @@ export default function RecommendationTypeIcon({ recommendation }: { recommendat
       case "video": {
         if (recommendation.data.url.startsWith("https://youtu.be") || recommendation.data.url.startsWith("https://www.youtube.com")) {
           return (<FaYoutube className="text-xl text-red-700" />)
+        } else if (recommendation.data.url.startsWith("https://www.twitch.tv")) {
+          return (<FaTwitch className="text-xl text-purple-800" />)
         }
         return <FaVideo className="text-xl text-yellow-950" />
       }
