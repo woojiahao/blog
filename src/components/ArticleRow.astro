@@ -9,8 +9,8 @@ const { article, hasContrast } = Astro.props as { article: ArticleType, hasContr
 ---
 
 <a href={`/post/${article.id}`} class:list={[
-  "flex flex-row justify-between items-center px-4 -mx-4 py-2 rounded-md hover:cursor-pointer transition duration-300 !no-underline gap-2",
-  hasContrast ? "hover:bg-white" : "hover:bg-neutral-100 "
+  "flex flex-row justify-between items-center px-4 -mx-4 py-2 hover:cursor-pointer transition duration-300 !no-underline gap-2",
+  hasContrast ? "hover:bg-white" : "hover:bg-neutral-100 rounded-md"
 ]}>
   <div class="flex xl:flex-row flex-col xl:items-center items-left w-full xl:gap-1 gap-0">
     <p class="!text-neutral-500 !text-sm flex-1/12 !mb-0">{formatDate(article.data.date)}</p>
