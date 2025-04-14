@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../layouts/Layout.astro"
+import NoteRow from "../components/NoteRow.astro"
+import HorizontalRuler from "../components/HorizontalRuler.astro"
+import RecommendationRow from "../components/RecommendationRow.astro"
+
+type RecommendationEnum = Awaited<ReturnType<typeof getCollection<"recommendations">>>[number]["data"]["category"]
+type RecommendationType = Awaited<ReturnType<typeof getCollection<"recommendations">>>[number]
+
+const recommendationOrder: { [key in RecommendationEnum]: string } = {
+  "article": "Articles",
+  "video": "Videos",
+  "book": "Books",
+  "blog": "Blogs",
+  "podcast": "Podcasts",
+  "collection": "Collections",
+  "other": "Others"
+}
+
+const recommendationLoadingPromises = Object.keys(recommendationOrder).map((category) => [category, getCollection("recommendations", (r) => !r.data.draft && r.data.category === category)])
+const recommendations = await Promise.all(recommendationLoadingPromises.map(([_, promise]) => promise))
+const recommendationGroups = Object.fromEntries(recommendationLoadingPromises.map(([category], i) => [category, recommendations[i]]))
+---
+
+<Layout>
+  <div>
+    <div class="mb-1 flex flex-row justify-between items-center">
+      <h1 class="!mb-0">Recommendations</h1>
+    </div>
+    <p class="text-neutral-500 mb-4 italic text-lg">List of my recommended articles, videos, and books</p>
+  </div>
+
+  {
+    Object.entries(recommendationOrder).map(([category, name]) => {
+      if (recommendationGroups[category] == null || recommendationGroups[category].length === 0) {
+        return;
+      }
+      return (
+        <div>
+          <h2 class="!mb-2 !mt-6">{name}</h2>
+          {
+            recommendationGroups[category]?.map((r: RecommendationType) => <RecommendationRow recommendation={r} /> )
+          }
+        </div>)
+    })
+  }
+</Layout>
