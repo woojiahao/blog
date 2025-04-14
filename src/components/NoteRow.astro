@@ -8,16 +8,16 @@ const { note, hasContrast } = Astro.props as { note: NoteType, hasContrast: bool
 ---
 
 <a href={note.data.url} class:list={[
-  "flex flex-row justify-between items-center px-4 -mx-4 py-2 rounded-md hover:cursor-pointer transition duration-300 !no-underline gap-4",
-  hasContrast ? "hover:bg-white" : "hover:bg-neutral-100 "
+  "flex flex-row justify-between items-center px-4 -mx-4 py-2 hover:cursor-pointer transition duration-300 !no-underline gap-4",
+  hasContrast ? "hover:bg-white" : "rounded-md hover:bg-neutral-100 "
 ]}>
-  <div class="flex flex-row gap-4 items-center flex-11/12">
-    <FaStar className={note.data.pinned ? "text-yellow-300" : "text-neutral-200"} />
+  <div class="flex flex-row gap-4 items-center">
+    <FaStar className={note.data.pinned ? "shrink-0 text-yellow-300" : "shrink-0 text-neutral-200"} />
     <div class="flex flex-col">
       <p class="!text-black !text-lg !mb-0">{note.data.title}</p>
       {note.data.description && <p class="!text-neutral-400 !text-base !text-left !mb-0">{note.data.description}</p>}
     </div>
   </div>
 
-  <FaArrowUpRightFromSquare className="flex-1/12 text-neutral-500" />
+  <FaArrowUpRightFromSquare className="shrink-0 text-neutral-500" />
 </a>
