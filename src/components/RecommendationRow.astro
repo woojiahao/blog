@@ -1,0 +1,22 @@
+---
+import type { getCollection } from "astro:content"
+import { formatDate } from "../utils/date.util"
+import { FaArrowUpRightFromSquare, FaBlogger, FaNewspaper } from "react-icons/fa6";
+import RecommendationTypeIcon from "./RecommendationTypeIcon"
+
+type RecommendationType = Awaited<ReturnType<typeof getCollection<"recommendations">>>[number]
+
+const { recommendation, hasContrast } = Astro.props as { recommendation: RecommendationType, hasContrast: boolean }
+---
+
+<a href={recommendation.data.url} class:list={[
+  "flex flex-row justify-between items-center px-4 -mx-4 py-2 hover:cursor-pointer transition duration-300 !no-underline gap-2",
+  hasContrast ? "hover:bg-white" : "hover:bg-neutral-100 rounded-md"
+]}>
+  <div class="flex flex-row w-full gap-4 items-center">
+    <RecommendationTypeIcon {...{recommendation: recommendation}} client:visible />
+    <p class="!text-black !text-lg !mb-0">{recommendation.data.title}</p>
+  </div>
+
+  <FaArrowUpRightFromSquare className="shrink-0 text-neutral-500" />
+</a>
