@@ -41,7 +41,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply mt-12;
+  @apply mt-12 wrap-break-word hyphens-auto;
 }
 
 mjx-container {
@@ -50,6 +50,10 @@ mjx-container {
 
 mjx-container[display='true'] {
   @apply text-xl;
+}
+
+mjx-container mjx-math {
+  @apply flex flex-wrap gap-1;
 }
 
 pre {
