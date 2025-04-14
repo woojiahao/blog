@@ -12,7 +12,7 @@ export async function GET(context) {
       .map((post) => ({
         title: post.data.title,
         pubDate: post.data.date,
-        description: post.data.url != null ? `This post was published on ${post.data.url}` : post.body,
+        description: post.data.url != null ? `This post was published on ${post.data.url}` : post.rendered.html,
         link: `/post/${post.id}`
       })),
     trailingSlash: false,
