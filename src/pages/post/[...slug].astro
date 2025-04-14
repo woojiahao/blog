@@ -40,20 +40,20 @@ const recommended = currentArticleIndex === 0 ? articles.slice(currentArticleInd
   {post.data.subtitle != null && <p class="!text-lg text-neutral-500">{post.data.subtitle}</p>}
   <p class="!text-right text-red-600 font-bold !text-base">{remarkPluginFrontmatter.minutesRead}</p>
   <HorizontalRuler />
-  <div class="mx-auto mt-8">
+  <div class="xl:w-[45%] w-full mx-auto mt-8">
     <div class="mb-6">
       <Content />
     </div>
   </div>
-    <HorizontalRuler />
-    <div class="my-6 p-4 bg-neutral-50 rounded-md">
-      <p class="font-bold !text-2xl">Enjoyed reading?</p>
+  <HorizontalRuler />
+  <div class="my-6 p-4 bg-neutral-50 rounded-md">
+    <p class="font-bold !text-2xl">Enjoyed reading?</p>
 <p class="!text-lg">Consider subscribing to my <a href="/rss.xml">RSS feed</a> or reaching out to me <a href="mailto:woojiahao1234@gmail.com">through email</a>!</p>
-    </div>
-    <div>
-      <p class="font-bold !text-lg">You might enjoy...</p>
-      {
-        recommended.filter((article) => article.id !== post.id).map(article => <ArticleRow article={article} />)
-      }
-    </div>
+  </div>
+  <div>
+    <p class="font-bold !text-lg">You might enjoy...</p>
+    {
+      recommended.filter((article) => article.id !== post.id).map(article => <ArticleRow article={article} />)
+    }
+  </div>
 </Layout>
