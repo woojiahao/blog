@@ -1,25 +1,31 @@
 ---
-import type { getCollection } from "astro:content"
+import { getCollection } from "astro:content"
 import { formatDate } from "../utils/date.util"
 import { FaArrowUpRightFromSquare, FaBlogger, FaLink, FaNewspaper } from "react-icons/fa6";
 import RecommendationTypeIcon from "./RecommendationTypeIcon"
+import ShortWidget from "./ShortWidget.astro";
 
 type RecommendationType = Awaited<ReturnType<typeof getCollection<"recommendations">>>[number]
 
 const { recommendation, hasContrast } = Astro.props as { recommendation: RecommendationType, hasContrast: boolean }
+
+const linkedShort = (await getCollection("shorts", (short) => !short.data.draft && short.data.recommendation === recommendation.id)).at(0)
 ---
 
-<a href={recommendation.data.url} class:list={[
-  "flex flex-row justify-between items-center px-4 -mx-4 py-2 hover:cursor-pointer transition duration-300 !no-underline gap-2",
-  hasContrast ? "hover:bg-white" : "hover:bg-neutral-100 rounded-md"
-]}>
-  <div class="flex flex-row w-full gap-4 items-center">
-    <RecommendationTypeIcon {...{recommendation: recommendation}} client:visible />
-    <p class="!text-black !text-lg !mb-0">{recommendation.data.title}</p>
-  </div>
+<div class="flex flex-col gap-2">
+  <a href={recommendation.data.url} class:list={[
+    "flex flex-row justify-between items-center px-4 -mx-4 py-2 hover:cursor-pointer transition duration-300 !no-underline gap-2",
+    hasContrast ? "hover:bg-white" : "hover:bg-neutral-100 rounded-md"
+  ]}>
+    <div class="flex flex-row w-full gap-4 items-center">
+      <RecommendationTypeIcon {...{recommendation: recommendation}} client:visible />
+      <p class="!text-black !text-lg !mb-0">{recommendation.data.title}</p>
+    </div>
 
-  <div class="shrink-0 flex flex-row gap-4 items-center">
-    <FaLink size={24} className="shrink-0 text-neutral-500" />
-    <FaArrowUpRightFromSquare className="shrink-0 text-neutral-500" />
-  </div>
-</a>
+    <div class="shrink-0 flex flex-row gap-4 items-center">
+      {linkedShort != null && <FaLink size={20} className="shrink-0 text-neutral-500" />}
+      <FaArrowUpRightFromSquare className="shrink-0 text-neutral-500" />
+    </div>
+  </a>
+  {linkedShort != null && <ShortWidget short={linkedShort} />}
+</div>

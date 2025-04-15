@@ -1,0 +1,12 @@
+---
+import { getCollection } from "astro:content"
+
+type ShortType = Awaited<ReturnType<typeof getCollection<"shorts">>>[number]
+
+const { short } = Astro.props as { short: ShortType }
+---
+
+<a href={`/short/${short.id}`} class="mb-2 inline-flex flex-row gap-2 items-center sm:pl-2 pl-3 pr-3 sm:py-1 py-2 rounded-full text-neutral-500 border-1 border-neutral-200 hover:cursor-pointer hover:text-black transition duration-300">
+  <p class="sm:inline hidden !mb-0 !text-xs px-2 py-1 rounded-full bg-neutral-100 text-black">Shorts</p>
+  <p class="!mb-0 text-sm">{short.data.title}  &rarr;</p>
+</a>

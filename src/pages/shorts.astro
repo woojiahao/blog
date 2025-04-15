@@ -3,7 +3,7 @@ import { getCollection } from "astro:content"
 import Layout from "../layouts/Layout.astro"
 import ShortRow from "../components/ShortRow.astro"
 
-const shorts = await getCollection("shorts", (short) => !short.data.draft)
+const shorts = (await getCollection("shorts", (short) => !short.data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 ---
 
 <Layout>

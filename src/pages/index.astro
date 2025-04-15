@@ -5,8 +5,10 @@ import { FaGithub, FaLinkedin, FaTwitter, FaAt, FaHouse } from "react-icons/fa6"
 import ArticleRow from '../components/ArticleRow.astro';
 import RssButton from '../components/RssButton.astro';
 import HorizontalRuler from '../components/HorizontalRuler.astro';
+import ShortWidget from '../components/ShortWidget.astro';
 
 const latestArticles = (await getCollection("blog", ({data}) => !data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 10)
+const latestShort = (await getCollection("shorts", (short) => !short.data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).at(0)
 ---
 
 <Layout>
@@ -17,14 +19,15 @@ const latestArticles = (await getCollection("blog", ({data}) => !data.draft)).so
       <p class="text-xl">I am a software engineer, Elixir enthusiast, technical author, and all around tech nerd!</p>
       <p class="text-xl">I am also a third-year Computer Science student at the National University of Singapore.</p>
       <p class="text-xl">Outside of tech, I am very into bouldering, cooking, running, and playing Dungeons &amp; Dragons.</p>
-      <div class="flex flex-row gap-2 items-center mt-4">
-        <p class="!mb-0 text-neutral-600">Catch me at:</p>
+      <div class="flex flex-row gap-2 items-center mt-4 mb-4">
+        <!-- <p class="!mb-0 text-neutral-600">Catch me at:</p> -->
         <a href="https://woojiahao.com"><FaHouse size={24} className="text-neutral-400 hover:text-green-800 transition duration-300" /></a>
         <a href="https://github.com/woojiahao"><FaGithub size={24} className="text-neutral-400 hover:text-black transition duration-300" /></a>
         <a href="https://linkedin.com/in/woojiahao"><FaLinkedin size={24} className="text-neutral-400 hover:text-blue-800 transition duration-300" /></a>
         <a href="https://x.com/woojiahao_"><FaTwitter size={24} className="text-neutral-400 hover:text-sky-500 transition duration-300" /></a>
         <a href="mailto:woojiahao1234@gmail.com"><FaAt size={24} className="text-neutral-400 hover:text-orange-500 transition duration-300" /></a>
       </div>
+      {latestShort != null && <ShortWidget short={latestShort} />}
     </div>
     <img class="w-[400px] h-[400px] rounded-md shadow-md lg:block hidden" src="/profile.jpg"></img>
   </div>

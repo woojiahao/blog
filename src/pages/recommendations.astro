@@ -16,14 +16,14 @@ const recommendationOrder: { [key in RecommendationEnum]: string } = {
   "other": "Others"
 }
 
-const recommendationLoadingPromises = Object.keys(recommendationOrder).map((category) => [category, getCollection("recommendations", (r) => !r.data.draft && r.data.category === category)])
+const recommendationLoadingPromises = await Promise.all(Object.keys(recommendationOrder).map(async (category) => [category, (await getCollection("recommendations", (r) => !r.data.draft && r.data.category === category)).sort((a, b) => a.data.title.localeCompare(b.data.title))]))
 const recommendations = await Promise.all(recommendationLoadingPromises.map(([_, promise]) => promise))
 const recommendationGroups = Object.fromEntries(recommendationLoadingPromises.map(([category], i) => [category, recommendations[i]]))
 ---
 
 <Layout>
   <div>
-    <div class="mb-1 flex flex-row justify-between items-center">
+    <div class="mb-1 flex flex-row justify-between items-center break-all">
       <h1 class="!mb-0">Recommendations</h1>
     </div>
     <p class="text-neutral-500 mb-4 italic text-lg">List of my recommended articles, videos, and books</p>
