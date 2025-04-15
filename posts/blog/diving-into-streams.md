@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Diving into (Java) streams"
 date: 2018-04-08
 tags:
