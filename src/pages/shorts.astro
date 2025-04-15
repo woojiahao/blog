@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../layouts/Layout.astro"
+import ShortRow from "../components/ShortRow.astro"
+
+const shorts = await getCollection("shorts", (short) => !short.data.draft)
+---
+
+<Layout>
+  <div>
+    <div class="mb-1 flex flex-row justify-between items-center">
+      <h1 class="!mb-0">Shorts</h1>
+    </div>
+    <p class="text-neutral-500 mb-4 italic text-lg">Short takes on recommendations or life that don't belong under articles</p>
+  </div>
+
+  {
+    shorts.map((short) => <ShortRow short={short} />)
+  }
+
+</Layout>

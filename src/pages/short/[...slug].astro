@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro"
+import { getEntry } from "astro:content";
+import { render } from "astro:content";
+import { formatDate } from "../../utils/date.util";
+import HorizontalRuler from "../../components/HorizontalRuler.astro";
+import "../../styles/post.css";
+import ArticleRow from "../../components/ArticleRow.astro";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import ShortRow from "../../components/ShortRow.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("shorts", (p) => !p.data.draft);
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
+}
+
+const short = await getEntry("shorts", Astro.params.slug);
+if (short == null) {
+  return Astro.redirect("/404");
+}
+
+const { Content, remarkPluginFrontmatter } = await render(short);
+
+const shorts = (await getCollection("shorts", ({data}) => !data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+const currentShortIndex = shorts.findIndex((currentShort) => currentShort.id === short.id)
+const recommended = currentShortIndex === 0 ? shorts.slice(currentShortIndex + 1, currentShortIndex + 4) : shorts.slice(currentShortIndex - 1, currentShortIndex + 3);
+
+const recommendation = short.data.recommendation != null ? await getEntry("recommendations", short.data.recommendation) : null;
+---
+
+<Layout>
+  <p class="text-indigo-600 font-bold !text-xl">{formatDate(short.data.date)}</p>
+  <h1 class="!mt-0">{short.data.title}</h1>
+  <div class="flex xl:flex-row flex-col justify-between w-full xl:items-center">
+    {recommendation != null ? <a href={recommendation.data.url} target="_blank" class="!no-underline flex flex-row gap-2 items-center !text-right !text-neutral-400 hover:!text-black transition duration-300 self-end !text-base">{recommendation.data.title}<FaArrowUpRightFromSquare size={14} /></a> : <div class="flex-1"></div>}
+    <p class="!text-right text-red-600 font-bold justify-self-end !text-base !mb-0">{remarkPluginFrontmatter.minutesRead}</p>
+  </div>
+  <HorizontalRuler />
+  <div class="xl:w-[60%] w-full mx-auto mt-8">
+    <div class="mb-6">
+      <Content />
+    </div>
+  </div>
+  <HorizontalRuler />
+  <div class="my-6 p-4 bg-neutral-50 rounded-md">
+    <p class="font-bold !text-2xl">Enjoyed reading?</p>
+    <p class="!text-lg">Consider subscribing to my <a href="/rss.xml">RSS feed</a> or reaching out to me <a href="mailto:woojiahao1234@gmail.com">through email</a>!</p>
+  </div>
+  <div>
+  <p class="font-bold !text-lg">You might enjoy...</p>
+  {
+    recommended.filter((currentShort) => short.id !== currentShort.id).map(short => <ShortRow short={short} />)
+  }
+  </div>
+</Layout>

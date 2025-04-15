@@ -1,8 +1,6 @@
 ---
 import { getCollection } from "astro:content"
 import Layout from "../layouts/Layout.astro"
-import NoteRow from "../components/NoteRow.astro"
-import HorizontalRuler from "../components/HorizontalRuler.astro"
 import RecommendationRow from "../components/RecommendationRow.astro"
 
 type RecommendationEnum = Awaited<ReturnType<typeof getCollection<"recommendations">>>[number]["data"]["category"]

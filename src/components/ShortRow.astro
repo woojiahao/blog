@@ -1,0 +1,21 @@
+---
+import type { getCollection } from "astro:content"
+import { formatDate } from "../utils/date.util"
+import { FaArrowUpRightFromSquare, FaLink } from "react-icons/fa6";
+
+type ShortType = Awaited<ReturnType<typeof getCollection<"shorts">>>[number]
+
+const { short, hasContrast } = Astro.props as { short: ShortType, hasContrast: boolean }
+---
+
+<a href={`/short/${short.id}`} class:list={[
+  "flex flex-row justify-between items-center px-4 -mx-4 py-2 hover:cursor-pointer transition duration-300 !no-underline gap-2",
+  hasContrast ? "hover:bg-white" : "hover:bg-neutral-100 rounded-md"
+]}>
+  <div class="flex xl:flex-row flex-col xl:items-center items-left w-full xl:gap-1 gap-0">
+    <p class="!text-neutral-500 !text-sm flex-1/12 !mb-0">{formatDate(short.data.date)}</p>
+    <p class="flex-11/12 !text-black !text-lg !mb-0">{short.data.title}</p>
+  </div>
+
+  {short.data.recommendation != null && <FaLink className="text-neutral-500" />}
+</a>

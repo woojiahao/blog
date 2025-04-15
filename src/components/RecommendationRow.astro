@@ -1,7 +1,7 @@
 ---
 import type { getCollection } from "astro:content"
 import { formatDate } from "../utils/date.util"
-import { FaArrowUpRightFromSquare, FaBlogger, FaNewspaper } from "react-icons/fa6";
+import { FaArrowUpRightFromSquare, FaBlogger, FaLink, FaNewspaper } from "react-icons/fa6";
 import RecommendationTypeIcon from "./RecommendationTypeIcon"
 
 type RecommendationType = Awaited<ReturnType<typeof getCollection<"recommendations">>>[number]
@@ -18,5 +18,8 @@ const { recommendation, hasContrast } = Astro.props as { recommendation: Recomme
     <p class="!text-black !text-lg !mb-0">{recommendation.data.title}</p>
   </div>
 
-  <FaArrowUpRightFromSquare className="shrink-0 text-neutral-500" />
+  <div class="shrink-0 flex flex-row gap-4 items-center">
+    <FaLink size={24} className="shrink-0 text-neutral-500" />
+    <FaArrowUpRightFromSquare className="shrink-0 text-neutral-500" />
+  </div>
 </a>

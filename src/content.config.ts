@@ -48,6 +48,7 @@ const shorts = defineCollection({
     date: z.date(),
     tags: z.array(z.string()).optional().default([]),
     pinned: z.boolean().optional().default(false),
+    recommendation: z.string().optional(),
   })
 });
 
