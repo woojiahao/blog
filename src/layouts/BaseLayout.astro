@@ -1,5 +1,11 @@
 ---
 import "../styles/global.css"
+import { SEO } from "astro-seo"
+
+const pageTitle = Astro.props.pageTitle || "jiahao.blog";
+const description = Astro.props.description || "Personal blog of Jiahao!";
+
+const { site } = Astro;
 ---
 
 <!doctype html>
@@ -10,11 +16,37 @@ import "../styles/global.css"
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
     <title>jiahao.blog</title>
-    <meta name="description"
-      content="Personal blog of Jiahao!">
     <meta name="keywords"
       content="jiahao, jia hao, woo jia hao, woo, blog, software engineering, swe, singapore, student, nus, woojiahao, woo jiahao, woojia, ">
     <link rel="stylesheet" href="../styles/global.css" />
+
+    <SEO
+        title={pageTitle}
+        description={description}
+        openGraph={{
+          basic: {
+            type: "website",
+            title: pageTitle,
+            image: `${site}/ogImage.jpg`,
+            url: site,
+          },
+          optional: {
+            description: description,
+          }
+        }}
+        twitter={{
+          creator: "@woojiahao_"
+        }}
+        extend={{
+          // extending the default link tags
+          link: [{ rel: "icon", href: "/favicon.svg" }],
+          // extending the default meta tags
+          meta: [
+            { name: "twitter:title", content: pageTitle },
+            { name: "twitter:description", content: description },
+          ],
+        }}
+      />
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3DJGH6W78"></script>
