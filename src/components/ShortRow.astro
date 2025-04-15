@@ -16,6 +16,4 @@ const { short, hasContrast } = Astro.props as { short: ShortType, hasContrast: b
     <p class="!text-neutral-500 !text-sm flex-1/12 !mb-0">{formatDate(short.data.date)}</p>
     <p class="flex-11/12 !text-black !text-lg !mb-0">{short.data.title}</p>
   </div>
-
-  {short.data.recommendation != null && <FaLink className="text-neutral-500" />}
 </a>
