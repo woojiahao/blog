@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "post:new": "python scripts/new-post.py"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.3",
