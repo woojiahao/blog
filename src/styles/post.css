@@ -24,7 +24,7 @@ li li {
 }
 
 p {
-  @apply text-xl text-justify;
+  @apply text-xl text-left;
 }
 
 p:has(img) {
