@@ -34,14 +34,14 @@ const recommendation = short.data.recommendation != null ? await getEntry("recom
 ---
 
 <Layout>
-  <p class="text-indigo-600 font-bold !text-xl">{formatDate(short.data.date)}</p>
-  <h1 class="!mt-0">{short.data.title}</h1>
-  <div class="flex xl:flex-row flex-col justify-between w-full xl:items-center">
-    {recommendation != null ? <a href={recommendation.data.url} target="_blank" class="!no-underline flex flex-row gap-2 items-center !text-right !text-neutral-400 hover:!text-black transition duration-300 self-end !text-base">{recommendation.data.title}<FaArrowUpRightFromSquare className="shrink-0" size={14} /></a> : <div class="flex-1"></div>}
-    <p class="!text-right text-red-600 font-bold justify-self-end !text-base !mb-0">{remarkPluginFrontmatter.minutesRead}</p>
-  </div>
-  <HorizontalRuler />
   <div class="xl:w-[55%] w-full mx-auto mt-8">
+    <p class="text-indigo-600 font-bold !text-xl">{formatDate(short.data.date)}</p>
+    <h1 class="!mt-0">{short.data.title}</h1>
+    <div class="flex xl:flex-row flex-col justify-between w-full xl:items-center">
+      {recommendation != null ? <a href={recommendation.data.url} target="_blank" class="!no-underline flex flex-row gap-2 items-center !text-right !text-neutral-400 hover:!text-black transition duration-300 self-end !text-base">{recommendation.data.title}<FaArrowUpRightFromSquare className="shrink-0" size={14} /></a> : <div class="flex-1"></div>}
+      <p class="!text-right text-red-600 font-bold justify-self-end !text-base !mb-0">{remarkPluginFrontmatter.minutesRead}</p>
+    </div>
+    <HorizontalRuler />
     <div class="mb-6">
       <Content />
     </div>
