@@ -35,7 +35,7 @@ const recommended = currentArticleIndex === 0 ? articles.slice(currentArticleInd
 ---
 
 <Layout>
-  <div class="xl:w-[55%] w-full mx-auto mt-8">
+  <div class="xl:w-[55%] w-full mx-auto mt-4">
     <p class="text-indigo-600 font-bold !text-xl">{formatDate(post.data.date)}</p>
     <h1 class="!mt-0">{post.data.title}</h1>
     {post.data.subtitle != null && <p class="!text-lg text-neutral-500">{post.data.subtitle}</p>}
