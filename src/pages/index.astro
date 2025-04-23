@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import { FaGithub, FaLinkedin, FaTwitter, FaAt, FaHouse, FaX, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaTwitter, FaAt, FaHouse, FaX, FaXTwitter, FaTelegram } from "react-icons/fa6";
 import ArticleRow from '../components/ArticleRow.astro';
 import RssButton from '../components/RssButton.astro';
 import HorizontalRuler from '../components/HorizontalRuler.astro';
@@ -26,6 +26,7 @@ const latestShort = (await getCollection("shorts", (short) => !short.data.draft)
         <a href="https://linkedin.com/in/woojiahao"><FaLinkedin size={24} className="text-neutral-400 hover:text-blue-800 transition duration-300" /></a>
         <a href="https://x.com/woojiahao_"><FaXTwitter size={24} className="text-neutral-400 hover:text-black transition duration-300" /></a>
         <a href="mailto:woojiahao1234@gmail.com"><FaAt size={24} className="text-neutral-400 hover:text-orange-500 transition duration-300" /></a>
+        <a href="https://t.me/jiahaodevlog"><FaTelegram size={24} className="text-neutral-400 hover:text-blue-400 transition duration-300" /></a>
       </div>
       {latestShort != null && <ShortWidget short={latestShort} />}
     </div>
