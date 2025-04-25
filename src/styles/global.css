@@ -52,3 +52,7 @@ h6 {
 p {
   @apply mb-2;
 }
+
+img {
+  @apply mx-auto my-4;
+}
