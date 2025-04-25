@@ -12,7 +12,6 @@ import remarkDirective from "remark-directive";
 import remarkMath from "remark-math";
 import addMermaidClass from './src/plugins/add-mermaid-classname';
 import remarkCallout from './src/plugins/remark-callout';
-import remarkCenter from './src/plugins/remark-center';
 import { remarkReadingTime } from './src/plugins/remark-reading-time.mjs';
 
 export default defineConfig({
@@ -30,7 +29,6 @@ export default defineConfig({
       remarkReadingTime,
       remarkMath,
       remarkCallout,
-      remarkCenter,
     ],
     rehypePlugins: [
       addMermaidClass,
