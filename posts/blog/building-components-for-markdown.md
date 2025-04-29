@@ -68,7 +68,7 @@ If you are using Linux or MacOS, you should try the following:
 
 Before diving into the implementation details, let me briefly cover the high-level of how Astro processes Markdown files and generates the resulting HTML pages.
 
-<img src="/building-components-in-markdown/markdown-processing.jpg" width="250px" />
+<img src="/building-components-in-markdown/markdown-processing.jpg" style="max-width: 250px; width: 60%;" />
 
 Astro uses `remark`, `remark-rehype`, and `rehype` to process Markdown files, converting them into HTML files that are rendered (like this page!).
 
@@ -148,7 +148,7 @@ Now, Astro knows to run this `remarkDirective` remark plugin.
 
 Notice that `remark` and `rehype` aren't just single one-off extensions, but rather, a suite of plugins that incrementally and sequentially modify the `mdast` and `hast` respectively:
 
-<img src="/building-components-in-markdown/remark-rehype-plugins.jpg" width="400px" />
+<img src="/building-components-in-markdown/remark-rehype-plugins.jpg" style="max-width: 400px; width: 80%;" />
 
 As such, we can build our own plugins to implement custom transformations on top of the original `mdast` and `hast`.
 
@@ -274,7 +274,7 @@ The specifics of `mdast` syntax can be found [in the Github repository](https://
 
 There is a ton going on, but essentially, we are converting the initially naive `tabs` container directive into one with the header, selectors, and tab content.
 
-<img src="/building-components-in-markdown/remark-plugin.jpg" width="500px" />
+<img src="/building-components-in-markdown/remark-plugin.jpg" style="max-width: 500px; width: 90%;" />
 
 Along with these transformations, we are attaching additional properties (through `hProperties`) to each component, such as `data-tabs-key` to be the `key` attribute of the `tabs` container directive.
 
