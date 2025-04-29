@@ -1,5 +1,5 @@
 ---
-title: "Building Components in Markdown in Astro"
+title: "Building Components for Markdown in Astro"
 subtitle: "Why use .mdx when .md will do?"
 date: 2025-04-29
 draft: false
