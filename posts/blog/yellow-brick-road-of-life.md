@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 date: 2020-07-15
 title: "The yellow brick road of life"
 description: "A reminder to myself to stop worrying about the future and focus on the present"
