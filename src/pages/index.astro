@@ -26,7 +26,7 @@ const latestShort = (await getCollection("shorts", (short) => !short.data.draft)
         <a href="https://linkedin.com/in/woojiahao"><FaLinkedin size={24} className="text-neutral-400 hover:text-blue-800 transition duration-300" /></a>
         <a href="https://x.com/woojiahao_"><FaXTwitter size={24} className="text-neutral-400 hover:text-black transition duration-300" /></a>
         <a href="mailto:woojiahao1234@gmail.com"><FaAt size={24} className="text-neutral-400 hover:text-orange-500 transition duration-300" /></a>
-        <a href="https://t.me/jiahaodevlog"><FaTelegram size={24} className="text-neutral-400 hover:text-blue-400 transition duration-300" /></a>
+        <!-- <a href="https://t.me/jiahaodevlog"><FaTelegram size={24} className="text-neutral-400 hover:text-blue-400 transition duration-300" /></a> -->
       </div>
       {latestShort != null && <ShortWidget short={latestShort} />}
     </div>
