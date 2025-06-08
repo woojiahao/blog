@@ -122,7 +122,7 @@ elif choice == "4":
                 f'title: "{title}"\n',
                 ""
                 if recommendation.strip() == ""
-                else f"recommendation: {recommendation}",
+                else f"recommendation: {recommendation}\n",
                 f"date: {date.year}-{str(date.month).rjust(2, '0')}-{str(date.day).rjust(2, '0')}\n",
                 "draft: false\n",
                 "pinned: false\n",
