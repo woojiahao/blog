@@ -59,7 +59,7 @@ ProcessPr(Pr):
     Return null
   L.Unlock()
   
-Contents = PrRepo.GetContents("progress.json")
+  Contents = PrRepo.GetContents("progress.json")
   WriteJsonToFile("students/" + UserId + ".json", Contents)
   L.Lock()
   UserMap[UserId] = Username
@@ -68,26 +68,26 @@ Contents = PrRepo.GetContents("progress.json")
   Return Username
 
 ProgressSync():
-Prs = FetchOpenPrs()  
+  Prs = FetchOpenPrs()  
   ProcessedUsers = [] 
   TotalProcessed = 0
   Executor = ThreadPoolExecutor(workers=8)
   Futures = {} // future -> pr
-For Pr in Prs:
-    Executor.submit(ProcessPr(Pr))
-  For Future in Completed(Futures):
-    Username = Future.Result()
-    TotalProcessed++
-    If Username != null:
-      ProcessedUsers.Append(Username)
-  If HasChanged("students/"):
-    AddAndCommit("students/")
-  WriteJsonToFile("user_map.json", UserMap)
-  WriteJsonToFile("latest_sync_hashes.json", LatestSyncHashes)
-  If HasChanged("user_map.json"):
-    AddAndCommit("user_map.json")
-  If HasChanged("latest_sync_hashes.json"):
-    AddAndCommit("latest_sync_hashes.json")
+  For Pr in Prs:
+      Executor.submit(ProcessPr(Pr))
+    For Future in Completed(Futures):
+      Username = Future.Result()
+      TotalProcessed++
+      If Username != null:
+        ProcessedUsers.Append(Username)
+    If HasChanged("students/"):
+      AddAndCommit("students/")
+    WriteJsonToFile("user_map.json", UserMap)
+    WriteJsonToFile("latest_sync_hashes.json", LatestSyncHashes)
+    If HasChanged("user_map.json"):
+      AddAndCommit("user_map.json")
+    If HasChanged("latest_sync_hashes.json"):
+      AddAndCommit("latest_sync_hashes.json")
 ```
 
 Using these optimizations, I managed to push the time to process 185 users down from 1 minute 30 seconds to only 20 seconds on average! So it was a **77.8% improvement**!
