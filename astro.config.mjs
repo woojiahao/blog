@@ -46,7 +46,4 @@ export default defineConfig({
   },
 
   integrations: [mdx(), react()],
-  experimental: {
-    svg: true
-  }
 });
