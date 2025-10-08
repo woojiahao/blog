@@ -39,7 +39,56 @@ So, I decided to
 
 However, because the “cache” is going to be written by multiple threads, we need to make it thread-safe, so we use a dead simple lock to lock off access to the data structure while reading and writing to it. There may be better ways of doing this but this was what I came to as a quick bandaid for this issue.
 
-The pseudocode is attached and it’s very straightforward to reason about as there’s only two critical sections.
+The pseudocode is below and it’s very straightforward to reason about as there’s only two critical sections.
+
+```text
+UserMap = {} // user_id → username; shared
+LatestSyncHashes = LoadSyncHashesFromFile() // user_id → latest commit synced; shared
+L = new Lock() // lock for shared data structures
+
+ProcessPr(Pr):
+  Username = Pr.Username
+  UserId = Pr.UserId
+  PrRepo = Pr.Repo
+  HeadSha = Pr.Head.Sha
+  
+  L.Lock()
+  If LatestSyncHashes[UserId] == HeadSha:
+    UserMap[UserId] = Username
+    L.Unlock()
+    Return null
+  L.Unlock()
+  
+Contents = PrRepo.GetContents("progress.json")
+  WriteJsonToFile("students/" + UserId + ".json", Contents)
+  L.Lock()
+  UserMap[UserId] = Username
+  LatestSyncHashes[UserId] = HeadSha
+  L.Unlock()
+  Return Username
+
+ProgressSync():
+Prs = FetchOpenPrs()  
+  ProcessedUsers = [] 
+  TotalProcessed = 0
+  Executor = ThreadPoolExecutor(workers=8)
+  Futures = {} // future -> pr
+For Pr in Prs:
+    Executor.submit(ProcessPr(Pr))
+  For Future in Completed(Futures):
+    Username = Future.Result()
+    TotalProcessed++
+    If Username != null:
+      ProcessedUsers.Append(Username)
+  If HasChanged("students/"):
+    AddAndCommit("students/")
+  WriteJsonToFile("user_map.json", UserMap)
+  WriteJsonToFile("latest_sync_hashes.json", LatestSyncHashes)
+  If HasChanged("user_map.json"):
+    AddAndCommit("user_map.json")
+  If HasChanged("latest_sync_hashes.json"):
+    AddAndCommit("latest_sync_hashes.json")
+```
 
 Using these optimizations, I managed to push the time to process 185 users down from 1 minute 30 seconds to only 20 seconds on average! So it was a **77.8% improvement**!
 
