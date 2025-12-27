@@ -26,8 +26,18 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-      - name: Get playwright for mermaid
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 23
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Install Playwright browsers (for Mermaid)
         run: yarn playwright install
+
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
