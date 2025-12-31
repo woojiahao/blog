@@ -57,7 +57,7 @@ mjx-container mjx-math {
 }
 
 pre {
-  @apply p-4 rounded-md mb-4;
+  @apply p-4 rounded-md mb-4 text-sm;
 }
 
 blockquote {
