@@ -29,7 +29,7 @@ const latestShort = (await getCollection("shorts", (short) => !short.data.draft)
       </div>
       {latestShort != null && <ShortWidget short={latestShort} />}
     </div>
-    <div class="w-[400px] h-[400px] rounded-md shadow-md lg:block hidden bg-[url(/profile.jpg)] bg-cover bg-position-[center_right_-8rem]">
+    <div class="w-[400px] h-[400px] rounded-md shadow-md lg:block hidden bg-[url(/profile.jpg)] bg-cover bg-position-[center_top]">
     </div>
   </div>
 
