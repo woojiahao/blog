@@ -95,3 +95,7 @@ tbody tr:not(:last-child) td {
 tbody td:not(:last-child) {
   @apply border-r-1 border-r-neutral-200;
 }
+
+code {
+  @apply break-words sm:break-all;
+}
