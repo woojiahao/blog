@@ -14,41 +14,60 @@ tags:
   - Git-Mastery
 ---
 
-As part of developing [Git-Mastery](https://git-mastery.github.io) and the Git-Mastery [app](https://git-mastery.github.io/app), I had to publish the app across as many operating systems as possible for students to access it.
+As part of developing [Git-Mastery](https://git-mastery.github.io), I had to publish the [app](https://git-mastery.github.io/app) across as many operating systems as possible for students to download it.
 
-[Debian](https://www.debian.org/) was one of the chosen target operating systems as students may already be using Debian/[Ubuntu](https://ubuntu.com/)/some [Debian-based Linux distro](https://distrowatch.com/search.php?basedon=Debian) as their daily driver or they might be using [Ubuntu for Windows Subsystem for Linux (WSL)](https://ubuntu.com/desktop/wsl).
+[Debian](https://www.debian.org/) was a target operating system as students may be using Debian/[Ubuntu](https://ubuntu.com/)/some [Debian-based Linux distro](https://distrowatch.com/search.php?basedon=Debian) as their daily driver or they may be using [Ubuntu for Windows Subsystem for Linux (WSL)](https://ubuntu.com/desktop/wsl) on Windows.
 
-The process of actually packaging the app to Debian/ `apt` was a lot more involved than I had originally anticipated, taking me over a day of experimentation to automate with [GitHub Actions](https://github.com/features/actions). While there are several nice guides on individual components of packaging applications on Debian, I found myself having to piece them together as I was working on this. As a result, I wanted to consolidate and compile the steps I had taken and to hopefully demystify the packaging process so that you might hopefully use it as future reference for when you do need to use it for packaging!
+Surprisingly, the process of packaging the app for Debian was way more involved than I had originally anticipated, taking over a day of experimentation to integrate with [GitHub Actions](https://github.com/features/actions).
 
-> I am not claiming to be an expert in packaging in Debian and I may have some inefficient steps below! If you spot any, feel free to drop me an email and I will improve it!
+While there are several nice guides covering individual steps of this process, I found myself having to piece them together as I was working on this that, and I had eventually [compiled a set of pretty comprehensive notes](https://woojiahao.notion.site/linux-packaging-226f881eda0580d68bc8dc6f8e1d5d0d?source=copy_link) on my findings.
+
+I wanted to use this opportunity to consolidate my process and hopefully remove the awkwardness on figuring out how to package and publish applications on Debian!
+
+> I am not claiming to be subject matter expert, and I may have some inefficient steps below!
 >
+> If you spot any, feel free to [drop me an email](mailto:woojiahao1234@gmail.com) and I will improve it!
 
 ## What will be covered?
 
-This guide hopes to cover the following core topics surrounding packaging for Debian and publishing to Debian repository for the `apt` package manager:
+This guide hopes to cover the following core topics:
 
-1. Packaging your application on Debian
-2. Creating an Debian repository using GitHub Pages and `reprepro`
+1. Packaging your application on Debian (creating a `.deb` file)
+2. Creating a Debian repository using `reprepo` and GitHub Pages
 3. Publishing multi-architecture packages
-4. Automating packaging using GitHub Actions
+4. Automating packaging and publishing using GitHub Actions
 
 ## Prerequisites
 
-Before packaging your application, you first need to create an ELF binary of your program. I will use the Git-Mastery binary as a point of reference. If you wish to follow along, you can get `v7.1.2` of the binary on ARM64 [here](https://github.com/git-mastery/app/releases/download/v7.1.2/gitmastery-7.1.2-linux-arm64).
+Before packaging your application, you first need to create an ELF binary of your program (which I will refer to as a "binary" or "executable" from here on out). I will use the Git-Mastery app binary for reference.
 
-The Git-Mastery app uses [PyInstaller](https://pyinstaller.org/en/stable/) to bundle the CLI into a single executable, and it uses the [Ubuntu GitHub Actions image](https://github.com/actions/runner-images) to generate this executable (across architectures). If you are not using GitHub Actions, the next easiest option is to use a [Virtual Machine](https://www.vmware.com/topics/virtual-machine) (VM) to build it. You can also use the VM to verify that the packaging works, so I highly recommend setting one up now. I have included the steps taken to set-up a Debian ARM64 machine on MacOS in the appendix below.
+:::callout{.info}
+If you wish to follow along, you can get `v7.1.2` of the [binary on ARM64 here](https://github.com/git-mastery/app/releases/download/v7.1.2/gitmastery-7.1.2-linux-arm64).
+:::
 
-Finally, you will need to ensure that whatever environment you’re using has the `devscripts` and `debhelper-compat` packages installed, these are used to aid in the packaging process.
+The Git-Mastery app uses [PyInstaller](https://pyinstaller.org/en/stable/) to bundle the CLI into a single executable, and it uses the [Ubuntu GitHub Actions image](https://github.com/actions/runner-images) to generate this executable across architectures.
+
+If you are not using GitHub Actions, the next easiest option is to use a [Virtual Machine](https://www.vmware.com/topics/virtual-machine) (VM) to build it. You can also use the VM to run through the individual steps of packaging, so I highly recommend setting one up now. I have included my set-up for a Debian ARM64 VM on MacOS Apple Silicon in [the appendix below](#appendix-setting-up-a-debian-vm-on-macos-apple-silicon).
+
+Finally, you will need to ensure that you have the `devscripts` and `debhelper-compat` packages installed in your environment.
+
+In Debian, you can install it using `apt`:
+
+```bash
+sudo apt-get install devscripts build-essential debhelper-compat
+```
 
 ## Core concepts
 
-The [official introduction to packaging on Debian](https://wiki.debian.org/Packaging/Intro) provides some high-level details about the packaging process that I will (shamelessly) copy over to explain some fundamental concepts about packaging.
+The [official introduction to packaging on Debian](https://wiki.debian.org/Packaging/Intro) provides some high-level details about the packaging process that I will (shamelessly) copy over to explain some fundamental concepts.
 
 - **Upstream tarball:** a [tarball](https://en.wikipedia.org/wiki/Tarball_(computing)) (`.tar.gz` or `.tgz`) that contains the software that has been written (i.e. it contains the executable)
 - **Source package:** built from the upstream source; "contains the upstream source distribution, configuration for the package build system, list of runtime dependencies and conflicting packages, …"
 - **Binary package:** built from the source package which is then distributed and installed; contains (among other things) the executables and resources required for the executable to run
 
-In our context (and I suspect in many of your self-packaging contexts), the upstream tarball simply contains the executable that you intend to publish and the binary package is the resulting `.deb` file that is consumed by users. The primary focus that we would spend our time into is to actually construct the source package, allowing tools like `dpkg-buildpackage` ([man](https://man7.org/linux/man-pages/man1/dpkg-buildpackage.1.html)) to build and create the binary package.
+In our context, the upstream tarball simply contains the executable that you intend to publish and the binary package is the resulting `.deb` file that is consumed by users, so these should be relatively straightforward to understand.
+
+Instead, the focus of this guide is the construction of the source package, allowing tools like `dpkg-buildpackage` ([man](https://man7.org/linux/man-pages/man1/dpkg-buildpackage.1.html)) to build and create the binary package.
 
 The simplest source package consists of:
 
@@ -56,13 +75,13 @@ The simplest source package consists of:
 2. A `debian/` directory containing the changes made to the upstream source and all files required for the creation of the binary package
 3. A description file (`.dsc`) which contains metadata about the above files
 
-This guide will focus on these three core components as the primary packaging workflow.
+This guide will focus on these three as the primary packaging workflow.
 
 ## **Creating the upstream tarball**
 
 Given that you are packaging your own application, you will first create the upstream tarball.
 
-Start by creating a folder for your executable. I would choose to name it as `<name>-<version>-<architecture>`, following the name of my executable.
+Start by creating a folder for your executable. I chose to name mine using the following convention `<name>-<version>-<architecture>`.
 
 ```bash
 mkdir gitmastery-7.1.2-arm64/
@@ -74,7 +93,7 @@ Then, copy the executable into this folder.
 cp gitmastery-7.1.2-linux-arm64 gitmastery-7.1.2-arm64/
 ```
 
-Finally, generate the tarball follows the following naming convention: `<name>_<version>.orig.tar.gz`.
+Finally, generate the tarball following naming convention: `<name>_<version>.orig.tar.gz`.
 
 ```bash
 tar -czf gitmastery_7.1.2.orig.tar.gz gitmastery-7.1.2-arm64/gitmastery-7.1.2-linux-arm64
@@ -94,7 +113,7 @@ Then, create a sub-folder named `debian`.
 mkdir debian
 ```
 
-This is where all the configurations will be held.
+This is where all the configuration about packaging your application will be held.
 
 There are several files you will need within `debian/` to tell the packaging tool how to create your package:
 
@@ -112,7 +131,7 @@ There are several files you will need within `debian/` to tell the packaging too
     dch --create -v 7.1.2-1 -u low --package gitmastery "Changed things"
     ```
 
-    - `--create` : generates a new `debian/changelog` file (note that it expects `debian/`)
+    - `--create` : generates a new `debian/changelog` file (note that it expects the `debian/` sub-folder so run this command outside of the `debian/` sub-folder)
     - `-v 7.1.2-1`: specifying the version of the application listed in the changelog; `-1` indicates the release number of the package
     - `-u low`: indicates the [urgency](https://lists.debian.org/debian-mentors/2008/02/msg00567.html) of the changelog entry; tied to the [Debian "testing" distribution](https://www.debian.org/devel/testing); `low` implies that the package may transition to "testing" in 10 days
     - `--package`: name of the package
@@ -144,7 +163,7 @@ There are several files you will need within `debian/` to tell the packaging too
     - `Source`: source package name
     - `Maintainer`: name and email of the person responsible for the package; follows the `$NAME <$EMAIL>` format
     - `Priority`: priority of the package to indicate whether the package is important to the standard functioning system; one of `required`, `important`, `standard`, `optional`
-    - `Build-Depends`: list of packages that need to be installed to build the package (note this does not imply that the package might run)
+    - `Build-Depends`: list of packages that need to be installed to build the package (note this does not imply that the package can run with these dependencies, just that it can be built)
 
     In the binary section:
 
@@ -154,11 +173,15 @@ There are several files you will need within `debian/` to tell the packaging too
     - `Description`: full description of the binary package; first line is a summary and the rest of the lines are a longer description
 3. `debian/copyright`
 
-    The name is pretty self-explanatory, but this contains the copyright information about the package. You are able to leave this blank, but when packaging the Git-Mastery app, I had opted to instead copy over the `LICENSE` of the application, which happens to be the MIT license.
+    The name is pretty self-explanatory - this contains the copyright information about the package.
+
+    You are able to leave this blank, but when packaging the Git-Mastery app, I had opted to instead copy over the `LICENSE` of the application, which happens to be the [MIT license](https://opensource.org/license/mit).
 
 4. `debian/rules`
 
-    These provide the rules for installation, including how/where the application should be installed. The file format is that of a [Makefile](https://makefiletutorial.com/).
+    These provide the rules for installation, including how/where the application should be installed.
+
+    The file format is that of a [Makefile](https://makefiletutorial.com/).
 
     ```makefile
     #!/usr/bin/make -f
@@ -169,7 +192,7 @@ There are several files you will need within `debian/` to tell the packaging too
             install -D -m 0755 gitmastery-7.1.2-linux-arm64 debian/gitmastery/usr/bin/gitmastery
     ```
 
-    While the official installation guide might provide a rather sparse file:
+    While the official installation guide starts with a rather sparse file (that they build upon):
 
     ```makefile
     #!/usr/bin/make -f
@@ -177,14 +200,16 @@ There are several files you will need within `debian/` to tell the packaging too
             dh $@
     ```
 
-    I have found - through experimentation - that the binary package will not work unless you provide the `override_dh_auto_install` step ([more information](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#rules)) where I specify how and where the application is getting installed using the `install` ([man](https://man7.org/linux/man-pages/man1/install.1.html)) command.
+    I have found - through experimentation - that the binary package will not work unless you provide the `override_dh_auto_install` step ([more information](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#rules)) where you need to specify how and where the application is getting installed using the `install` ([man](https://man7.org/linux/man-pages/man1/install.1.html)) command.
 
     - `-D`: create all leading components of the destination except the last (i.e. create all sub-folders) and then copy the source to the destination
     - `-m 0755`: set the permission mode
-    - `debian/gitmastery/usr/bin/gitmastery`: the leading `debian/gitmastery` is necessary because it indicates the [fakeroot](https://wiki.debian.org/FakeRoot) before packaging; the ultimate path upon installation is `/usr/bin/gitmastery` (we can verify this later).
+    - `debian/gitmastery/usr/bin/gitmastery`: the leading `debian/gitmastery` is necessary because it indicates the [fakeroot](https://wiki.debian.org/FakeRoot) before packaging; the ultimate path upon installation is `/usr/bin/gitmastery` (this can be verified upon installation).
 5. `debian/$NAME.dirs`
 
-    This serves as a directory declaration file used by the `dh_installdirs` ([man](https://man7.org/linux/man-pages/man1/dh_installdirs.1.html)) For the Git-Mastery, I have left it blank, but if you create your file as `debian/test.dirs`, and specify a path `usr/bin`, it would then create `debian/test/usr/bin`.
+    This serves as a directory declaration file used by the `dh_installdirs` ([man](https://man7.org/linux/man-pages/man1/dh_installdirs.1.html)).
+
+    For the Git-Mastery, I have left it blank, but if you create your file as `debian/test.dirs`, and specify a path `usr/bin`, it would then create `debian/test/usr/bin`.
 
 6. `debian/source/format`
 
@@ -204,10 +229,11 @@ There are several files you will need within `debian/` to tell the packaging too
     gitmastery-7.1.2-linux-arm64
     ```
 
-
 ## Creating the `.deb` file
 
-That is all the files we really need to package the application. With this, we can finally package the application:
+That is all the files we really need to package the application.
+
+With this, we can finally package the application:
 
 ```bash
 dpkg-buildpackage -us -uc -a arm64
@@ -219,19 +245,21 @@ You want to run this command in the root of your directory, not within `debian/`
 - `-uc`: do not sign the `.buildinfo` and `.changes` files
 - `-a arm74`: specify the architecture
 
-This produces the `.deb` file with the name `<NAME>_<VERSION>-1_<ARCHITECTURE>.deb`. You can verify the package using `sudo dpkg -i <package>`.
+This produces the `.deb` file with the name `<NAME>_<VERSION>-1_<ARCHITECTURE>.deb`.
 
-Now, if all you wanted to do was to create a one-off `.deb` or to share this `.deb` with someone directly, you’re done! Congratulations 🎉.
+You can verify the package using `sudo dpkg -i <package>`. Once installed, you can also check to confirm where the binary was installed using `which gitmastery`.
 
-But if you want to publish this `.deb` to `apt` or automate the publish process, read on!
+Now, if all you wanted to do was to create a one-off `.deb` and share it with someone directly, you’re done! Congratulations 🎉!
+
+But if you want to publish this `.deb` to a Debian repository for the `apt` package manager or automate the entire process, read on!
 
 ## Setting up the Debian repository using `reprepro`
 
-`reprepro` ([repository](https://github.com/ionos-cloud/reprepro)) is used to create a [Debian repository](https://wiki.debian.org/DebianRepository), but it also works well to host your package so that it is discoverable by any `apt` package manager user through a [third-party repository](https://documentation.ubuntu.com/server/explanation/software/third-party-repository-usage/#dealing-with-third-party-apt-repositories-in-ubuntu).
+`reprepro` ([repository](https://github.com/ionos-cloud/reprepro)) is used to create a [Debian repository](https://wiki.debian.org/DebianRepository), but it also works well to host your package so that it is discoverable by through the `apt` package manager via [third-party repositories](https://documentation.ubuntu.com/server/explanation/software/third-party-repository-usage/#dealing-with-third-party-apt-repositories-in-ubuntu).
 
-As a Debian repository is just a set of files organized in a special directory tree with different infrastructure files, it can be hosted through a static site platform like GitHub Pages. But before we get ahead of ourselves with hosting, let’s figure out how to first generate the necessary files.
+As a Debian repository is just a set of files organized in a special directory tree with different infrastructure files, it can be hosted through a static site platform like [GitHub Pages](https://docs.github.com/en/pages). But before we get ahead of ourselves with hosting, let’s figure out how to first generate the necessary files.
 
-I followed this wonderful guide on the DigitalOcean community tutorial blog on "[How to Use Reprepro for a Secure Package Repository on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-use-reprepro-for-a-secure-package-repository-on-ubuntu-14-04)" but I have adapted it for my (and hopefully your) use case!
+I had initially followed this wonderful guide on the DigitalOcean community tutorial blog on "[How to Use Reprepro for a Secure Package Repository on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-use-reprepro-for-a-secure-package-repository-on-ubuntu-14-04)" but I have adapted it for my (and hopefully your) use case!
 
 Install `reprepro` on your machine.
 
@@ -248,7 +276,7 @@ mkdir repo && cd repo
 
 With this, we can start the process of setting up the Debian repository.
 
-Create a [GPG key](https://www.gnupg.org/faq/gnupg-faq.html). If you already have a GPG key, you might find [this discussion](https://superuser.com/questions/1683772/should-i-create-separate-gpg-key-pairs-or-just-one-gpg-key-pair-for-multiple-use) useful in deciding if you should generate another one for this purpose, or if you should [use a subkey](https://www.digitalocean.com/community/tutorials/how-to-use-reprepro-for-a-secure-package-repository-on-ubuntu-14-04#generate-a-subkey-for-package-signing) instead.
+Create a [GPG key](https://www.gnupg.org/faq/gnupg-faq.html). If you already have a GPG key, you might find [this discussion](https://superuser.com/questions/1683772/should-i-create-separate-gpg-key-pairs-or-just-one-gpg-key-pair-for-multiple-use) useful in deciding if you should generate another one just for publishing your package, or you can consider [using a subkey](https://www.digitalocean.com/community/tutorials/how-to-use-reprepro-for-a-secure-package-repository-on-ubuntu-14-04#generate-a-subkey-for-package-signing) instead.
 
 ```bash
 gpg --gen-key
@@ -260,9 +288,9 @@ List the key.
 gpg --list-secret-key
 ```
 
-This is a step you would (usually) only perform once. The returned value will include your key which we will refer to from here on out as `<key>` .
+The returned value will include your key which we will refer to from here on out as `<key>` .
 
-```bash
+```text
 [keyboxd]
 ---------
 sec   ed25519 2025-07-04 [SC] [expires: 2028-07-03]
@@ -291,16 +319,16 @@ SignWith: <key>
 
 - `Origin` / `Label` / `Description`: free-form text displayed to the user or used for pinning
 - `Suite`: `stable` or `testing`
-- `Architectures`: space-separated list of [Debian architecture names](https://wiki.debian.org/Multiarch/Tuples#Architectures_in_Debian); for now, we’re only publishing to the `arm64` architecture (we will explore how to support multi-architecture packages)
-- `SignWith`: signing fingerprint from the PGP certificate above
+- `Architectures`: space-separated list of [Debian architecture names](https://wiki.debian.org/Multiarch/Tuples#Architectures_in_Debian); for now, we’re only publishing to the `arm64` architecture (we will explore how to [support multi-architecture packages later](#multi-architecture-publishing))
+- `SignWith`: signing fingerprint from the PGP certificate above using `<key>`
 
-Then, you can start to add packages to your repository. For the Git-Mastery app, we store the generated `.deb` packages as [release artifacts](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases), so we need an additional step to download the files onto the local machine, but if you have the `.deb` package on hand, you can just use it directly.
+Then, you can start to add packages to your repository. For the Git-Mastery app, because we store the generated `.deb` packages as [release artifacts](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases), we need an additional step to download the files onto the local machine, but if you have the `.deb` package on hand, you can just use it directly.
 
 ```bash
 curl -L https://github.com/git-mastery/app/releases/download/v7.1.2/gitmastery_7.1.2-1_arm64.deb -o gitmastery_7.1.2-1_arm64.deb
 ```
 
-With this package, sign it using `debsigs` ([man](https://manpages.debian.org/unstable/debsigs/debsigs.1p.en.html)) to crytographically sign the `.deb` package using the GPG key you created earlier:
+With this package, use `debsigs` ([man](https://manpages.debian.org/unstable/debsigs/debsigs.1p.en.html)) to crytographically sign it using the GPG key created earlier:
 
 ```bash
 debsigs -v \
@@ -324,13 +352,22 @@ reprepro -Vb repo includedeb any \
   "gitmastery_7.1.2-1_arm64.deb"
 ```
 
-- `-Vb`: verbose and use the `repo` folder as the base directory
+- `-Vb repo`: verbose and use the `repo` folder as the base directory
 - `includedeb`: command to insert the `.deb` into the repository and update the metadata
 - `any`: target distribution
 
-This then creates the necessary files for the Debian repository to host and publish the `.deb` package you had just included.
+This creates the necessary files for the Debian repository to host and publish the `.deb` package you had just included.
 
-Then, copy your GPG public key over into `repo/` along with creating an empty `index.html` file. You can copy your GPG public key to a file via `gpg --output pubkey.gpg --armor --export <email>`
+Then, copy your GPG public key over into `repo/` along with creating an empty `index.html` file.
+
+:::callout{.info}
+You can copy your GPG public key to a file named `pubkey.gpg` via
+
+```bash
+gpg --output pubkey.gpg --armor --export <email>
+```
+
+:::
 
 ## Publishing the Debian repository to GitHub Pages
 
@@ -342,7 +379,7 @@ To do so, initialize `repo` as a Git repository.
 git init
 ```
 
- Then, create a GitHub repository and add it as a remote to the Git repository.
+ Then, create a GitHub repository and add it as a remote to the local Git repository.
 
 ```bash
 git remote add origin https://github.com/woojiahao/demo-apt-repo.git
@@ -365,20 +402,25 @@ Finally, [enable GitHub Pages on the repository](https://docs.github.com/en/page
 You should then be able to install the package from the repository.
 
 ```bash
+# Set-up to recognize the Debian repository as a trusted source
 echo "deb [trusted=yes] https://git-mastery.github.io/gitmastery-apt-repo any main" | \
   sudo tee /etc/apt/sources.list.d/gitmastery.list > /dev/null
 sudo apt install software-properties-common
 sudo add-apt-repository "deb https://git-mastery.github.io/gitmastery-apt-repo any main"
+
+# Installing the package
 sudo apt update
 sudo apt-get install gitmastery
 ```
 
 Remember to substitute your username and repository name accordingly!
 
-Amazing, we are able to now install the package from the new Debian repository, so users can now avoid directly downloading your `.deb` package just to access your package. This just leaves two big questions:
+Amazing, we are able to now install the package from the new Debian repository, so users can avoid directly downloading your `.deb` package just to try your package.
+
+This just leaves two big questions:
 
 1. How do we support multiple architectures?
-2. How do we automate the package and publish steps?
+2. How do we automate this process?
 
 ## Multi-architecture support
 
@@ -407,7 +449,7 @@ With this new `.deb` file and you can sign it and add it to the Debian repositor
 
 This should generate the necessary files for your Debian repository. Remember to commit these changes and push them, and let GitHub Pages do the rest.
 
-Now, depending on whichever architecture your user is downloading your application, the Debian repository should be able to intelligently download the appropriate signed `.deb` package.
+Now, depending on your user's architecture, the Debian repository should be able to intelligently download the appropriate signed `.deb` package for that architecture.
 
 Let’s now wrap everything up and see how we can automate this entire process using GitHub Actions so that it triggers when a new tag is pushed.
 
@@ -418,11 +460,15 @@ For this, you will need two GitHub repositories:
 1. The source repository that contains your application code
 2. The Debian repository
 
-You should already be working with the first, so it should not come as a surprise.
+You should already be working with the first, but you may need to create the second (note that if you were following along, you might need a new repository for this portion).
+
+:::callout{.info}
+If you are new to GitHub Actions and need an introduction, I have given a [talk on CI/CD with GitHub Actions](https://youtu.be/jnUk9YABcrE?si=caqWq-HbVHzOQ-xJ) along with a [guide on the contents covered](https://wiki.nushackers.org/hackerschool/ci-cd-with-github-actions)!
+:::
 
 ### Setting up the source repository
 
-Create a new workflow file in your source repository under `.github/workflows` and you can name it whatever you want. I chose to name the one for Git-Mastery `publish.yml`.
+Create a new workflow file in your source repository under `.github/workflows` and you can name it whatever you want. I chose to name the one for Git-Mastery `publish.yml` ([workflow file](https://github.com/git-mastery/app/blob/main/.github/workflows/publish.yml)).
 
 To automatically package your application on tag, you can use the workflow trigger action of `push`:
 
@@ -436,7 +482,7 @@ on:
       - "v*.*.*"
 ```
 
-Then, you will need three jobs:
+Then, you will need three jobs to run in sequence:
 
 1. Building the Linux executables for both AMD64 and ARM64
 2. Building the `.deb` packages per architecture
@@ -444,10 +490,12 @@ Then, you will need three jobs:
 
 **Building the Linux executable for both AMD64 and ARM64**
 
-To build the Linux executables for both AMD64 and ARM64, we can use a [matrix in GitHub Actions](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/run-job-variations) to run the same job on both an `amd64` runner and `arm64` runner. Then, the steps are relatively straightforward:
+To build the Linux executables for both AMD64 and ARM64, we can use a [matrix in GitHub Actions](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/run-job-variations) to run the same job on both an `amd64` and `arm64` runner.
+
+Then, the steps are relatively straightforward:
 
 1. Checkout the current source repository
-2. Setup the necessary dependencies to build the application (Python 3.13 for Git-Mastery and using the libraries in `requirements.txt`
+2. Setup the necessary dependencies to build the application (Python 3.13 for Git-Mastery and using the libraries in `requirements.txt`)
 3. Extracting the `ARCHITECTURE` and `FILENAME` from the matrix information
 4. Build the actual binary (using `pyinstaller` for Git-Mastery)
 5. Create a GitHub release with the generated binary
@@ -532,7 +580,7 @@ We also do not need to publish any workflow artifacts as there are no more downs
 ```yaml
 jobs:
   linux-build:
-	  # ...
+    # ...
 
   debian-build:
     needs: linux-build
@@ -542,6 +590,11 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+        with:
+          path: "app"
+
       - name: Extract variables
         env:
           ARCHITECTURE: ${{ matrix.architecture }}
@@ -649,11 +702,11 @@ For this step, we will simply call the [workflow file](https://docs.github.com/e
 
 ```yaml
 jobs:
-	linux-build:
-		# ...
+  linux-build:
+    # ...
 
-	debian-build:
-		# ...
+  debian-build:
+    # ...
 
   debian-publish-apt:
     needs: debian-build
@@ -664,18 +717,20 @@ jobs:
     secrets: inherit
 ```
 
-For the entire workflow file, refer to the appendix below.
+For the entire workflow file, refer to [the appendix below](#appendix-packaging-workflow).
 
 ### Setting up the Debian repository
 
-Now, in the Debian repository, create a new workflow file under `.github/workflows`. For Git-Mastery, I opted to call it `debian-apt-repo.yml`.
+Now, in the Debian repository, create a new workflow file under `.github/workflows`. For Git-Mastery, I opted to call it `debian-apt-repo.yml` ([workflow file](https://github.com/git-mastery/gitmastery-apt-repo/blob/main/.github/workflows/debian-apt-repo.yml)).
 
 There are some additional set-up steps required to work with your generated GPG key:
 
 1. Add the GPG private key to the [GitHub repository’s secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets), you can retrieve your private key using `gpg --armor --export-secret-key`
 
-    > For simplicity, the GPG should not require a passphrase, otherwise it will fail.
-    >
+    :::callout{.warning}
+    For simplicity, the GPG should not require a passphrase, otherwise it will fail when this workflow runs.
+    :::
+
 2. Add the GPG public key (`<key>`) to the GitHub repository’s variables
 3. Add a blank `index.html` to the repository
 4. Add the GPG public key file to the repository
@@ -683,7 +738,9 @@ There are some additional set-up steps required to work with your generated GPG 
 
 Then, the rest of the steps are similar to what we have described before.
 
-The main difference here is that we iterate over both architecture types to support multi-architecture publishing. We also use a GitHub Action to automatically publish the new files under a separate branch `gh-pages` instead.
+The main difference here is that we iterate over both architecture types to support multi-architecture publishing.
+
+We also use a GitHub workflow to automatically publish the new files under a separate branch `gh-pages` instead, treating the `main` branch as just a store for the necessary files.
 
 ```yaml
 name: Build & Publish Debian Package
@@ -759,8 +816,6 @@ jobs:
             debsigs -v --gpgopts="--batch --no-tty --pinentry-mode=loopback" --sign=origin --default-key="$KEY_ID" $FILENAME
 
             reprepro -Vb repo includedeb ${DISTRIBUTION} "gitmastery_${TRIMMED_VERSION}-${RELEASE}_${ARCHITECTURE}.deb"
-
-            tree
           done
 
       - name: Deploy APT repository to GitHub Pages
@@ -771,30 +826,32 @@ jobs:
           external_repository: git-mastery/gitmastery-apt-repo
 ```
 
-Voilà! You have now created a fully automated package and publishing pipeline! If we are to visualize this pipeline, it will look like this:
+Voilà! You have now created a fully automated package and publishing pipeline!
+
+Visualizing the pipeline will look like this:
 
 ```mermaid
 flowchart TD
-	a[generate arm64 ELF]
-	b[generate amd64 ELF]
-	a --> c[upload artifact]
-	b --> d[upload artifact]
-	c --> e[trigger publish]
-	d --> e
-	e --> f[generate Debian package structure and build .deb for arm64]
-	e --> g[generate Debian package structure and build .deb for amd64]
-	f --> h[call external workflow to publish to reprepro hosted on Github Pages]
-	g --> h
-	h --> i[setup repo/conf for PPA, sign both .deb, and publish]
+  a[generate arm64 ELF]
+  b[generate amd64 ELF]
+  a --> c[upload artifact]
+  b --> d[upload artifact]
+  c --> e[trigger publish]
+  d --> e
+  e --> f[generate Debian package structure and build .deb for arm64]
+  e --> g[generate Debian package structure and build .deb for amd64]
+  f --> h[call external workflow to publish to reprepro hosted on Github Pages]
+  g --> h
+  h --> i[setup repo/conf for PPA, sign both .deb, and publish]
 ```
 
 ## Conclusion
 
-Great job getting this far! Packaging for Debian can seem very confusing because of how little comprehensive documentations there are, but I hope that this guide can help to coalesce all of the available documentation into something practical and usable!
+Great job getting this far! Packaging and publishing on Debian can seem very confusing because of the little amount of comprehensive documentation there is, but I hope that this guide can help to coalesce all of the available documentation into something practical and usable!
 
-I definitely could have used more off-the-shelf tools to handle these processes, but I liked the process of deep diving the various processes to create and publish the Git-Mastery app!
+I could have used off-the-shelf solutions for this, but I liked the process of understanding how to package and publish from scratch!
 
-These were some of the resources I had relied on throughout this process:
+These were some of the resources I had relied on when I was first starting out:
 
 - [Packaging/Intro](https://wiki.debian.org/Packaging/Intro)
 - [DebianRepository/SetupWithReprepro](https://wiki.debian.org/DebianRepository/SetupWithReprepro)
@@ -808,9 +865,9 @@ Thankfully, Debian has an ARM64 image for you to virtualize on MacOS Apple Silic
 
 The ISO isn’t immediately obvious because it’s not (to my knowledge) listed on the same page where you regularly download ISOs. Instead, you can find this image [here](https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/).
 
-I used [VirtualBox](https://www.virtualbox.org/) because it’s very simple to get started. Create a VM and mount the ISO. I picked XFCE as the DE (because I wanted to interactively download the releases from GitHub).
+I used [VirtualBox](https://www.virtualbox.org/) because it’s very simple to get started. Create a VM and mount the ISO. I picked [XFCE](https://www.xfce.org/) as the [desktop environment](https://en.wikipedia.org/wiki/Desktop_environment) because I wanted to interactively download the releases from GitHub.
 
-You can then use this VM to test the commands and packaging files!
+You can then use this VM to test the commands and try to load the packaged application!
 
 ## Appendix: Packaging workflow
 
