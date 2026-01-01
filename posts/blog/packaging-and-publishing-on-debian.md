@@ -1,9 +1,9 @@
 ---
 title: "Packaging and Publishing on Debian"
 description: "All-in-one guide to packaging and publishing packages on Debian!"
-date: 2025-12-31
+date: 2026-01-01
 draft: false
-pinned: false
+pinned: true
 tags:
   - GitHub
   - GitHub Actions
