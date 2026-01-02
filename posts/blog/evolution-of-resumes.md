@@ -3,7 +3,7 @@ title: "Evolution of Resumes"
 subtitle: "How my resume has changed over my polytechnic and university education"
 date: 2025-04-21
 draft: false
-pinned: true
+pinned: false
 ---
 
 I was reading [Kenneth Lu's page on his evolution of resumes](https://luyangkenneth.github.io/evolution-of-resumes/) and felt it would be interesting to look back at my past resumes and reflect on the lessons learnt at each junction, and explain my thoughts on crafting a good resume and building a strong portfolio. [1]

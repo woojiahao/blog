@@ -1,6 +1,6 @@
 ---
 draft: false
-pinned: true
+pinned: false
 date: 2025-03-15
 title: "Reframing Failure"
 description: "Reframing how you think of failure and learning to embrace it"
