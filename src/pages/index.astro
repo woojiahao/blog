@@ -16,15 +16,15 @@ const latestShort = (await getCollection("shorts", (short) => !short.data.draft)
     <div class="flex-1/2">
       <h1 class="!text-6xl !mb-1">Hello, I'm Jiahao!</h1>
       <p class="text-neutral-500 mb-4 italic text-xl">Pronounced as "chia-how"</p>
-      <p class="text-xl">I am a software engineer, Elixir enthusiast, technical author, and all around tech nerd!</p>
-      <p class="text-xl">I just graduated (as of December 2025) from the National University of Singapore where I studied Computer Science.</p>
-      <p class="text-xl">Outside of tech, I am very into bouldering, cooking, running, playing Dungeons &amp; Dragons, and watching musicals.</p>
+      <p class="text-xl">I'm a software engineer, Elixir enthusiast, technical author, and an all around tech nerd!</p>
+      <p class="text-xl">Right now, I'm interested in observability infrastructure and building emulators.</p>
+      <p class="text-xl">Outside of tech, I'm very into bouldering, cooking, running, playing Dungeons &amp; Dragons, and watching musicals.</p>
       <div class="flex flex-row gap-2 items-center mt-4 mb-4">
         <!-- <p class="!mb-0 text-neutral-600">Catch me at:</p> -->
         <a href="https://woojiahao.com"><FaHouse size={24} className="text-neutral-400 hover:text-violet-500 transition duration-300" /></a>
         <a href="https://github.com/woojiahao"><FaGithub size={24} className="text-neutral-400 hover:text-black transition duration-300" /></a>
         <a href="https://linkedin.com/in/woojiahao"><FaLinkedin size={24} className="text-neutral-400 hover:text-blue-800 transition duration-300" /></a>
-        <a href="https://x.com/woojiahao_"><FaXTwitter size={24} className="text-neutral-400 hover:text-black transition duration-300" /></a>
+        <!-- <a href="https://x.com/woojiahao_"><FaXTwitter size={24} className="text-neutral-400 hover:text-black transition duration-300" /></a> -->
         <a href="mailto:woojiahao1234@gmail.com"><FaAt size={24} className="text-neutral-400 hover:text-orange-500 transition duration-300" /></a>
       </div>
       {latestShort != null && <ShortWidget short={latestShort} />}

@@ -7,8 +7,8 @@ import { formatDate } from "../../utils/date.util";
 import HorizontalRuler from "../../components/HorizontalRuler.astro";
 import "../../styles/post.css";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
-import LookingForWork from "../../components/LookingForWork.astro";
 import ShortRow from "../../components/ShortRow.astro";
+import OpenToWork from "../../components/OpenToWork.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("shorts", (p) => !p.data.draft);
@@ -51,7 +51,7 @@ const recommendation = short.data.recommendation != null ? await getEntry("recom
     <p class="font-bold !text-2xl">Enjoyed reading?</p>
     <p class="!text-lg">Consider subscribing to my <a href="/rss.xml">RSS feed</a> or reaching out to me <a href="mailto:woojiahao1234@gmail.com">through email</a>!</p>
   </div>
-<LookingForWork />
+  <OpenToWork />
   <div>
   <p class="font-bold !text-lg">You might enjoy...</p>
   {
