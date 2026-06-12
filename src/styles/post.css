@@ -97,5 +97,6 @@ tbody td:not(:last-child) {
 }
 
 code {
-  @apply break-normal sm:break-all;
+  @apply break-normal sm:break-all sm:wrap-break-word;
+  overflow-wrap: break-word !important;
 }
