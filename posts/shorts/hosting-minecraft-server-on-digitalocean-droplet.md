@@ -59,6 +59,6 @@ screen -list
 screen -r <pid>
 ```
 
-To connect to the server, use the public endpoint of the Droplet.
+To connect to the server, use the public IP of the Droplet.
 
 Reference article: <https://www.digitalocean.com/community/tutorials/how-to-create-a-minecraft-server-on-ubuntu-22-04>
