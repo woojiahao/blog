@@ -3,6 +3,14 @@ title: "The Math Behind Burn Rate Detectors"
 date: 2026-09-04
 draft: false
 pinned: false
+tags:
+- observability
+- burn rate detectors
+- google
+- slo
+- error rate
+- error rate alerts
+- sharing
 ---
 
 > This article is my understanding of the [Google SRE Workbook chapter on "Alerting on SLOs"](https://sre.google/workbook/alerting-on-slos/).
